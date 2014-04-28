@@ -10,6 +10,7 @@ import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
+import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Reader;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
@@ -32,11 +33,10 @@ public class OpenNlpPipeline
     	jcas.setDocumentLanguage("en");
     	
     	//TODO: read text from file
-     	CollectionReaderDescription reader = createReaderDescription(
-                TextReader.class,
-                TextReader.PARAM_SOURCE_LOCATION, "src/test/resources/test/Wikipedia_English.txt",
-                TextReader.PARAM_LANGUAGE, "en"
-                );
+    	@SuppressWarnings("deprecation")
+		CollectionReaderDescription reader = createReaderDescription(
+                Conll2006Reader.class, 
+                Conll2006Reader.PARAM_PATH, "src/test/resources/test/german_tiger_train.conll");
 
 
         SimplePipeline.runPipeline(

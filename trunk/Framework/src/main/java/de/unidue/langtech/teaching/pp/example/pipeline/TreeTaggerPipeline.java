@@ -23,7 +23,7 @@ public class TreeTaggerPipeline
     	//TODO: read text from file
      	CollectionReaderDescription reader = createReaderDescription(
                 TextReader.class,
-                TextReader.PARAM_SOURCE_LOCATION, "src/test/resources/test/Wikipedia_English.txt",
+                TextReader.PARAM_SOURCE_LOCATION, "src/test/resources/test/test-tt.csv",
                 TextReader.PARAM_LANGUAGE, "en"
                 );
 

@@ -11,7 +11,6 @@ import org.apache.uima.jcas.JCas;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Reader;
-import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 
@@ -36,7 +35,8 @@ public class OpenNlpPipeline
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
                 Conll2006Reader.class, 
-                Conll2006Reader.PARAM_PATH, "src/test/resources/test/german_tiger_train.conll");
+                Conll2006Reader.PARAM_SOURCE_LOCATION, "src/test/resources/test/german_tiger_train.conll",
+                Conll2006Reader.PARAM_LANGUAGE, "de");
 
 
         SimplePipeline.runPipeline(

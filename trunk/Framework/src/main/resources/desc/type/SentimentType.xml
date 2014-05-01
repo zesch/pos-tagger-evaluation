@@ -46,5 +46,17 @@
         </featureDescription>
       </features>
     </typeDescription>
+  <typeDescription>
+      <name>de.unidue.langtech.teaching.pp.type.GoldPOS</name>
+      <description/>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>posTag</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
   </types>
 </typeSystemDescription>

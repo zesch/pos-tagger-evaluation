@@ -346,5 +346,10 @@
 	<artifactId>de.tudarmstadt.ukp.dkpro.core.matetools-gpl</artifactId>
 	<version>1.5.0</version>
 </dependency>
+<dependency>
+	<groupId>edu.cmu.cs</groupId>
+	<artifactId>ark-tweet-nlp</artifactId>
+	<version>0.3.2</version>
+</dependency>
   </dependencies>
 </project>

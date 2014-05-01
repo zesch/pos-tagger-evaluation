@@ -35,15 +35,14 @@ public class OpenNlpPipeline
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
                 Conll2006Reader.class, 
-                Conll2006Reader.PARAM_SOURCE_LOCATION, "src/test/resources/test/german_tiger_train.conll",
+                Conll2006Reader.PARAM_SOURCE_LOCATION, "src/test/resources/test/de/german_tiger_train.conll",
                 Conll2006Reader.PARAM_LANGUAGE, "de");
+    	
 
-
+        //just start the reader and print text + tags
         SimplePipeline.runPipeline(
         		reader,
-        		AnalysisEngineFactory.createEngineDescription(OpenNlpSegmenter.class),
-        		AnalysisEngineFactory.createEngineDescription(OpenNlpPosTagger.class),
-        		AnalysisEngineFactory.createEngineDescription(Writer.class));
+        		AnalysisEngineFactory.createEngineDescription(Generic_Component.class));
         
         //used for single string
         for (Token tokenAnno : JCasUtil.select(jcas, Token.class)) {

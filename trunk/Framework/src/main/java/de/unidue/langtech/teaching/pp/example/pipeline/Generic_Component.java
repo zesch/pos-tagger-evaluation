@@ -28,6 +28,13 @@ public class Generic_Component
         extends JCasAnnotator_ImplBase
 {
 	
+	/**
+     * Use this language instead of the document language to resolve the model.
+     */
+    public static final String PARAM_LANGUAGE = ComponentParameters.PARAM_LANGUAGE;
+    @ConfigurationParameter(name = PARAM_LANGUAGE, mandatory = false)
+    protected String language;
+	
     /**
      * Location of the mapping file for part-of-speech tags to UIMA types.
      */
@@ -57,7 +64,7 @@ public class Generic_Component
             posMappingProvider.setDefault(MappingProvider.BASE_TYPE, POS.class.getName());
             posMappingProvider.setDefault("tagger.tagset", "stts");
             posMappingProvider.setOverride(MappingProvider.LOCATION, posMappingLocation);
-            posMappingProvider.setOverride(MappingProvider.LANGUAGE, "de");
+            posMappingProvider.setOverride(MappingProvider.LANGUAGE, language);
             posMappingProvider.setOverride("tagger.tagset", posTagset);
     }
 

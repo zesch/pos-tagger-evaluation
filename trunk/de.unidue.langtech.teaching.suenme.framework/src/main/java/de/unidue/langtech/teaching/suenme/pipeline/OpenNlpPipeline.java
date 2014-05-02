@@ -35,7 +35,7 @@ public class OpenNlpPipeline
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
                 Conll2006Reader.class, 
-                Conll2006Reader.PARAM_SOURCE_LOCATION, "src/test/resources/test/de/german_tiger_train.conll",
+                Conll2006Reader.PARAM_SOURCE_LOCATION, "src/test/resources/test/de/german_tiger_train_06.conll",
                 Conll2006Reader.PARAM_LANGUAGE, "de");
     	
 

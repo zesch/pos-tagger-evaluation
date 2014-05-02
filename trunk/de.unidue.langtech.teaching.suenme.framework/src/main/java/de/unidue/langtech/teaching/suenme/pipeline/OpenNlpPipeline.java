@@ -1,6 +1,7 @@
 package de.unidue.langtech.teaching.suenme.pipeline;
 
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
+import static de.tudarmstadt.ukp.dkpro.core.api.io.ResourceCollectionReaderBase.INCLUDE_PREFIX;
 
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
@@ -25,6 +26,12 @@ public class OpenNlpPipeline
     public static void main(String[] args)
         throws Exception
     {
+    	//set enviroment variable, change to en for english data and change to correct extension
+    	final String dkproHome = System.getenv("PROJECT_HOME");
+    	String resources = dkproHome + "\\de";
+    	String extension = "*.conll";
+    	System.out.println(resources);
+
     	
     	//used for single string
     	JCas jcas = JCasFactory.createJCas();
@@ -35,7 +42,8 @@ public class OpenNlpPipeline
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
                 Conll2006Reader.class, 
-                Conll2006Reader.PARAM_SOURCE_LOCATION, "src/test/resources/test/de/german_tiger_train_06.conll",
+                Conll2006Reader.PARAM_SOURCE_LOCATION, resources,
+                Conll2006Reader.PARAM_PATTERNS, extension,
                 Conll2006Reader.PARAM_LANGUAGE, "de");
     	
 

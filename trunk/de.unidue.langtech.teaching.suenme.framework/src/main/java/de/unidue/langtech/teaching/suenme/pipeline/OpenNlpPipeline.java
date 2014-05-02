@@ -30,8 +30,6 @@ public class OpenNlpPipeline
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	String resources = dkproHome + "\\de";
     	String extension = "*.conll";
-    	System.out.println(resources);
-
     	
     	//used for single string
     	JCas jcas = JCasFactory.createJCas();

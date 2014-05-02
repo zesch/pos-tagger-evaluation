@@ -16,13 +16,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.parameter.ComponentParameters;
 import de.tudarmstadt.ukp.dkpro.core.api.resources.MappingProvider;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 
-@TypeCapability(
-        outputs = { 
-                "de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData",
-            "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence",
-            "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token",
-            "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Lemma",
-            "de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS" })
+
 public class Generic_Component
         extends JCasAnnotator_ImplBase
 {
@@ -61,6 +55,7 @@ public class Generic_Component
             posMappingProvider.setDefault(MappingProvider.LOCATION, "classpath:/de/tudarmstadt/ukp/dkpro/" +
                             "core/api/lexmorph/tagset/${language}-${tagger.tagset}-tagger.map");
             posMappingProvider.setDefault(MappingProvider.BASE_TYPE, POS.class.getName());
+            //set to "ptb" for english data
             posMappingProvider.setDefault("tagger.tagset", "stts");
             posMappingProvider.setOverride(MappingProvider.LOCATION, posMappingLocation);
             posMappingProvider.setOverride(MappingProvider.LANGUAGE, language);
@@ -76,6 +71,8 @@ public class Generic_Component
 				
 		for (Token tokenAnno : JCasUtil.select(aJCas, Token.class)) {
 			
+			
+			//TODO: correct??
 			String pos = tokenAnno.getPos().getPosValue();
 			
             Type posTag = posMappingProvider.getTagType(pos);

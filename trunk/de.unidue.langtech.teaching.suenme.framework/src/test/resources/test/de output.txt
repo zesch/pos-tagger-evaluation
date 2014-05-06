@@ -1,0 +1,455 @@
+======== CAS 0 begin ==================================
+
+-------- View _InitialView begin ----------------------------------
+
+DocumentMetaData
+   sofa: _InitialView
+   begin: 0
+   end: 55
+   language: "de"
+   documentTitle: "test.conll"
+   documentId: "test.conll"
+   isLastSegment: false
+
+CAS-Text:
+`` Ross Perot wäre vielleicht ein prächtiger Diktator 
+
+[`` Ross Perot wäre vielleicht ein prächtiger Diktator]
+Sentence
+   sofa: _InitialView
+   begin: 0
+   end: 53
+[``]
+Dependency
+   sofa: _InitialView
+   begin: 0
+   end: 2
+   Governor: Token
+      sofa: _InitialView
+      begin: 14
+      end: 18
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 14
+         end: 18
+         PosValue: "VAFIN"
+   Dependent: Token
+      sofa: _InitialView
+      begin: 0
+      end: 2
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 0
+         end: 2
+         PosValue: "$("
+   DependencyType: "PUNC"
+[``]
+Token
+   sofa: _InitialView
+   begin: 0
+   end: 2
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: POS
+      sofa: _InitialView
+      begin: 0
+      end: 2
+      PosValue: "$("
+[``]
+POS
+   sofa: _InitialView
+   begin: 0
+   end: 2
+   PosValue: "$("
+[``]
+POS
+   sofa: _InitialView
+   begin: 0
+   end: 2
+   PosValue: "$("
+[Ross]
+Dependency
+   sofa: _InitialView
+   begin: 3
+   end: 7
+   Governor: Token
+      sofa: _InitialView
+      begin: 14
+      end: 18
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 14
+         end: 18
+         PosValue: "VAFIN"
+   Dependent: Token
+      sofa: _InitialView
+      begin: 3
+      end: 7
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 3
+         end: 7
+         PosValue: "NE"
+   DependencyType: "SB"
+[Ross]
+Token
+   sofa: _InitialView
+   begin: 3
+   end: 7
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: POS
+      sofa: _InitialView
+      begin: 3
+      end: 7
+      PosValue: "NE"
+[Ross]
+POS
+   sofa: _InitialView
+   begin: 3
+   end: 7
+   PosValue: "NE"
+[Ross]
+POS
+   sofa: _InitialView
+   begin: 3
+   end: 7
+   PosValue: "NE"
+[Perot]
+Dependency
+   sofa: _InitialView
+   begin: 8
+   end: 13
+   Governor: Token
+      sofa: _InitialView
+      begin: 3
+      end: 7
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 3
+         end: 7
+         PosValue: "NE"
+   Dependent: Token
+      sofa: _InitialView
+      begin: 8
+      end: 13
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 8
+         end: 13
+         PosValue: "NE"
+   DependencyType: "PNC"
+[Perot]
+Token
+   sofa: _InitialView
+   begin: 8
+   end: 13
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: POS
+      sofa: _InitialView
+      begin: 8
+      end: 13
+      PosValue: "NE"
+[Perot]
+POS
+   sofa: _InitialView
+   begin: 8
+   end: 13
+   PosValue: "NE"
+[Perot]
+POS
+   sofa: _InitialView
+   begin: 8
+   end: 13
+   PosValue: "NE"
+[wäre]
+Dependency
+   sofa: _InitialView
+   begin: 14
+   end: 18
+   Governor: #1 Token
+      sofa: _InitialView
+      begin: 14
+      end: 18
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 14
+         end: 18
+         PosValue: "VAFIN"
+   Dependent: #1
+   DependencyType: "ROOT"
+[wäre]
+Token
+   sofa: _InitialView
+   begin: 14
+   end: 18
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: POS
+      sofa: _InitialView
+      begin: 14
+      end: 18
+      PosValue: "VAFIN"
+[wäre]
+POS
+   sofa: _InitialView
+   begin: 14
+   end: 18
+   PosValue: "VAFIN"
+[wäre]
+POS
+   sofa: _InitialView
+   begin: 14
+   end: 18
+   PosValue: "VAFIN"
+[vielleicht]
+Dependency
+   sofa: _InitialView
+   begin: 19
+   end: 29
+   Governor: Token
+      sofa: _InitialView
+      begin: 14
+      end: 18
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 14
+         end: 18
+         PosValue: "VAFIN"
+   Dependent: Token
+      sofa: _InitialView
+      begin: 19
+      end: 29
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 19
+         end: 29
+         PosValue: "ADV"
+   DependencyType: "MO"
+[vielleicht]
+Token
+   sofa: _InitialView
+   begin: 19
+   end: 29
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: POS
+      sofa: _InitialView
+      begin: 19
+      end: 29
+      PosValue: "ADV"
+[vielleicht]
+POS
+   sofa: _InitialView
+   begin: 19
+   end: 29
+   PosValue: "ADV"
+[vielleicht]
+POS
+   sofa: _InitialView
+   begin: 19
+   end: 29
+   PosValue: "ADV"
+[ein]
+Dependency
+   sofa: _InitialView
+   begin: 30
+   end: 33
+   Governor: Token
+      sofa: _InitialView
+      begin: 45
+      end: 53
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 45
+         end: 53
+         PosValue: "NN"
+   Dependent: Token
+      sofa: _InitialView
+      begin: 30
+      end: 33
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 30
+         end: 33
+         PosValue: "ART"
+   DependencyType: "NK"
+[ein]
+Token
+   sofa: _InitialView
+   begin: 30
+   end: 33
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: POS
+      sofa: _InitialView
+      begin: 30
+      end: 33
+      PosValue: "ART"
+[ein]
+POS
+   sofa: _InitialView
+   begin: 30
+   end: 33
+   PosValue: "ART"
+[ein]
+POS
+   sofa: _InitialView
+   begin: 30
+   end: 33
+   PosValue: "ART"
+[prächtiger]
+Dependency
+   sofa: _InitialView
+   begin: 34
+   end: 44
+   Governor: Token
+      sofa: _InitialView
+      begin: 45
+      end: 53
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 45
+         end: 53
+         PosValue: "NN"
+   Dependent: Token
+      sofa: _InitialView
+      begin: 34
+      end: 44
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 34
+         end: 44
+         PosValue: "ADJA"
+   DependencyType: "NK"
+[prächtiger]
+Token
+   sofa: _InitialView
+   begin: 34
+   end: 44
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: POS
+      sofa: _InitialView
+      begin: 34
+      end: 44
+      PosValue: "ADJA"
+[prächtiger]
+POS
+   sofa: _InitialView
+   begin: 34
+   end: 44
+   PosValue: "ADJA"
+[prächtiger]
+POS
+   sofa: _InitialView
+   begin: 34
+   end: 44
+   PosValue: "ADJA"
+[Diktator]
+Dependency
+   sofa: _InitialView
+   begin: 45
+   end: 53
+   Governor: Token
+      sofa: _InitialView
+      begin: 14
+      end: 18
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 14
+         end: 18
+         PosValue: "VAFIN"
+   Dependent: Token
+      sofa: _InitialView
+      begin: 45
+      end: 53
+      parent: <null>
+      lemma: <null>
+      stem: <null>
+      pos: POS
+         sofa: _InitialView
+         begin: 45
+         end: 53
+         PosValue: "NN"
+   DependencyType: "PD"
+[Diktator]
+Token
+   sofa: _InitialView
+   begin: 45
+   end: 53
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: POS
+      sofa: _InitialView
+      begin: 45
+      end: 53
+      PosValue: "NN"
+[Diktator]
+POS
+   sofa: _InitialView
+   begin: 45
+   end: 53
+   PosValue: "NN"
+[Diktator]
+POS
+   sofa: _InitialView
+   begin: 45
+   end: 53
+   PosValue: "NN"
+-------- View _InitialView end ----------------------------------
+
+======== CAS 0 end ==================================
+
+

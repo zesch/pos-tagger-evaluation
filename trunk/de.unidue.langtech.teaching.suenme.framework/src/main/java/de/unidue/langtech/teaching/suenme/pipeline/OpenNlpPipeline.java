@@ -4,6 +4,7 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
 import static de.tudarmstadt.ukp.dkpro.core.api.io.ResourceCollectionReaderBase.INCLUDE_PREFIX;
 
 import org.apache.uima.collection.CollectionReaderDescription;
+import org.apache.uima.fit.component.CasDumpWriter;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
@@ -48,7 +49,9 @@ public class OpenNlpPipeline
         //just start the reader and print text + tags
         SimplePipeline.runPipeline(
         		reader,
-        		AnalysisEngineFactory.createEngineDescription(Generic_Component.class));
+        		AnalysisEngineFactory.createEngineDescription(Generic_Component.class),
+        		AnalysisEngineFactory.createEngineDescription(CasDumpWriter.class,
+        				CasDumpWriter.PARAM_OUTPUT_FILE, resources + " output.txt"));
         
         //used for single string
         for (Token tokenAnno : JCasUtil.select(jcas, Token.class)) {

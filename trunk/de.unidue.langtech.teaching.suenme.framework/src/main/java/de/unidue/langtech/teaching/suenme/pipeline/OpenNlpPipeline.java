@@ -31,13 +31,7 @@ public class OpenNlpPipeline
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	String resources = dkproHome + "\\de";
     	String extension = "*.conll";
-    	
-    	//used for single string
-    	JCas jcas = JCasFactory.createJCas();
-    	jcas.setDocumentText("I was the man in the boat");
-    	jcas.setDocumentLanguage("en");
-    	
-    	//TODO: read text from file
+
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
                 Conll2006Reader.class, 
@@ -52,12 +46,6 @@ public class OpenNlpPipeline
         		AnalysisEngineFactory.createEngineDescription(GenericComponent.class),
         		AnalysisEngineFactory.createEngineDescription(CasDumpWriter.class,
         				CasDumpWriter.PARAM_OUTPUT_FILE, dkproHome + " output.txt"));
-        
-        //used for single string
-        for (Token tokenAnno : JCasUtil.select(jcas, Token.class)) {
-    		  System.out.println(tokenAnno.getCoveredText() + " " + tokenAnno.getPos().getPosValue());
-      }
-       	
 
 }
 }

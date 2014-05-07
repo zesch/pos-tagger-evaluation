@@ -1,5 +1,6 @@
 package de.unidue.langtech.teaching.suenme.pipeline;
 
+import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
@@ -10,7 +11,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
  * @author Onur
  *
  */
-public class Writer extends org.apache.uima.fit.component.JCasAnnotator_ImplBase {
+public class Writer extends JCasAnnotator_ImplBase {
 	
 	public Writer(){
 		

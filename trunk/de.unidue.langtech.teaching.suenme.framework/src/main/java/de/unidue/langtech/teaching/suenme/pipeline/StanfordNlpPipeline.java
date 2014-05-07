@@ -23,12 +23,7 @@ public class StanfordNlpPipeline
     public static void main(String[] args)
         throws Exception
     {
-    	
-    	JCas jcas = JCasFactory.createJCas();
-    	jcas.setDocumentText("I was the man in the boat");
-    	jcas.setDocumentLanguage("en");
-    	
-    	//TODO: read text from file
+
      	CollectionReaderDescription reader = createReaderDescription(
                 TextReader.class,
                 TextReader.PARAM_SOURCE_LOCATION, "src/test/resources/test/Wikipedia_English.txt",

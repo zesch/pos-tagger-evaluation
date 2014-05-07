@@ -49,7 +49,9 @@ public class OpenNlpPipeline
         //just start the reader and print text + tags
         SimplePipeline.runPipeline(
         		reader,
-        		AnalysisEngineFactory.createEngineDescription(GenericComponent.class));
+        		AnalysisEngineFactory.createEngineDescription(GenericComponent.class),
+        		AnalysisEngineFactory.createEngineDescription(CasDumpWriter.class,
+        				CasDumpWriter.PARAM_OUTPUT_FILE, dkproHome + " output.txt"));
         
         //used for single string
         for (Token tokenAnno : JCasUtil.select(jcas, Token.class)) {

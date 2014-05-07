@@ -19,8 +19,6 @@ public class TreeTaggerPipeline
         throws Exception
     {
     	
-    	
-    	//TODO: read text from file
      	CollectionReaderDescription reader = createReaderDescription(
                 TextReader.class,
                 TextReader.PARAM_SOURCE_LOCATION, "src/test/resources/test/Wikipedia_English.txt",

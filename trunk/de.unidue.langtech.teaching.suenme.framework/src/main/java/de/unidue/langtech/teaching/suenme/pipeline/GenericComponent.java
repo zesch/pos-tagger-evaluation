@@ -29,10 +29,7 @@ public class GenericComponent
 				
 				GoldPOS goldPOS = new GoldPOS(aJCas);
 				goldPOS.setPosTag(posValue);
-
 	            goldPOS.addToIndexes();
-	            
-	            System.out.println("before :" + posValue.getPosValue());
 	            toDelete.add(posValue);
 	           
 			}
@@ -40,7 +37,6 @@ public class GenericComponent
     for (POS pos : toDelete) {
     	//delete all POS annotations
         pos.removeFromIndexes();
-        System.out.println("after :" + pos.getPosValue());
     }
     
 }

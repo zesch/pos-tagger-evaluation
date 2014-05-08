@@ -8,6 +8,7 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 
 import de.tudarmstadt.ukp.dkpro.core.clearnlp.ClearNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Reader;
+import de.tudarmstadt.ukp.dkpro.core.io.tei.TeiReader;
 
 
 /**
@@ -22,15 +23,15 @@ public class ClearNlpPipeline
     {
     	//set enviroment variable, change to en for english data and change to correct extension
     	final String dkproHome = System.getenv("PROJECT_HOME");
-    	String resources = dkproHome + "\\de\\test";
-    	String extension = "*.conll";
+    	String resources = dkproHome + "\\en\\brown_tei";
+    	String extension = "a01.xml";
 
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
-				Conll2006Reader.class, 
-				Conll2006Reader.PARAM_SOURCE_LOCATION, resources,
-				Conll2006Reader.PARAM_PATTERNS, extension,
-				Conll2006Reader.PARAM_LANGUAGE, "de");
+				TeiReader.class, 
+				TeiReader.PARAM_SOURCE_LOCATION, resources,
+				TeiReader.PARAM_PATTERNS, extension,
+				TeiReader.PARAM_LANGUAGE, "en");
     	
 
         //just start the reader and print text + tags

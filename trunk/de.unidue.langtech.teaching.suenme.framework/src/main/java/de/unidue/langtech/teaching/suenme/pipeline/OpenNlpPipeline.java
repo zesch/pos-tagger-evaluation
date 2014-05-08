@@ -7,7 +7,7 @@ import org.apache.uima.fit.component.CasDumpWriter;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
-import de.tudarmstadt.ukp.dkpro.core.io.tei.TeiReader;
+import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Reader;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 
@@ -24,22 +24,20 @@ public class OpenNlpPipeline
     {
     	//set enviroment variable, change to en for english data and change to correct extension
     	final String dkproHome = System.getenv("PROJECT_HOME");
-    	String resources = dkproHome + "\\en\\brown_tei";
-    	String extension = "a01.xml";
+    	String resources = dkproHome + "\\de\\test";
+    	String extension = "*.conll";
 
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
-                TeiReader.class, 
-                TeiReader.PARAM_SOURCE_LOCATION, resources,
-                TeiReader.PARAM_PATTERNS, extension,
-                TeiReader.PARAM_LANGUAGE, "en");
+				Conll2006Reader.class, 
+				Conll2006Reader.PARAM_SOURCE_LOCATION, resources,
+				Conll2006Reader.PARAM_PATTERNS, extension,
+				Conll2006Reader.PARAM_LANGUAGE, "de");
     	
 
         //just start the reader and print text + tags
         SimplePipeline.runPipeline(
         		reader,
-        		AnalysisEngineFactory.createEngineDescription(GenericComponent.class),
-        		AnalysisEngineFactory.createEngineDescription(OpenNlpSegmenter.class),
         		AnalysisEngineFactory.createEngineDescription(OpenNlpPosTagger.class),
         		AnalysisEngineFactory.createEngineDescription(Writer.class));
 

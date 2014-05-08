@@ -23,20 +23,20 @@ public class Writer extends JCasAnnotator_ImplBase {
 	
 	public void process(JCas jcas){
 		
-		List<String> posAnnos = new ArrayList<String>();
+		List<String> detectedPosAnnos = new ArrayList<String>();
 		List<String> posTexts = new ArrayList<String>();
 		int correct = 0;
 
 for (Token tokenAnno : JCasUtil.select(jcas, Token.class)) {
-	posAnnos.add(tokenAnno.getPos().getPosValue());
+	detectedPosAnnos.add(tokenAnno.getPos().getPosValue());
 	posTexts.add(tokenAnno.getCoveredText());
 }
 
-      int nrOfDocuments = posAnnos.size();
+      int nrOfDocuments = detectedPosAnnos.size();
 
-  for (int i = 0; i<posAnnos.size(); i+=2) {
-	  String first = posAnnos.get(i);
-	  String second = posAnnos.get(i + 1);
+  for (int i = 0; i<detectedPosAnnos.size(); i+=2) {
+	  String first = detectedPosAnnos.get(i);
+	  String second = detectedPosAnnos.get(i + 1);
 	  
       System.out.println("Token: " + posTexts.get(i));
 	  System.out.println(first + " detected as " + second);
@@ -49,7 +49,7 @@ for (Token tokenAnno : JCasUtil.select(jcas, Token.class)) {
 	  }
   }
   
-      System.out.println(correct + " out of " + posAnnos.size() + " POS tags correctly tagged. Scored an accuracy of " + ((double)correct/(double)nrOfDocuments)*100 + "%.");
+      System.out.println(correct + " out of " + nrOfDocuments + " POS tags correctly tagged. Scored an accuracy of " + ((double)correct/(double)nrOfDocuments)*100 + "%.");
 
 
 	}

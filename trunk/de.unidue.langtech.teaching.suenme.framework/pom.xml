@@ -180,6 +180,11 @@
   		<version>20111109.1</version>
   	</dependency>
   	<dependency>
+  	<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+  	<artifactId>de.tudarmstadt.ukp.dkpro.core.treetagger-model-de</artifactId>
+  	<version>20121207.0</version>
+  </dependency>
+  	<dependency>
         <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
         <artifactId>de.tudarmstadt.ukp.dkpro.core.opennlp-model-sentence-da-maxent</artifactId>
         <version>20120616.0</version>

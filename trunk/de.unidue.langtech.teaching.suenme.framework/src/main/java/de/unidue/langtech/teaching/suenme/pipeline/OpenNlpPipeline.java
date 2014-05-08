@@ -3,13 +3,11 @@ package de.unidue.langtech.teaching.suenme.pipeline;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 
 import org.apache.uima.collection.CollectionReaderDescription;
-import org.apache.uima.fit.component.CasDumpWriter;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
 import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Reader;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
-import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 
 
 /**

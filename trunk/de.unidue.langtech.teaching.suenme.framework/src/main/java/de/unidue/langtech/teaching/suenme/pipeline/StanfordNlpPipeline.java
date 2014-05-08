@@ -4,13 +4,12 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
 
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
-import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
-import org.apache.uima.jcas.JCas;
 
-import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
+
+import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Reader;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
-import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordSegmenter;
+
 
 /** 
  * 
@@ -24,16 +23,23 @@ public class StanfordNlpPipeline
         throws Exception
     {
 
-     	CollectionReaderDescription reader = createReaderDescription(
-                TextReader.class,
-                TextReader.PARAM_SOURCE_LOCATION, "src/test/resources/test/Wikipedia_English.txt",
-                TextReader.PARAM_LANGUAGE, "en"
-                );
+    	//set enviroment variable, change to en for english data and change to correct extension
+    	final String dkproHome = System.getenv("PROJECT_HOME");
+    	String resources = dkproHome + "\\de\\test";
+    	String extension = "*.conll";
 
+    	@SuppressWarnings("deprecation")
+		CollectionReaderDescription reader = createReaderDescription(
+				Conll2006Reader.class, 
+				Conll2006Reader.PARAM_SOURCE_LOCATION, resources,
+				Conll2006Reader.PARAM_PATTERNS, extension,
+				Conll2006Reader.PARAM_LANGUAGE, "de");
+    	
 
+        //just start the reader and print text + tags
         SimplePipeline.runPipeline(
         		reader,
-        		AnalysisEngineFactory.createEngineDescription(StanfordSegmenter.class),
+        		AnalysisEngineFactory.createEngineDescription(GenericComponent.class),
         		AnalysisEngineFactory.createEngineDescription(StanfordPosTagger.class),
         		AnalysisEngineFactory.createEngineDescription(Evaluator.class));
         

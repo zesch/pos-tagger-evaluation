@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Wed May 07 15:15:24 CEST 2014
+ * Updated by JCasGen Thu May 08 21:24:14 CEST 2014
  * @generated */
 public class GoldPOS_Type extends Annotation_Type {
   /** @generated 
@@ -82,7 +82,7 @@ public class GoldPOS_Type extends Annotation_Type {
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
-    casFeat_posTag = jcas.getRequiredFeatureDE(casType, "posTag", "uima.tcas.Annotation", featOkTst);
+    casFeat_posTag = jcas.getRequiredFeatureDE(casType, "posTag", "de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS", featOkTst);
     casFeatCode_posTag  = (null == casFeat_posTag) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_posTag).getCode();
 
   }

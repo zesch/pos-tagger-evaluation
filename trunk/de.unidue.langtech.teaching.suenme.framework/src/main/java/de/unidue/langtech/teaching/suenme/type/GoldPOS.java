@@ -10,9 +10,12 @@ import org.apache.uima.jcas.cas.TOP_Type;
 import org.apache.uima.jcas.tcas.Annotation;
 
 
+import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS;
+
+
 /** 
- * Updated by JCasGen Wed May 07 15:15:24 CEST 2014
- * XML source: C:/Users/Onur/workspace/de.unidue.langtech.teaching.suenme.framework/src/main/resources/desc/type/SentimentType.xml
+ * Updated by JCasGen Thu May 08 21:24:14 CEST 2014
+ * XML source: C:/Users/Onur/workspace/de.unidue.langtech.teaching.suenme.framework/src/main/resources/desc/type/POSType.xml
  * @generated */
 public class GoldPOS extends Annotation {
   /** @generated
@@ -83,16 +86,16 @@ public class GoldPOS extends Annotation {
    * @generated
    * @return value of the feature 
    */
-  public Annotation getPosTag() {
+  public POS getPosTag() {
     if (GoldPOS_Type.featOkTst && ((GoldPOS_Type)jcasType).casFeat_posTag == null)
       jcasType.jcas.throwFeatMissing("posTag", "de.unidue.langtech.teaching.suenme.type.GoldPOS");
-    return (Annotation)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((GoldPOS_Type)jcasType).casFeatCode_posTag)));}
+    return (POS)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((GoldPOS_Type)jcasType).casFeatCode_posTag)));}
     
   /** setter for posTag - sets  
    * @generated
    * @param v value to set into the feature 
    */
-  public void setPosTag(Annotation v) {
+  public void setPosTag(POS v) {
     if (GoldPOS_Type.featOkTst && ((GoldPOS_Type)jcasType).casFeat_posTag == null)
       jcasType.jcas.throwFeatMissing("posTag", "de.unidue.langtech.teaching.suenme.type.GoldPOS");
     jcasType.ll_cas.ll_setRefValue(addr, ((GoldPOS_Type)jcasType).casFeatCode_posTag, jcasType.ll_cas.ll_getFSRef(v));}    

@@ -4,6 +4,9 @@
   <description/>
   <version>1.0</version>
   <vendor/>
+  <imports>
+    <import name="desc.type.POS"/>
+  </imports>
   <types>
     <typeDescription>
       <name>de.unidue.langtech.teaching.suenme.type.GoldPOS</name>
@@ -13,7 +16,7 @@
         <featureDescription>
           <name>posTag</name>
           <description/>
-          <rangeTypeName>uima.tcas.Annotation</rangeTypeName>
+          <rangeTypeName>de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS</rangeTypeName>
         </featureDescription>
       </features>
     </typeDescription>

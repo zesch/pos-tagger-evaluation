@@ -29,6 +29,8 @@ public class GenericComponent
 				
 				GoldPOS goldPOS = new GoldPOS(aJCas);
 				goldPOS.setPosTag(posValue);
+				goldPOS.setBegin(posValue.getBegin());
+				goldPOS.setEnd(posValue.getEnd());
 	            goldPOS.addToIndexes();
 	            toDelete.add(posValue);
 	           

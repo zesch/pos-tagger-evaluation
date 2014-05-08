@@ -38,8 +38,11 @@ public class OpenNlpPipeline
         //just start the reader and print text + tags
         SimplePipeline.runPipeline(
         		reader,
+        		AnalysisEngineFactory.createEngineDescription(GenericComponent.class),
         		AnalysisEngineFactory.createEngineDescription(OpenNlpPosTagger.class),
-        		AnalysisEngineFactory.createEngineDescription(Writer.class));
+        		AnalysisEngineFactory.createEngineDescription(Writer.class),
+        		AnalysisEngineFactory.createEngineDescription(CasDumpWriter.class,
+        				CasDumpWriter.PARAM_OUTPUT_FILE, resources + " output.txt"));
 
 }
 }

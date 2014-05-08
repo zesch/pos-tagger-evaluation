@@ -35,7 +35,7 @@ public class StanfordNlpPipeline
         		reader,
         		AnalysisEngineFactory.createEngineDescription(StanfordSegmenter.class),
         		AnalysisEngineFactory.createEngineDescription(StanfordPosTagger.class),
-        		AnalysisEngineFactory.createEngineDescription(Writer.class));
+        		AnalysisEngineFactory.createEngineDescription(Evaluator.class));
         
         
 }

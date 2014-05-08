@@ -40,7 +40,7 @@ public class OpenNlpPipeline
         		reader,
         		AnalysisEngineFactory.createEngineDescription(GenericComponent.class),
         		AnalysisEngineFactory.createEngineDescription(OpenNlpPosTagger.class),
-        		AnalysisEngineFactory.createEngineDescription(Writer.class),
+        		AnalysisEngineFactory.createEngineDescription(Evaluator.class),
         		AnalysisEngineFactory.createEngineDescription(CasDumpWriter.class,
         				CasDumpWriter.PARAM_OUTPUT_FILE, resources + " output.txt"));
 

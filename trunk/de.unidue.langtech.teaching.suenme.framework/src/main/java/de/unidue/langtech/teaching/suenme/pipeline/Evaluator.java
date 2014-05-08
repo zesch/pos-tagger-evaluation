@@ -15,10 +15,10 @@ import de.unidue.langtech.teaching.suenme.type.GoldPOS;
  * @author Onur
  *
  */
-public class Writer extends JCasAnnotator_ImplBase {
+public class Evaluator extends JCasAnnotator_ImplBase {
 	
 	
-	public Writer(){
+	public Evaluator(){
 		
 	}
 	

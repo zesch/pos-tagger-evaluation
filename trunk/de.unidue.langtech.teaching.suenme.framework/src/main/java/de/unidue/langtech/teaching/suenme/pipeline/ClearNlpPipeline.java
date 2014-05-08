@@ -38,7 +38,7 @@ public class ClearNlpPipeline
         		reader,
         		AnalysisEngineFactory.createEngineDescription(ClearNlpSegmenter.class),
         		AnalysisEngineFactory.createEngineDescription(ClearNlpPosTagger.class),
-        		AnalysisEngineFactory.createEngineDescription(Writer.class));
+        		AnalysisEngineFactory.createEngineDescription(Evaluator.class));
        	
 }
 }

@@ -30,7 +30,7 @@ public class TreeTaggerPipeline
         		reader,
         		AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),
         		AnalysisEngineFactory.createEngineDescription(TreeTaggerPosLemmaTT4J.class),
-        		AnalysisEngineFactory.createEngineDescription(Writer.class));
+        		AnalysisEngineFactory.createEngineDescription(Evaluator.class));
         
 }
 }

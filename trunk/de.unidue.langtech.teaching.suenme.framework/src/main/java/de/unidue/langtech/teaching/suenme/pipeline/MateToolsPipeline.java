@@ -36,7 +36,7 @@ public class MateToolsPipeline
         		reader,
         		AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),
         		AnalysisEngineFactory.createEngineDescription(MatePosTagger.class),
-        		AnalysisEngineFactory.createEngineDescription(Writer.class));
+        		AnalysisEngineFactory.createEngineDescription(Evaluator.class));
         
         
 }

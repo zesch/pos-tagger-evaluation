@@ -3,34 +3,56 @@ package de.unidue.langtech.teaching.suenme.pipeline;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.uima.UimaContext;
+import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.resource.ResourceInitializationException;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.unidue.langtech.teaching.suenme.type.GoldPOS;
 
+
 /**
- * Custom extern writer class to write results to screen
- * @author Onur
+ * 
+ * @author suenme
  *
  */
-public class Evaluator extends JCasAnnotator_ImplBase {
-	
-	
-	public Evaluator(){
-		
-	}
-	
-	public void process(JCas jcas){
-		
-		List<String> detectedPosAnnos = new ArrayList<String>();
-		List<String> goldPosAnnos = new ArrayList<String>();
-		List<String> posTexts = new ArrayList<String>();
-		int correct = 0;
-		
-  for (GoldPOS goldPos : JCasUtil.select(jcas, GoldPOS.class)) {
-		
+public class Evaluator
+    extends JCasAnnotator_ImplBase
+{
+
+    private int correct;
+    private int nrOfDocuments;
+    private List<String> detectedPosAnnos = new ArrayList<String>();
+	private List<String> goldPosAnnos = new ArrayList<String>();
+	private List<String> posTexts = new ArrayList<String>();
+    static double accuracy;
+    
+    /* 
+     * This is called BEFORE any documents are processed.
+     */
+    @Override
+    public void initialize(UimaContext context)
+        throws ResourceInitializationException
+    {
+        super.initialize(context);
+        correct = 0;
+        nrOfDocuments = 0;
+    }
+    
+    
+    /* 
+     * This is called ONCE for each document
+     */
+    @Override
+    public void process(JCas jcas)
+        throws AnalysisEngineProcessException
+    {
+        
+        for (GoldPOS goldPos : JCasUtil.select(jcas, GoldPOS.class)) {
+    		
 			goldPosAnnos.add(goldPos.getPosTag().getPosValue());
 		}
   
@@ -39,9 +61,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 	
 	detectedPosAnnos.add(tokenAnno.getPos().getPosValue());
 	posTexts.add(tokenAnno.getCoveredText());
-}
-
-      int nrOfDocuments = detectedPosAnnos.size();
+  }
+ 
+      nrOfDocuments = detectedPosAnnos.size();
 
   for (int i = 0; i<detectedPosAnnos.size(); i++) {
 	  String gold = goldPosAnnos.get(i);
@@ -56,14 +78,22 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 		  } else {
 			  System.out.println("Wrongly tagged!");
 		  }
+		  
+		  accuracy = ((double)correct/(double)nrOfDocuments)*100;
 	  }
-	  
-  
-  
-      System.out.println(correct + " out of " + nrOfDocuments + " POS tags correctly tagged. Scored an accuracy of " + ((double)correct/(double)nrOfDocuments)*100 + "%.");
+
+    }
 
 
-	}
-	
-	
+    /* 
+     * This is called AFTER all documents have been processed.
+     */
+    @Override
+    public void collectionProcessComplete()
+        throws AnalysisEngineProcessException
+    {
+        super.collectionProcessComplete();
+        
+        System.out.println(correct + " out of " + nrOfDocuments + " POS tags correctly tagged. Scored an accuracy of " + accuracy + "%.");
+    }
 }

@@ -7,6 +7,7 @@ import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
 
+
 import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Reader;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 
@@ -24,6 +25,7 @@ public class StanfordNlpPipeline
     {
 
     	//set enviroment variable, change to en for english data and change to correct extension
+    	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	String resources = dkproHome + "\\de\\test";
     	String extension = "*.conll";

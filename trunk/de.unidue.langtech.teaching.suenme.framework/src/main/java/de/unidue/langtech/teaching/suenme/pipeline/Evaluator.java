@@ -26,7 +26,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 		
 		List<String> detectedPosAnnos = new ArrayList<String>();
 		List<String> goldPosAnnos = new ArrayList<String>();
-		List<String> PosTexts = new ArrayList<String>();
+		List<String> posTexts = new ArrayList<String>();
 		int correct = 0;
 		
   for (GoldPOS goldPos : JCasUtil.select(jcas, GoldPOS.class)) {
@@ -38,19 +38,19 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   for (Token tokenAnno : JCasUtil.select(jcas, Token.class)) {
 	
 	detectedPosAnnos.add(tokenAnno.getPos().getPosValue());
-	PosTexts.add(tokenAnno.getCoveredText());
+	posTexts.add(tokenAnno.getCoveredText());
 }
 
       int nrOfDocuments = detectedPosAnnos.size();
 
   for (int i = 0; i<detectedPosAnnos.size(); i++) {
-	  String first = goldPosAnnos.get(i);
-	  String second = detectedPosAnnos.get(i);
+	  String gold = goldPosAnnos.get(i);
+	  String detected = detectedPosAnnos.get(i);
 		  
-	      System.out.println("Token: " + PosTexts.get(i));
-		  System.out.println(first + " detected as " + second);
+	      System.out.println("Token: " + posTexts.get(i));
+		  System.out.println(gold + " detected as " + detected);
 		  
-		  if (first.equals(second)) {
+		  if (gold.equals(detected)) {
 			  System.out.println("Correctly tagged!");
 			  correct++;
 		  } else {

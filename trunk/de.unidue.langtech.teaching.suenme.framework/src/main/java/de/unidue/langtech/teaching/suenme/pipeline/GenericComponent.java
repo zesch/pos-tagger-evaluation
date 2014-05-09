@@ -29,8 +29,12 @@ public class GenericComponent
 				
 				GoldPOS goldPOS = new GoldPOS(aJCas);
 				goldPOS.setPosTag(posValue);
+				
+				//set begin and end, otherwise GoldPOS annos are not created in correct order
 				goldPOS.setBegin(posValue.getBegin());
 				goldPOS.setEnd(posValue.getEnd());
+				
+				
 	            goldPOS.addToIndexes();
 	            toDelete.add(posValue);
 	           

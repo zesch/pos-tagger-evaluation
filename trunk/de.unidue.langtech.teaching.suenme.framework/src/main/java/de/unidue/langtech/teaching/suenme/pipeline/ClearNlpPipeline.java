@@ -20,7 +20,7 @@ public class ClearNlpPipeline
     public static void main(String[] args)
         throws Exception
     {
-    	//set enviroment variable, change to en for english data and change to correct extension
+    	//TODO: dkProHome is null?
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	String resources = dkproHome + "\\en\\brown_tei";

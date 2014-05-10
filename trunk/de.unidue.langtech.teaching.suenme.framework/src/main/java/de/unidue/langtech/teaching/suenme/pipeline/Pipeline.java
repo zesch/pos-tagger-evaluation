@@ -28,7 +28,7 @@ public class Pipeline
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	String resources = dkproHome + "\\de\\test";
-    	String extension = "test2.conll";
+    	String extension = "test.conll";
 
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(

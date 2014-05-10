@@ -13,7 +13,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.unidue.langtech.teaching.suenme.type.GoldPOS;
 
 
-public class GenericComponent
+public class GoldPOSAnnotator
         extends JCasAnnotator_ImplBase
 {
 
@@ -33,8 +33,6 @@ public class GenericComponent
 				//set begin and end, otherwise GoldPOS annos are not created in correct order
 				goldPOS.setBegin(posValue.getBegin());
 				goldPOS.setEnd(posValue.getEnd());
-				
-				
 	            goldPOS.addToIndexes();
 	            toDelete.add(posValue);
 	           

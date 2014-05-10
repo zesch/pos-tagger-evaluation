@@ -41,7 +41,7 @@ public class StanfordNlpPipeline
         //just start the reader and print text + tags
         SimplePipeline.runPipeline(
         		reader,
-        		AnalysisEngineFactory.createEngineDescription(GenericComponent.class),
+        		AnalysisEngineFactory.createEngineDescription(GoldPOSAnnotator.class),
         		AnalysisEngineFactory.createEngineDescription(StanfordPosTagger.class),
         		AnalysisEngineFactory.createEngineDescription(Evaluator.class));
         

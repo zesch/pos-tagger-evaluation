@@ -41,7 +41,7 @@ public class Pipeline
         //just start the reader and print text + tags
         SimplePipeline.runPipeline(
         		reader,
-        		AnalysisEngineFactory.createEngineDescription(GenericComponent.class),
+        		AnalysisEngineFactory.createEngineDescription(GoldPOSAnnotator.class),
         		AnalysisEngineFactory.createEngineDescription(OpenNlpPosTagger.class),
         		AnalysisEngineFactory.createEngineDescription(MatePosTagger.class),
         		AnalysisEngineFactory.createEngineDescription(StanfordPosTagger.class),

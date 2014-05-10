@@ -38,7 +38,7 @@ public class MateToolsPipeline
         //just start the reader and print text + tags
         SimplePipeline.runPipeline(
         		reader,
-        		AnalysisEngineFactory.createEngineDescription(GenericComponent.class),
+        		AnalysisEngineFactory.createEngineDescription(GoldPOSAnnotator.class),
         		AnalysisEngineFactory.createEngineDescription(MatePosTagger.class),
         		AnalysisEngineFactory.createEngineDescription(Evaluator.class));
         

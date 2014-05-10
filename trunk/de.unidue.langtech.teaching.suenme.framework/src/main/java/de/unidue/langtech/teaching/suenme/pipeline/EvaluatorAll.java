@@ -25,7 +25,10 @@ public class EvaluatorAll
     extends JCasAnnotator_ImplBase
 {
 
-    private int correct;
+    private int correctOpenNlp;
+    private int correctMatePos;
+    private int correctStanford;
+    private int correctTreeTagger;
     private int nrOfDocuments;
     private List<String> detectedPosAnnos = new ArrayList<String>();
     private List<String> openNlpPosAnnos = new ArrayList<String>();
@@ -35,7 +38,6 @@ public class EvaluatorAll
 	private List<String> goldPosAnnos = new ArrayList<String>();
 	private List<String> posTexts = new ArrayList<String>();
 	private List<String> posTokens = new ArrayList<String>();
-    static double accuracy;
     
     /* 
      * This is called BEFORE any documents are processed.
@@ -45,7 +47,10 @@ public class EvaluatorAll
         throws ResourceInitializationException
     {
         super.initialize(context);
-        correct = 0;
+        correctOpenNlp = 0;
+        correctMatePos = 0;
+        correctStanford = 0;
+        correctTreeTagger= 0;
         nrOfDocuments = 0;
     }
     
@@ -84,25 +89,51 @@ public class EvaluatorAll
   }
     
  
-//      nrOfDocuments = detectedPosAnnos.size();
-//
-//  for (int i = 0; i<detectedPosAnnos.size(); i++) {
-//	  String gold = goldPosAnnos.get(i);
-//	  String detected = detectedPosAnnos.get(i);
-//		  
-//	      System.out.println("Token: " + posTexts.get(i));
-//		  System.out.println(gold + " detected as " + detected);
-//		  
-//		  if (gold.equals(detected)) {
-//			  System.out.println("Correctly tagged!");
-//			  correct++;
-//		  } else {
-//			  System.out.println("Wrongly tagged!");
-//		  }
-//		  
-//		  accuracy = ((double)correct/(double)nrOfDocuments)*100;
-//	  }
-//
+      nrOfDocuments = posTokens.size();
+      
+  //now count for every tagger their correct amount of pos tags      
+
+  for (int i = 0; i<posTokens.size(); i++) {
+	  String gold = goldPosAnnos.get(i);
+	  String detectedOpenNlp = openNlpPosAnnos.get(i);
+			  
+		  if (gold.equals(detectedOpenNlp)) {
+			  correctOpenNlp++;
+		  } 
+		  	  
+	  }
+  
+  for (int i = 0; i<posTokens.size(); i++) {
+	  String gold = goldPosAnnos.get(i);
+	  String detectedMatePos =  matePosAnnos.get(i);
+	  
+		  if (gold.equals(detectedMatePos)) {
+			  correctMatePos++;
+		  } 	  	  
+	  }
+  
+  
+  for (int i = 0; i<posTokens.size(); i++) {
+	  String gold = goldPosAnnos.get(i);
+	  String detectedStanford = stanfordPosAnnos.get(i);
+			  
+		  if (gold.equals(detectedStanford)) {
+			  correctStanford++;
+		  } 
+		  	  
+	  }
+  
+  
+  for (int i = 0; i<posTokens.size(); i++) {
+	  String gold = goldPosAnnos.get(i);
+	  String detectedTreeTagger = treeTaggerPosAnnos.get(i);
+			  
+		  if (gold.equals(detectedTreeTagger)) {
+			  correctTreeTagger++;
+		  } 
+		  	  
+	  }
+
     }
 
 
@@ -137,6 +168,13 @@ public class EvaluatorAll
                 }
                 
                 TextTable tt = new TextTable(columnNames, posTags); 
+                tt.setAddRowNumbering(true);
                 tt.printTable(); 
+                
+                System.out.println("OpenNLP scored an accuracy of " + ((double)correctOpenNlp/(double)nrOfDocuments)*100 + "% !");
+                System.out.println("MatePos scored an accuracy of " + ((double)correctMatePos/(double)nrOfDocuments)*100 + "% !");
+                System.out.println("StanfordPos scored an accuracy of " + ((double)correctStanford/(double)nrOfDocuments)*100 + "% !");
+                System.out.println("TreeTagger scored an accuracy of " + ((double)correctTreeTagger/(double)nrOfDocuments)*100 + "% !");
+                
     }
 }

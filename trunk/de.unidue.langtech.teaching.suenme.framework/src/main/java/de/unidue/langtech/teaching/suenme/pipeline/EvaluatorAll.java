@@ -80,7 +80,7 @@ public class EvaluatorAll
 	  posTokens.add(posTexts.get(i));
   }
    
-  //assign pos tags to their pos taggers
+  //assign pos tags to their pos taggers, TODO: pos tags sometime are out of order!!
   for (int i = 0; i<detectedPosAnnos.size(); i+=4) {
 	  openNlpPosAnnos.add(detectedPosAnnos.get(i));
 	  matePosAnnos.add(detectedPosAnnos.get(i+1));

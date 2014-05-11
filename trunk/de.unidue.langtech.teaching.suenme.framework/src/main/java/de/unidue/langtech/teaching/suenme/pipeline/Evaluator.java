@@ -1,99 +1,110 @@
 package de.unidue.langtech.teaching.suenme.pipeline;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.uima.UimaContext;
-import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
-import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
-import org.apache.uima.fit.util.JCasUtil;
-import org.apache.uima.jcas.JCas;
-import org.apache.uima.resource.ResourceInitializationException;
+import org.apache.commons.io.FileUtils;
 
-import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
-import de.unidue.langtech.teaching.suenme.type.GoldPOS;
+import dnl.utils.text.table.TextTable;
 
-
-/**
- * 
- * @author suenme
- *
- */
-public class Evaluator
-    extends JCasAnnotator_ImplBase
-{
-
-    private int correct;
-    private int nrOfDocuments;
-    private List<String> detectedPosAnnos = new ArrayList<String>();
-	private List<String> goldPosAnnos = new ArrayList<String>();
-	private List<String> posTexts = new ArrayList<String>();
-    static double accuracy;
-    
-    /* 
-     * This is called BEFORE any documents are processed.
-     */
-    @Override
-    public void initialize(UimaContext context)
-        throws ResourceInitializationException
-    {
-        super.initialize(context);
-        correct = 0;
-        nrOfDocuments = 0;
-    }
-    
-    
-    /* 
-     * This is called ONCE for each document
-     */
-    @Override
-    public void process(JCas jcas)
-        throws AnalysisEngineProcessException
-    {
-        
-        for (GoldPOS goldPos : JCasUtil.select(jcas, GoldPOS.class)) {
-    		
-			goldPosAnnos.add(goldPos.getPosTag().getPosValue());
-		}
-  
-
-  for (Token tokenAnno : JCasUtil.select(jcas, Token.class)) {
+public class Evaluator {
 	
-	detectedPosAnnos.add(tokenAnno.getPos().getPosValue());
-	posTexts.add(tokenAnno.getCoveredText());
-  }
- 
-      nrOfDocuments = detectedPosAnnos.size();
+    private static List<String> openNlpPosAnnos = new ArrayList<String>();
+    private static List<String> matePosAnnos = new ArrayList<String>();
+    private static List<String> stanfordPosAnnos = new ArrayList<String>();
+    private static List<String> treeTaggerPosAnnos = new ArrayList<String>();
+	
+	public static void main(String[] args) throws IOException {
+		
+	   List<String> openNlp = FileUtils.readLines(new File("src\\test\\resources\\test\\OpenNlp.txt"));
+	   List<String> matePos = FileUtils.readLines(new File("src\\test\\resources\\test\\Mate.txt"));
+	   List<String> stanford = FileUtils.readLines(new File("src\\test\\resources\\test\\Stanford.txt"));
+	   List<String> treeTagger = FileUtils.readLines(new File("src\\test\\resources\\test\\TreeTagger.txt"));
+	   List<String> posTexts = new ArrayList<String>();
+	   List<String> goldPosAnnos = new ArrayList<String>();
+	   
+	    int correctOpenNlp = 0;
+	    int correctMatePos = 0;
+	    int correctStanford = 0;
+	    int correctTreeTagger = 0;
+	      
+	   //now count for every tagger their correct amount of pos tags      
 
-  for (int i = 0; i<detectedPosAnnos.size(); i++) {
-	  String gold = goldPosAnnos.get(i);
-	  String detected = detectedPosAnnos.get(i);
-		  
-	      System.out.println("Token: " + posTexts.get(i));
-		  System.out.println(gold + " detected as " + detected);
-		  
-		  if (gold.equals(detected)) {
-			  System.out.println("Correctly tagged!");
-			  correct++;
-		  } else {
-			  System.out.println("Wrongly tagged!");
-		  }
-		  
-		  accuracy = ((double)correct/(double)nrOfDocuments)*100;
-	  }
+	   for (int i = 0; i<openNlp.size(); i++) { 
+		   String[] parts = openNlp.get(i).split("\t");
+		   posTexts.add(parts[0]);
+		   goldPosAnnos.add(parts[1]);
+		   openNlpPosAnnos.add(parts[2]);
+		   
+		   if (parts[1].equals(parts[2])) {
+			   correctOpenNlp++;
+		     }
+	 	  }
+	   
+	   for (int i = 0; i<matePos.size(); i++) {
+		   String[] parts = matePos.get(i).split("\t");
+		   matePosAnnos.add(parts[2]);
+		   
+		   if (parts[1].equals(parts[2])) {
+			   correctMatePos++;
+		     }
+	 	  }
+	   
+	   
+	   for (int i = 0; i<stanford.size(); i++) { 
+		   String[] parts = stanford.get(i).split("\t");
+		   stanfordPosAnnos.add(parts[2]);
+		   
+		   if (parts[1].equals(parts[2])) {
+			   correctStanford++;
+		     }
+	 	  }
+	   
+	   
+	   for (int i = 0; i<treeTagger.size(); i++) {
+		   String[] parts = treeTagger.get(i).split("\t");	  
+		   treeTaggerPosAnnos.add(parts[2]);
+		   
+		   if (parts[1].equals(parts[2])) {
+			   correctTreeTagger++;
+		     }
+	 	  }
+	   
+	    int nrOfDocuments = posTexts.size();
+	   
+	   String[] columnNames = {   
+		        "Token",		
+		        "Gold",                                          
+		        "OpenNLP",                                           
+		        "MatePos",                                               
+		        "Stanford",                                          
+		        "TreeTagger"};   
+		        
+		        String [][] posTags = new String[openNlpPosAnnos.size()][6];
+		       
+		                for(int row=0;row<openNlpPosAnnos.size();row++){
+		                    for (int col=0;col<5;col++){
+		                    posTags[row][0] = posTexts.get(row);
+		                    posTags[row][1] = goldPosAnnos.get(row);
+		                    posTags[row][2] = openNlpPosAnnos.get(row);
+		                    posTags[row][3] = matePosAnnos.get(row);
+		                    posTags[row][4] = stanfordPosAnnos.get(row);
+		                    posTags[row][5] = treeTaggerPosAnnos.get(row);
+		                    }
+		                }
+		                
+		                TextTable tt = new TextTable(columnNames, posTags); 
+		                tt.setAddRowNumbering(true);
+		                tt.printTable(); 
+		                
+		                System.out.println();
+		                System.out.println("OpenNLP scored an accuracy of " + ((double)correctOpenNlp/(double)nrOfDocuments)*100 + "% !");
+		                System.out.println("MatePos scored an accuracy of " + ((double)correctMatePos/(double)nrOfDocuments)*100 + "% !");
+		                System.out.println("StanfordPos scored an accuracy of " + ((double)correctStanford/(double)nrOfDocuments)*100 + "% !");
+		                System.out.println("TreeTagger scored an accuracy of " + ((double)correctTreeTagger/(double)nrOfDocuments)*100 + "% !");
+	   
+	}
 
-    }
-
-
-    /* 
-     * This is called AFTER all documents have been processed.
-     */
-    @Override
-    public void collectionProcessComplete()
-        throws AnalysisEngineProcessException
-    {
-        super.collectionProcessComplete();
-        
-        System.out.println(correct + " out of " + nrOfDocuments + " POS tags correctly tagged. Scored an accuracy of " + accuracy + "%.");
-    }
 }

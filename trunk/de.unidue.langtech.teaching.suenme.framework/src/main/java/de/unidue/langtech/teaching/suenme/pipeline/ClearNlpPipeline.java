@@ -39,6 +39,7 @@ public class ClearNlpPipeline
         		reader,
         		AnalysisEngineFactory.createEngineDescription(GoldPOSAnnotator.class),
         		AnalysisEngineFactory.createEngineDescription(ClearNlpPosTagger.class),
-        		AnalysisEngineFactory.createEngineDescription(Evaluator.class));
+        		AnalysisEngineFactory.createEngineDescription(Writer.class,
+        				Writer.PARAM_OUTPUT_FILE, dkproHome + "\\ClearNlp.txt"));
 }
 }

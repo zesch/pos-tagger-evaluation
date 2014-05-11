@@ -24,7 +24,7 @@ public class OpenNlpPipeline
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	String resources = dkproHome + "\\de\\test";
-    	String extension = "*.conll";
+    	String extension = "test.conll";
 
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
@@ -39,6 +39,7 @@ public class OpenNlpPipeline
         		reader,
         		AnalysisEngineFactory.createEngineDescription(GoldPOSAnnotator.class),
         		AnalysisEngineFactory.createEngineDescription(OpenNlpPosTagger.class),
-        		AnalysisEngineFactory.createEngineDescription(Evaluator.class));
+        		AnalysisEngineFactory.createEngineDescription(Writer.class,
+        				Writer.PARAM_OUTPUT_FILE, dkproHome + "\\OpenNlp.txt"));
 }
 }

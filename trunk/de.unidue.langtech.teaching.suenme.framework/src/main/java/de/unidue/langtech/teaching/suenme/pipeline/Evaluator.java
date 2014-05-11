@@ -31,7 +31,7 @@ public class Evaluator {
 	    int correctTreeTagger = 0;
 	      
 	   //now count for every tagger their correct amount of pos tags      
-
+	    
 	   for (int i = 0; i<openNlp.size(); i++) { 
 		   String[] parts = openNlp.get(i).split("\t");
 		   posTexts.add(parts[0]);

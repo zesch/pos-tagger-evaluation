@@ -23,15 +23,15 @@ public class ClearNlpPipeline
     	//TODO: dkProHome is null?
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
-    	String resources = dkproHome + "\\en\\brown_tei";
-    	String extension = "*.xml";
+    	String resources = dkproHome + "\\en";
+    	String extension = "*.txt";
 
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
-				TeiReader.class, 
-				TeiReader.PARAM_SOURCE_LOCATION, resources,
-				TeiReader.PARAM_PATTERNS, extension,
-				TeiReader.PARAM_LANGUAGE, "en");
+				Conll2009Reader.class, 
+				Conll2009Reader.PARAM_SOURCE_LOCATION, resources,
+				Conll2009Reader.PARAM_PATTERNS, extension,
+				Conll2009Reader.PARAM_LANGUAGE, "en");
     	
 
         //just start the reader and print text + tags

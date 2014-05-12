@@ -15,6 +15,7 @@ public class Evaluator {
     private static List<String> matePosAnnos = new ArrayList<String>();
     private static List<String> stanfordPosAnnos = new ArrayList<String>();
     private static List<String> treeTaggerPosAnnos = new ArrayList<String>();
+    private static List<String> clearNlpPosAnnos = new ArrayList<String>();
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -22,6 +23,7 @@ public class Evaluator {
 	   List<String> matePos = FileUtils.readLines(new File("src\\test\\resources\\test\\Mate.txt"));
 	   List<String> stanford = FileUtils.readLines(new File("src\\test\\resources\\test\\Stanford.txt"));
 	   List<String> treeTagger = FileUtils.readLines(new File("src\\test\\resources\\test\\TreeTagger.txt"));
+	   List<String> clearNlp = FileUtils.readLines(new File("src\\test\\resources\\test\\ClearNlp.txt"));
 	   List<String> posTexts = new ArrayList<String>();
 	   List<String> goldPosAnnos = new ArrayList<String>();
 	   
@@ -29,6 +31,7 @@ public class Evaluator {
 	    int correctMatePos = 0;
 	    int correctStanford = 0;
 	    int correctTreeTagger = 0;
+	    int correctClearNlp = 0;
 	      
 	   //now count for every tagger their correct amount of pos tags      
 	    
@@ -72,6 +75,15 @@ public class Evaluator {
 		     }
 	 	  }
 	   
+	   for (int i = 0; i<clearNlp.size(); i++) {
+		   String[] parts = clearNlp.get(i).split("\t");	  
+		   clearNlpPosAnnos.add(parts[2]);
+		   
+		   if (parts[1].equals(parts[2])) {
+			   correctClearNlp++;
+		     }
+	 	  }
+	   
 	    int nrOfDocuments = posTexts.size();
 	   
 	   String[] columnNames = {   
@@ -80,18 +92,20 @@ public class Evaluator {
 		        "OpenNLP",                                           
 		        "MatePos",                                               
 		        "Stanford",                                          
-		        "TreeTagger"};   
+		        "TreeTagger",
+		        "ClearNLP"};   
 		        
-		        String [][] posTags = new String[openNlpPosAnnos.size()][6];
+		        String [][] posTags = new String[openNlpPosAnnos.size()][7];
 		       
 		                for(int row=0;row<openNlpPosAnnos.size();row++){
-		                    for (int col=0;col<5;col++){
+		                    for (int col=0;col<6;col++){
 		                    posTags[row][0] = posTexts.get(row);
 		                    posTags[row][1] = goldPosAnnos.get(row);
 		                    posTags[row][2] = openNlpPosAnnos.get(row);
 		                    posTags[row][3] = matePosAnnos.get(row);
 		                    posTags[row][4] = stanfordPosAnnos.get(row);
 		                    posTags[row][5] = treeTaggerPosAnnos.get(row);
+		                    posTags[row][6] = clearNlpPosAnnos.get(row);
 		                    }
 		                }
 		                
@@ -100,10 +114,11 @@ public class Evaluator {
 		                tt.printTable(); 
 		                
 		                System.out.println();
-		                System.out.println("OpenNLP scored an accuracy of " + ((double)correctOpenNlp/(double)nrOfDocuments)*100 + "% !");
-		                System.out.println("MatePos scored an accuracy of " + ((double)correctMatePos/(double)nrOfDocuments)*100 + "% !");
-		                System.out.println("StanfordPos scored an accuracy of " + ((double)correctStanford/(double)nrOfDocuments)*100 + "% !");
-		                System.out.println("TreeTagger scored an accuracy of " + ((double)correctTreeTagger/(double)nrOfDocuments)*100 + "% !");
+		                System.out.println("OpenNLP scored an accuracy of " + String.format( "%.2f", ((double)correctOpenNlp/(double)nrOfDocuments)*100) + "% !");
+		                System.out.println("MatePos scored an accuracy of " + String.format( "%.2f", ((double)correctMatePos/(double)nrOfDocuments)*100) + "% !");
+		                System.out.println("StanfordPos scored an accuracy of " + String.format( "%.2f", ((double)correctStanford/(double)nrOfDocuments)*100) + "% !");
+		                System.out.println("TreeTagger scored an accuracy of " + String.format( "%.2f", ((double)correctTreeTagger/(double)nrOfDocuments)*100) + "% !");
+		                System.out.println("ClearNLP scored an accuracy of " + String.format( "%.2f", ((double)correctClearNlp/(double)nrOfDocuments)*100) + "% !");
 	   
 	}
 

@@ -28,15 +28,15 @@ public class StanfordNlpPipeline
     	//set enviroment variable, change to en for english data and change to correct extension
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
-    	String resources = dkproHome + "\\de";
-    	String extension = "*.conll";
+    	String resources = dkproHome + "\\en";
+    	String extension = "*.txt";
 
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(
-				Conll2006Reader.class, 
-				Conll2006Reader.PARAM_SOURCE_LOCATION, resources,
-				Conll2006Reader.PARAM_PATTERNS, extension,
-				Conll2006Reader.PARAM_LANGUAGE, "de");
+				Conll2009Reader.class, 
+				Conll2009Reader.PARAM_SOURCE_LOCATION, resources,
+				Conll2009Reader.PARAM_PATTERNS, extension,
+				Conll2009Reader.PARAM_LANGUAGE, "en");
     	
 
         //just start the reader and print text + tags

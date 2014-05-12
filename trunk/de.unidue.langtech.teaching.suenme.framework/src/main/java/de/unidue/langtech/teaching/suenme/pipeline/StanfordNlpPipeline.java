@@ -29,7 +29,7 @@ public class StanfordNlpPipeline
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	String resources = dkproHome + "\\de";
-    	String extension = "test.conll";
+    	String extension = "*.conll";
 
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(

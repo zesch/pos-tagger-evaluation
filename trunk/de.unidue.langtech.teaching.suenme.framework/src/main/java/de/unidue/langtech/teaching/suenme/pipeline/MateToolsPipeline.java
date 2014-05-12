@@ -24,7 +24,7 @@ public class MateToolsPipeline
     	//set enviroment variable, change to en for english data and change to correct extension
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
-    	String resources = dkproHome + "\\de\\test";
+    	String resources = dkproHome + "\\de";
     	String extension = "test.conll";
 
     	@SuppressWarnings("deprecation")

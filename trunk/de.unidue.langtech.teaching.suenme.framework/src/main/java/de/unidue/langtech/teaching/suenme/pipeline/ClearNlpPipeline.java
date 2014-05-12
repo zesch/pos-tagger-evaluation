@@ -24,7 +24,7 @@ public class ClearNlpPipeline
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	String resources = dkproHome + "\\en\\brown_tei";
-    	String extension = "a01.xml";
+    	String extension = "*.xml";
 
     	@SuppressWarnings("deprecation")
 		CollectionReaderDescription reader = createReaderDescription(

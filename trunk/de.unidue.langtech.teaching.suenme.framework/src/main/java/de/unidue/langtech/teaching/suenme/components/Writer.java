@@ -32,7 +32,7 @@ public class Writer   extends JCasAnnotator_ImplBase {
 			  try {
 				FileUtils.writeStringToFile(outFile, tokenAnno.getCoveredText() + "\t" + goldPos.getPosTag().getPosValue() + "\t" + tokenAnno.getPos().getPosValue() + "\n", true);
 			} catch (IOException e) {
-				e.printStackTrace();
+				throw new AnalysisEngineProcessException(e);
 			      }
 		  }
 	}

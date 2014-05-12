@@ -7,6 +7,9 @@ import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
 import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosLemmaTT4J;
+import de.unidue.langtech.teaching.suenme.components.GoldPOSAnnotator;
+import de.unidue.langtech.teaching.suenme.components.Writer;
+import de.unidue.langtech.teaching.suenme.reader.Conll2009Reader;
 
 /**
  * 

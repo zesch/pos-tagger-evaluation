@@ -1,4 +1,4 @@
-package de.unidue.langtech.teaching.suenme.pipeline;
+package de.unidue.langtech.teaching.suenme.components;
 
 import java.util.ArrayList;
 import java.util.List;

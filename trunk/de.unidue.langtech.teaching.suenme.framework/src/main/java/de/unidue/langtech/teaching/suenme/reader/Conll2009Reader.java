@@ -1,5 +1,5 @@
 
-package de.unidue.langtech.teaching.suenme.pipeline;
+package de.unidue.langtech.teaching.suenme.reader;
 
 import static org.apache.commons.io.IOUtils.closeQuietly;
 

@@ -52,7 +52,8 @@ public class Evaluator2 {
     }
 	
 	public static void main(String[] args) throws IOException {
-		
+	   
+	   //only if results are needed to be saved to a file
        //PrintStream out = new PrintStream(new FileOutputStream("src\\test\\resources\\test\\Results.txt"));
        //System.setOut(out);
 		

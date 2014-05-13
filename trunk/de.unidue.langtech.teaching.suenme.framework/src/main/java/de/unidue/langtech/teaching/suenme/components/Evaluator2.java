@@ -1,7 +1,9 @@
 package de.unidue.langtech.teaching.suenme.components;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +52,9 @@ public class Evaluator2 {
     }
 	
 	public static void main(String[] args) throws IOException {
+		
+       //PrintStream out = new PrintStream(new FileOutputStream("src\\test\\resources\\test\\Results.txt"));
+       //System.setOut(out);
 		
 	   List<Object> openNlp = evaluate(new File("src\\test\\resources\\test\\OpenNlp.txt"));
 	   List<Object> mate = evaluate(new File("src\\test\\resources\\test\\Mate.txt"));
@@ -106,7 +111,11 @@ public class Evaluator2 {
 		                System.out.println("StanfordPos scored an accuracy of " + String.format( "%.2f", ((double)correctStanford/(double)nrOfDocuments)*100) + "% !");
 		                System.out.println("TreeTagger scored an accuracy of " + String.format( "%.2f", ((double)correctTreeTagger/(double)nrOfDocuments)*100) + "% !");
 		                System.out.println("ClearNLP scored an accuracy of " + String.format( "%.2f", ((double)correctClearNlp/(double)nrOfDocuments)*100) + "% !");
+		                
+
 	   
 	}
 
 }
+
+

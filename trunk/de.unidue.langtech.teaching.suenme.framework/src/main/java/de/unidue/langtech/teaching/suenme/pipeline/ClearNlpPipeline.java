@@ -28,7 +28,7 @@ public class ClearNlpPipeline
     	String resources = dkproHome + "\\en";
     	String extension = "*.txt";
 
-    	@SuppressWarnings("deprecation")
+
 		CollectionReaderDescription reader = createReaderDescription(
 				Conll2009Reader.class, 
 				Conll2009Reader.PARAM_SOURCE_LOCATION, resources,

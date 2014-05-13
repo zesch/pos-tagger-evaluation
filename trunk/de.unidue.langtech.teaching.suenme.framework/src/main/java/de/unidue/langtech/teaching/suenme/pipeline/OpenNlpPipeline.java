@@ -11,7 +11,6 @@ import de.unidue.langtech.teaching.suenme.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.suenme.components.Writer;
 import de.unidue.langtech.teaching.suenme.reader.Conll2009Reader;
 
-
 /**
  * 
  * @author suenme

@@ -366,11 +366,6 @@
         <version>0.3.3</version>
 </dependency>
 <dependency>
-	<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-	<artifactId>de.tudarmstadt.ukp.dkpro.core.io.bincas-asl</artifactId>
-	<version>1.5.0</version>
-</dependency>
-<dependency>
 	<groupId>commons-io</groupId>
 	<artifactId>commons-io</artifactId>
 	<version>2.4</version>

@@ -12,7 +12,11 @@ import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.unidue.langtech.teaching.suenme.type.GoldPOS;
 
-
+/**
+ * puts POS tag into new annotation named GoldPOS and deletes old POS tag
+ * @author Onur
+ *
+ */
 public class GoldPOSAnnotator
         extends JCasAnnotator_ImplBase
 {

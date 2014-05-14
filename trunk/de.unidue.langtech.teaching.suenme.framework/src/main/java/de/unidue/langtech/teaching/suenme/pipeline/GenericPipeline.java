@@ -60,10 +60,7 @@ public class GenericPipeline
             columnNames[1] = "GoldPos";
             columnNames[i+2] = tagger[i].getSimpleName();
             
-            Evaluator2 ev = new Evaluator2();
-            
-            
-            List<Object> posInformation = ev.evaluate(new File(dkproHome + "\\" + tagger[i].getSimpleName() + ".txt"));
+            List<Object> posInformation = Evaluator2.evaluate(new File(dkproHome + "\\" + tagger[i].getSimpleName() + ".txt"));
             
             List<String> tokens = (List<String>) posInformation.get(0);
             List<String> goldPos = (List<String>) posInformation.get(1);

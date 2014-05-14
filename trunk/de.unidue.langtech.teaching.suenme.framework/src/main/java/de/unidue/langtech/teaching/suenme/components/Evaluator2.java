@@ -57,11 +57,11 @@ public class Evaluator2 {
        //PrintStream out = new PrintStream(new FileOutputStream("src\\test\\resources\\test\\Results.txt"));
        //System.setOut(out);
 		
-	   List<Object> openNlp = evaluate(new File("src\\test\\resources\\test\\OpenNlp.txt"));
-	   List<Object> mate = evaluate(new File("src\\test\\resources\\test\\Mate.txt"));
-	   List<Object> stanford = evaluate(new File("src\\test\\resources\\test\\Stanford.txt"));
-	   List<Object> treeTagger = evaluate(new File("src\\test\\resources\\test\\TreeTagger.txt"));
-	   List<Object> clearNlp = evaluate(new File("src\\test\\resources\\test\\ClearNlp.txt"));
+	   List<Object> openNlp = evaluate(new File("src\\test\\resources\\test\\OpenNlpPosTagger.txt"));
+	   List<Object> mate = evaluate(new File("src\\test\\resources\\test\\MatePosTagger.txt"));
+	   List<Object> stanford = evaluate(new File("src\\test\\resources\\test\\StanfordPosTagger.txt"));
+	   List<Object> treeTagger = evaluate(new File("src\\test\\resources\\test\\TreeTaggerPosLemmaTT4J.txt"));
+	   List<Object> clearNlp = evaluate(new File("src\\test\\resources\\test\\ClearNlpPosTagger.txt"));
 	   
 	   List<String> tokens = (List<String>) openNlp.get(0);
 	   List<String> goldPos = (List<String>) openNlp.get(1);

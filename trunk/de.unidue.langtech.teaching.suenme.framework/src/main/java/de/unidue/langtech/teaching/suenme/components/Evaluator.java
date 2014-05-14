@@ -19,11 +19,11 @@ public class Evaluator {
 	
 	public static void main(String[] args) throws IOException {
 		
-	   List<String> openNlp = FileUtils.readLines(new File("src\\test\\resources\\test\\OpenNlp.txt"));
-	   List<String> matePos = FileUtils.readLines(new File("src\\test\\resources\\test\\Mate.txt"));
-	   List<String> stanford = FileUtils.readLines(new File("src\\test\\resources\\test\\Stanford.txt"));
-	   List<String> treeTagger = FileUtils.readLines(new File("src\\test\\resources\\test\\TreeTagger.txt"));
-	   List<String> clearNlp = FileUtils.readLines(new File("src\\test\\resources\\test\\ClearNlp.txt"));
+	   List<String> openNlp = FileUtils.readLines(new File("src\\test\\resources\\test\\OpenNlpPosTagger.txt"));
+	   List<String> matePos = FileUtils.readLines(new File("src\\test\\resources\\test\\MatePosTagger.txt"));
+	   List<String> stanford = FileUtils.readLines(new File("src\\test\\resources\\test\\StanfordPosTagger.txt"));
+	   List<String> treeTagger = FileUtils.readLines(new File("src\\test\\resources\\test\\TreeTaggerPosLemmaTT4J.txt"));
+	   List<String> clearNlp = FileUtils.readLines(new File("src\\test\\resources\\test\\ClearNlpPosTagger.txt"));
 	   List<String> posTexts = new ArrayList<String>();
 	   List<String> goldPosAnnos = new ArrayList<String>();
 	   

@@ -14,7 +14,7 @@ import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosLemmaTT4J;
-import de.unidue.langtech.teaching.suenme.components.Evaluator2;
+import de.unidue.langtech.teaching.suenme.components.Evaluator;
 import de.unidue.langtech.teaching.suenme.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.suenme.components.Writer;
 import de.unidue.langtech.teaching.suenme.reader.Conll2009Reader;
@@ -43,11 +43,15 @@ public class GenericPipeline
 				Conll2009Reader.PARAM_PATTERNS, extension,
 				Conll2009Reader.PARAM_LANGUAGE, "en");
 		
+		//array of all used POS taggers
     	Class[] tagger = new Class[] {OpenNlpPosTagger.class, MatePosTagger.class, StanfordPosTagger.class, 
     			TreeTaggerPosLemmaTT4J.class, ClearNlpPosTagger.class};
     	
+    	//important for text table
     	String[] columnNames = new String[tagger.length+2];
     	String [][] posTags = new String[488][tagger.length+2]; //get rid of "488"
+    	
+    	
     	int[] correctTags = new int [tagger.length];
     	int nrOfDocuments = 0;
     	
@@ -60,7 +64,7 @@ public class GenericPipeline
             		AnalysisEngineFactory.createEngineDescription(Writer.class,
             				Writer.PARAM_OUTPUT_FILE, dkproHome + "\\" + tagger[i].getSimpleName() + ".txt"));
             
-            List<Object> posInformation = Evaluator2.evaluate(new File(dkproHome + "\\" + tagger[i].getSimpleName() + ".txt"));
+            List<Object> posInformation = Evaluator.evaluate(new File(dkproHome + "\\" + tagger[i].getSimpleName() + ".txt"));
             
             List<String> tokens = (List<String>) posInformation.get(0);
             List<String> goldPos = (List<String>) posInformation.get(1);
@@ -69,6 +73,7 @@ public class GenericPipeline
         	nrOfDocuments = (Integer) posInformation.get(3);
         	correctTags[i] = (Integer) posInformation.get(4);
             
+        	//first two columns always have the same name
             columnNames[0] = "Token";
             columnNames[1] = "GoldPos";
             columnNames[i+2] = tagger[i].getSimpleName();  

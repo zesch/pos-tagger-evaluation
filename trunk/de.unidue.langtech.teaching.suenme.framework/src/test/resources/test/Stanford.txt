@@ -1,8 +1,0 @@
-``	$(	PPER
-Ross	NE	NE
-Perot	NE	NE
-wäre	VAFIN	VAFIN
-vielleicht	ADV	ADV
-ein	ART	ART
-prächtiger	ADJA	ADJA
-Diktator	NN	NN

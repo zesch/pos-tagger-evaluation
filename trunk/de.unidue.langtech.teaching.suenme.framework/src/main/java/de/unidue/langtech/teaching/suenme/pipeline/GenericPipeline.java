@@ -55,16 +55,16 @@ public class GenericPipeline
             		AnalysisEngineFactory.createEngineDescription(Writer.class,
             				Writer.PARAM_OUTPUT_FILE, dkproHome + "\\" + tagger[i].getSimpleName() + ".txt"));
             
-            String[] columnNames = new String[tagger.length+2];
-            columnNames[0] = "Token";
-            columnNames[1] = "GoldPos";
-            columnNames[i+2] = tagger[i].getSimpleName();
-            
             List<Object> posInformation = Evaluator2.evaluate(new File(dkproHome + "\\" + tagger[i].getSimpleName() + ".txt"));
             
             List<String> tokens = (List<String>) posInformation.get(0);
             List<String> goldPos = (List<String>) posInformation.get(1);
             List<String> posAnnos = (List<String>) posInformation.get(2);
+            
+            String[] columnNames = new String[tagger.length+2];
+            columnNames[0] = "Token";
+            columnNames[1] = "GoldPos";
+            columnNames[i+2] = tagger[i].getSimpleName();
           
             String [][] posTags = new String[goldPos.size()][tagger.length+2];
             

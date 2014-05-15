@@ -3,6 +3,7 @@ package de.unidue.langtech.teaching.suenme.components;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class Evaluator {
     	
     	//important for text table
     	String[] columnNames = new String[tagger.length+2];
-    	String [][] posTags = new String[488][tagger.length+2]; //get rid of "488"
+    	String [][] posTags = new String[7668][tagger.length+2]; //get rid of "7668"
     	
     	int[] correctTags = new int [tagger.length];
     	int nrOfDocuments = 0;
@@ -87,8 +88,10 @@ public class Evaluator {
             }
     	}
     	
+    	 OutputStream output = new FileOutputStream(dkproHome + "\\" + "result.csv");
     	 TextTable tt = new TextTable(columnNames, posTags); 
          tt.setAddRowNumbering(true);
+         tt.toCsv(output);
          tt.printTable(); 
          
          for (int i = 0; i<correctTags.length; i++) {

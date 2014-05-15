@@ -2,12 +2,13 @@ package de.unidue.langtech.teaching.suenme.pipeline;
 
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 
-import java.io.File;
-import java.util.List;
+import java.io.IOException;
 
+import org.apache.uima.UIMAException;
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
+import org.apache.uima.resource.ResourceInitializationException;
 
 import de.tudarmstadt.ukp.dkpro.core.clearnlp.ClearNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
@@ -15,11 +16,9 @@ import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosLemmaTT4J;
 import de.unidue.langtech.teaching.suenme.components.Evaluator;
-import de.unidue.langtech.teaching.suenme.components.Evaluator;
 import de.unidue.langtech.teaching.suenme.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.suenme.components.Writer;
 import de.unidue.langtech.teaching.suenme.reader.Conll2009Reader;
-import dnl.utils.text.table.TextTable;
 
 
 /**
@@ -29,8 +28,8 @@ import dnl.utils.text.table.TextTable;
  */
 public class GenericPipeline
 {
-    public static void main(String[] args)
-        throws Exception
+    public static void main(String[] args) throws UIMAException, IOException
+        
     {
     	//set enviroment variable, change to en for english data and change to correct extension
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");

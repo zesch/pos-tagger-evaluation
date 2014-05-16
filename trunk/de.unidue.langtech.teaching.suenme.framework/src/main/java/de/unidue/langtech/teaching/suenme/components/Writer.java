@@ -30,7 +30,8 @@ public class Writer   extends JCasAnnotator_ImplBase {
 		  for (Token tokenAnno : JCasUtil.select(aJCas, Token.class)) {
 			  for (GoldPOS goldPos : JCasUtil.selectCovered(GoldPOS.class, tokenAnno)) {		
 			  try {
-				FileUtils.writeStringToFile(outFile, tokenAnno.getCoveredText() + "\t" + goldPos.getPosTag().getPosValue() + "\t" + tokenAnno.getPos().getPosValue() + "\n", true);
+				FileUtils.writeStringToFile(outFile, tokenAnno.getCoveredText() + "\t" + 
+			  goldPos.getPosTag().getPosValue() + "\t" + tokenAnno.getPos().getPosValue() + "\n", true);
 			} catch (IOException e) {
 				throw new AnalysisEngineProcessException(e);
 			      }

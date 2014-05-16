@@ -27,7 +27,6 @@ public class Writer   extends JCasAnnotator_ImplBase {
 
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
-		  if (!outFile.exists()) {
 		  for (Token tokenAnno : JCasUtil.select(aJCas, Token.class)) {
 			  for (GoldPOS goldPos : JCasUtil.selectCovered(GoldPOS.class, tokenAnno)) {		
 			  try {
@@ -40,4 +39,4 @@ public class Writer   extends JCasAnnotator_ImplBase {
 	}
 	     }
 
-}
+

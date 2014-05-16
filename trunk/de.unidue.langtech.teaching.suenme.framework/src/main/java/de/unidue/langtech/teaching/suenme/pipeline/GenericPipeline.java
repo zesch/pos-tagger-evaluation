@@ -18,7 +18,8 @@ import de.unidue.langtech.teaching.suenme.corpus.TigerCorpus;
 
 
 /**
- * 
+ * Pipeline needs at least 2GB of space
+ * Go to Run-> Run Configurations-> Arguments-> VM Arguments-> "-Xmx2048m
  * @author suenme
  *
  */
@@ -27,32 +28,33 @@ public class GenericPipeline
     public static void main(String[] args) throws Exception
         
     {
-    	//set enviroment variable, change to en for english data and change to correct extension
+    	
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
-		
-		//array of all used POS taggers
-    	Class[] tagger = new Class[] {OpenNlpPosTagger.class, MatePosTagger.class, StanfordPosTagger.class, 
+
+    	Class[] taggers = new Class[] {OpenNlpPosTagger.class, MatePosTagger.class, StanfordPosTagger.class, 
     			TreeTaggerPosLemmaTT4J.class, ClearNlpPosTagger.class};
     	
-    	//array of all used Corpora
-    	CollectionReaderDescription[] corpus = new CollectionReaderDescription[] {new Conll2009Corpus().getReader(),
+    	CollectionReaderDescription[] corpora = new CollectionReaderDescription[] {new Conll2009Corpus().getReader(),
     			new BrownTeiCorpus().getReader(), new TigerCorpus().getReader()};
 
-    	for (int i=0; i<corpus.length; i++) {
-    	for (int j=0; j<tagger.length; j++) {
+    	for (CollectionReaderDescription corpus : corpora) {
+ 
+    	for (Class tagger : taggers) {
     		
             SimplePipeline.runPipeline(
-            		corpus[i],
+            		corpus,
             		AnalysisEngineFactory.createEngineDescription(GoldPOSAnnotator.class),
-            		AnalysisEngineFactory.createEngineDescription(tagger[j]),
+            		AnalysisEngineFactory.createEngineDescription(tagger),
             		AnalysisEngineFactory.createEngineDescription(Writer.class,
-            				Writer.PARAM_OUTPUT_FILE, dkproHome + "\\" + tagger[j].getSimpleName() + ".txt"));
-            }
+            				Writer.PARAM_OUTPUT_FILE, dkproHome + "\\" + tagger.getSimpleName() + ".txt"));
+            }//end tagging
+    	
+    	Evaluator.evaluateAll(taggers, corpus);
+    	Evaluator.deleteAll(taggers);
     		
-    	}
-    	  
-    	Evaluator.evaluateAll(tagger);
+    	}//end corpora
+    	 
 
 
 }

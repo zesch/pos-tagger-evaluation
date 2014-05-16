@@ -52,6 +52,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
  * @author Onur
  * 
  * @see http://ufal.mff.cuni.cz/conll2009-st/task-description.html
+ * inspired by Conll2006Reader @author Seid Muhie Yimam @author Richard Eckart de Castilho
  */
 public class Conll2009Reader
     extends JCasResourceCollectionReader_ImplBase

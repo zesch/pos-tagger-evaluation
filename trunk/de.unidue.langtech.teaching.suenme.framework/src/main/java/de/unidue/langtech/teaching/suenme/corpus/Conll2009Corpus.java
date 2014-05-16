@@ -27,9 +27,9 @@ import de.unidue.langtech.teaching.suenme.reader.Conll2009Reader;
 
 
 /**
- * Conll2009 Corpus
- *
- * @author zesch
+ * Conll2009 German Corpus
+ * 
+ * @author Onur
  *
  */
 public class Conll2009Corpus
@@ -55,10 +55,10 @@ public class Conll2009Corpus
         initialize(conll2009);
     }
 
-    private void initialize(String tigerFile) throws Exception {
+    private void initialize(String conll2009) throws Exception {
         reader = CollectionReaderFactory.createReaderDescription(
                 Conll2009Reader.class,
-                Conll2009Reader.PARAM_SOURCE_LOCATION, tigerFile,
+                Conll2009Reader.PARAM_SOURCE_LOCATION, conll2009,
                 Conll2009Reader.PARAM_LANGUAGE, LANGUAGE,
                 Conll2009Reader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.txt"}
         );

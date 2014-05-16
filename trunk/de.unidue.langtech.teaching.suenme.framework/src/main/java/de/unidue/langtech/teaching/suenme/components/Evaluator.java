@@ -3,12 +3,12 @@ package de.unidue.langtech.teaching.suenme.components;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.uima.collection.CollectionReaderDescription;
 
 import dnl.utils.text.table.TextTable;
 
@@ -53,13 +53,17 @@ public class Evaluator {
     	
     }
     
-    public static void evaluateAll(Class[] tagger ) throws IOException {
+    public static void evaluateAll(Class[] tagger, CollectionReaderDescription corpus) throws IOException {
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	
+    	//only used once to determine row length of "posTags"
+    	 List<Object> posInformationSingle = evaluateSingle(new File(dkproHome + "\\" + tagger[0].getSimpleName() + ".txt"));
+    	 int rowLength = (Integer) posInformationSingle.get(3);
+    	
     	//important for text table
     	String[] columnNames = new String[tagger.length+2];
-    	String [][] posTags = new String[7668][tagger.length+2]; //get rid of "7668"
+    	String [][] posTags = new String[rowLength][tagger.length+2]; 
     	
     	int[] correctTags = new int [tagger.length];
     	int nrOfDocuments = 0;
@@ -88,19 +92,29 @@ public class Evaluator {
             }
     	}
     	
-    	 OutputStream output = new FileOutputStream(dkproHome + "\\" + "result.csv");
+    	 PrintStream out = new PrintStream(new FileOutputStream(dkproHome + "\\" + corpus.getImplementationName() + "-result.txt"));
     	 TextTable tt = new TextTable(columnNames, posTags); 
          tt.setAddRowNumbering(true);
-         tt.toCsv(output);
-         tt.printTable(); 
+         tt.printTable(out, 0);
          
          for (int i = 0; i<correctTags.length; i++) {
-         	System.out.println(tagger[i].getSimpleName() + " scored an accuracy of " + String.format( "%.2f", ((double)correctTags[i]/(double)nrOfDocuments)*100) + "% !" );
+         	out.append(tagger[i].getSimpleName() + " scored an accuracy of " + String.format( "%.2f", ((double)correctTags[i]/(double)nrOfDocuments)*100) + "% !" + "\n" );
          }
     	
     }
+    
+    
+	public static void deleteAll(Class[] tagger) {
+    	System.setProperty("PROJECT_HOME", "src\test\resources\test");
+    	final String dkproHome = System.getenv("PROJECT_HOME");
+    	
+    	for (int i=0; i<tagger.length; i++) {
+    		File file = new File(dkproHome + "\\" + tagger[i].getSimpleName() + ".txt");
+    		file.delete();
+    	}
+		
+	}
 	
-
 
 }
 

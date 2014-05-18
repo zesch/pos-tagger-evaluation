@@ -22,7 +22,6 @@ import static de.tudarmstadt.ukp.dkpro.core.api.io.ResourceCollectionReaderBase.
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 
-import de.tudarmstadt.ukp.dkpro.core.toolbox.corpus.CorpusBase;
 import de.unidue.langtech.teaching.suenme.reader.Conll2009Reader;
 
 

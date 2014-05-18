@@ -1,6 +1,5 @@
 package de.unidue.langtech.teaching.suenme.pipeline;
 
-import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
@@ -14,6 +13,7 @@ import de.unidue.langtech.teaching.suenme.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.suenme.components.Writer;
 import de.unidue.langtech.teaching.suenme.corpus.BrownTeiCorpus;
 import de.unidue.langtech.teaching.suenme.corpus.Conll2009Corpus;
+import de.unidue.langtech.teaching.suenme.corpus.CorpusBase;
 import de.unidue.langtech.teaching.suenme.corpus.TigerCorpus;
 
 
@@ -35,15 +35,20 @@ public class GenericPipeline
     	Class[] taggers = new Class[] {OpenNlpPosTagger.class, MatePosTagger.class, StanfordPosTagger.class, 
     			TreeTaggerPosLemmaTT4J.class, ClearNlpPosTagger.class};
     	
-    	CollectionReaderDescription[] corpora = new CollectionReaderDescription[] {new Conll2009Corpus().getReader(),
-    			new BrownTeiCorpus().getReader(), new TigerCorpus().getReader()};
+    	CorpusBase[] corpora = new CorpusBase[] {new Conll2009Corpus(),
+    			new BrownTeiCorpus(), new TigerCorpus()};
 
-    	for (CollectionReaderDescription corpus : corpora) {
+    	for (CorpusBase corpus : corpora) {
  
     	for (Class tagger : taggers) {
     		
+    		if (tagger.equals(ClearNlpPosTagger.class) & corpus.getLanguage().equalsIgnoreCase("de")) {
+    			System.out.println("Warning! ClearNlpPosTagger does not support german models yet, skipping..");
+    			continue;
+    		}
+    		
             SimplePipeline.runPipeline(
-            		corpus,
+            		corpus.getReader(),
             		AnalysisEngineFactory.createEngineDescription(GoldPOSAnnotator.class),
             		AnalysisEngineFactory.createEngineDescription(tagger),
             		AnalysisEngineFactory.createEngineDescription(Writer.class,

@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.uima.collection.CollectionReaderDescription;
 
+import de.tudarmstadt.ukp.dkpro.core.clearnlp.ClearNlpPosTagger;
+import de.unidue.langtech.teaching.suenme.corpus.CorpusBase;
 import dnl.utils.text.table.TextTable;
 
 public class Evaluator {
@@ -53,7 +54,7 @@ public class Evaluator {
     	
     }
     
-    public static void evaluateAll(Class[] tagger, CollectionReaderDescription corpus) throws IOException {
+    public static void evaluateAll(Class[] tagger, CorpusBase corpus) throws IOException {
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	
@@ -69,6 +70,10 @@ public class Evaluator {
     	int nrOfDocuments = 0;
     	
     	for (int i=0; i<tagger.length; i++) {
+    		
+    		if (tagger[i].equals(ClearNlpPosTagger.class) & corpus.getLanguage().equalsIgnoreCase("de")) {
+    			continue;
+    		}
             List<Object> posInformation = evaluateSingle(new File(dkproHome + "\\" + tagger[i].getSimpleName() + ".txt"));
             
             List<String> tokens = (List<String>) posInformation.get(0);
@@ -92,7 +97,7 @@ public class Evaluator {
             }
     	}
     	
-    	 PrintStream out = new PrintStream(new FileOutputStream(dkproHome + "\\" + corpus.getImplementationName() + "-result.txt"));
+    	 PrintStream out = new PrintStream(new FileOutputStream(dkproHome + "\\" + corpus.getName() + "-result.txt"));
     	 TextTable tt = new TextTable(columnNames, posTags); 
          tt.setAddRowNumbering(true);
          tt.printTable(out, 0);

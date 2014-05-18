@@ -23,8 +23,6 @@ import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 
 import de.tudarmstadt.ukp.dkpro.core.io.tiger.TigerXmlReader;
-import de.tudarmstadt.ukp.dkpro.core.toolbox.corpus.CorpusBase;
-
 
 /**
  * Tiger Corpus

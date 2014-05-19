@@ -3,6 +3,7 @@ package de.unidue.langtech.teaching.suenme.components;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -97,15 +98,26 @@ public class Evaluator {
             }
     	}
     	
-    	 PrintStream out = new PrintStream(new FileOutputStream(dkproHome + "\\" + corpus.getName() + "-result.txt"));
-    	 TextTable tt = new TextTable(columnNames, posTags); 
-         tt.setAddRowNumbering(true);
-         tt.printTable(out, 0);
-         
-         for (int i = 0; i<correctTags.length; i++) {
-         	out.append(tagger[i].getSimpleName() + " scored an accuracy of " + String.format( "%.2f", ((double)correctTags[i]/(double)nrOfDocuments)*100) + "% !" + "\n" );
-         }
-    	
+    	OutputStream os = null;
+    	PrintStream ps = null;
+        try {
+            File f = new File(dkproHome + "\\" + corpus.getName() + "-result.txt");
+            os = new FileOutputStream(f);
+            ps = new PrintStream(os);
+       	    TextTable tt = new TextTable(columnNames, posTags); 
+            tt.setAddRowNumbering(true);
+            tt.printTable(ps, 0);
+            
+            for (int i = 0; i<correctTags.length; i++) {
+             	ps.append(tagger[i].getSimpleName() + " scored an accuracy of " + String.format( "%.2f", ((double)correctTags[i]/(double)nrOfDocuments)*100) + "% !" + "\n" );
+             }
+        }
+        catch (Exception e) {
+            throw new IOException(e);
+        }
+        finally {
+            ps.close();
+        }
     }
     
     

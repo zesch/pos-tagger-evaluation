@@ -47,8 +47,8 @@ public class GenericPipeline
     	//Conll2009 Corpus
     	CollectionReaderDescription conllCorpus = CollectionReaderFactory.createReaderDescription(
                 Conll2009Reader.class,
-                Conll2009Reader.PARAM_SOURCE_LOCATION, dkproHome + "\\en",
-                Conll2009Reader.PARAM_LANGUAGE, "en",
+                Conll2009Reader.PARAM_SOURCE_LOCATION, dkproHome + "\\de",
+                Conll2009Reader.PARAM_LANGUAGE, "de",
                 Conll2009Reader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.txt"}
         );
     	

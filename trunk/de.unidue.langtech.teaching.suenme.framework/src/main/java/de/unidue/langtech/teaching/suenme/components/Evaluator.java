@@ -156,6 +156,7 @@ public class Evaluator {
     	            break;
     	        }
     	    }
+    	    
     	    if (!equal) {
     	        posTags[i][1] = "x";
     	    }
@@ -169,13 +170,12 @@ public class Evaluator {
     	            break;
     	        }
     	    }
+    	    
     	    if (!equal) {
     	    	cPosTags[i][1] = "x";
     	    }
     	}
     	
-    	OutputStream cPosOutputStream = null;
-    	OutputStream posOutputStream = null;
     	PrintStream cPosPrintStream = null;
     	PrintStream posPrintStream = null;
         try {
@@ -183,11 +183,8 @@ public class Evaluator {
             File cPosFile = new File(dkproHome + "\\" + corpus.getImplementationName() + "-result-coarse.txt");
             File posFile = new File(dkproHome + "\\" + corpus.getImplementationName() + "-result-fine.txt");
             
-            cPosOutputStream = new FileOutputStream(cPosFile);
-            posOutputStream = new FileOutputStream(posFile);
-            
-            cPosPrintStream = new PrintStream(cPosOutputStream);
-            posPrintStream = new PrintStream(posOutputStream);
+            cPosPrintStream = new PrintStream(cPosFile);
+            posPrintStream = new PrintStream(posFile);
             
             //create tables for universal and normal POS and write them to a text file
        	    TextTable cPosTable = new TextTable(columnNamesCPos, cPosTags); 
@@ -223,8 +220,7 @@ public class Evaluator {
         }
         catch (Exception e) {
             throw new IOException(e);
-        }
-        finally {
+        } finally {
             cPosPrintStream.close();
             posPrintStream.close();
         }

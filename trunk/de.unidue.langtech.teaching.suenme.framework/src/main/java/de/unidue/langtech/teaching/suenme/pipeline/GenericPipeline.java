@@ -108,7 +108,7 @@ public class GenericPipeline
 			}
               }//end tagging
     	
-    	Evaluator.evaluateAll(taggers, corpus);
+    	Evaluator.saveResults(taggers, corpus);
     	Evaluator.deleteAllTagger(taggers);
     	
     	//after evaluating one corpus, put all taggers which caused problems back in the taggers array

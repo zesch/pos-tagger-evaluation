@@ -76,7 +76,7 @@ public class Evaluator {
     }
     
     /**
-     * evaluates an array of tagger and corpora
+     * saves results for an array of tagger and corpora
      * first unpacks the file which contain all important information
      * prints token/goldPOS/detectedPOS to two tables for universal and normal POS
      * also creates a text file which contains the accuracy for every tagger
@@ -85,7 +85,7 @@ public class Evaluator {
      * @throws IOException
      */
     @SuppressWarnings("unchecked")
-	public static void evaluateAll(AnalysisEngineDescription[] tagger, CollectionReaderDescription corpus) throws IOException {
+	public static void saveResults(AnalysisEngineDescription[] tagger, CollectionReaderDescription corpus) throws IOException {
     	
     	//only used once to determine row length of "posTags"
     	 List<Object> posInformationSingle = evaluateSingle(new File(dkproHome + "\\" + tagger[0].getImplementationName() + ".txt"));

@@ -20,12 +20,14 @@ public class TreeTaggerPipeline {
     	
     	JCas jcas = JCasFactory.createJCas();
     	jcas.setDocumentText("This is a test");
-    	jcas.setDocumentLanguage("de");
+    	jcas.setDocumentLanguage("en");
 		    	
     	SimplePipeline.runPipeline(
 				jcas,
 				AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),
-				AnalysisEngineFactory.createEngineDescription(TreeTaggerPosLemmaTT4J.class));
+				AnalysisEngineFactory.createEngineDescription(TreeTaggerPosLemmaTT4J.class,
+						TreeTaggerPosLemmaTT4J.PARAM_TAGGER_MAPPING_LOCATION, "classpath:/de/tudarmstadt/ukp/dkpro/" +
+                                "core/api/lexmorph/tagset/en-default-pos.map"));
 
 	
 	

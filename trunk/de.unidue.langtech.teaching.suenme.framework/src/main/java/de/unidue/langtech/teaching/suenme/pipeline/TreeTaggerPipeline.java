@@ -19,8 +19,8 @@ public class TreeTaggerPipeline {
 	public static void main(String[] args) throws UIMAException, IOException {
     	
     	JCas jcas = JCasFactory.createJCas();
-    	jcas.setDocumentText("Das ist ein Test");
-    	jcas.setDocumentLanguage("de");
+    	jcas.setDocumentText("This is a test.");
+    	jcas.setDocumentLanguage("en");
 		    	
     	SimplePipeline.runPipeline(
 				jcas,

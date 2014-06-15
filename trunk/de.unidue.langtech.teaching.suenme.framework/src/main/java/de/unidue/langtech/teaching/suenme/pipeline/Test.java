@@ -26,26 +26,15 @@ import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.apache.uima.jcas.JCas;
 
-
-
-
-
-
-
-
-
-
-
-
-
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.TagDescription;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.TagsetDescription;
 import de.tudarmstadt.ukp.dkpro.core.api.parameter.ComponentParameters;
+import de.tudarmstadt.ukp.dkpro.core.clearnlp.ClearNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.io.tei.TeiReader;
 import de.tudarmstadt.ukp.dkpro.core.io.tiger.TigerXmlReader;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
-import de.unidue.langtech.teaching.suenme.components.CopyOfEvaluator;
-import de.unidue.langtech.teaching.suenme.components.CopyOfEvaluator;
+import de.unidue.langtech.teaching.suenme.components.EvaluatorModels;
+import de.unidue.langtech.teaching.suenme.components.EvaluatorModels;
 import de.unidue.langtech.teaching.suenme.components.Evaluator;
 import de.unidue.langtech.teaching.suenme.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.suenme.components.Writer;
@@ -57,7 +46,7 @@ public class Test
     public static void main(String[] args)
         throws Exception
     {
-        String[] variants = new String[] { "maxent", "perceptron"};
+        String[] variants = new String[] { "maxent", "perceptron", "mayo", "ontonotes"};
         
         
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
@@ -91,7 +80,8 @@ public class Test
 
         Configuration[] configurations = new Configuration[] {
 
-                new Configuration(OpenNlpPosTagger.class, asList(variants))
+                new Configuration(OpenNlpPosTagger.class, asList(variants)),
+                new Configuration(ClearNlpPosTagger.class, asList(variants))
                 };
         
         CollectionReaderDescription[] corpora = new CollectionReaderDescription[] {conllCorpus, brownCorpus};
@@ -118,13 +108,13 @@ public class Test
                           }//end variant
             }//end configuration
             
-                	CopyOfEvaluator.saveResults(configurations, corpus, variants);
-                	CopyOfEvaluator.deleteAllTagger(configurations);
+                	EvaluatorModels.saveResults(configurations, corpus, variants);
+                	EvaluatorModels.deleteAllTagger(configurations);
                 	
                 	  }//end corpora
                 	
-        CopyOfEvaluator.combineResults(corpora);
-        CopyOfEvaluator.deleteAllCorpora(corpora);
+        EvaluatorModels.combineResults(corpora);
+        EvaluatorModels.deleteAllCorpora(corpora);
                 	 
             }
               

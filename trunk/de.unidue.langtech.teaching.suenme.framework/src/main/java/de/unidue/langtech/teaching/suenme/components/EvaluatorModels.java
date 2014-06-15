@@ -15,7 +15,7 @@ import org.apache.uima.collection.CollectionReaderDescription;
 import de.unidue.langtech.teaching.suenme.pipeline.Test.Configuration;
 import dnl.utils.text.table.TextTable;
 
-public class CopyOfEvaluator {
+public class EvaluatorModels {
 	
 	public static final String dkproHome = System.getenv("PROJECT_HOME");
 	
@@ -106,9 +106,13 @@ public class CopyOfEvaluator {
 
     	for (int i=0; i<configurations.length; i++) {
     		for (int j=0; j<configurations[i].variants.size(); j++) {
+    			
+    			File evaluateSingleFile = new File(dkproHome + "\\" + configurations[i].getConfigurationName() + "-" + configurations[i].variants.get(j) + ".txt");
+    			
+    			if (evaluateSingleFile.exists()) {
+    	    		//unpack file with all necessary information
+    	            List<Object> posInformation = evaluateSingle(evaluateSingleFile);
 
-    		//unpack file with all necessary information
-            List<Object> posInformation = evaluateSingle(new File(dkproHome + "\\" + configurations[i].getConfigurationName() + "-" + configurations[i].variants.get(j) + ".txt"));
             
             List<String> tokens = (List<String>) posInformation.get(0);
             List<String> goldCPos = (List<String>) posInformation.get(1);
@@ -119,6 +123,7 @@ public class CopyOfEvaluator {
         	nrOfDocuments = (Integer) posInformation.get(5);
         	correctCposTags[j] = (Integer) posInformation.get(6);
         	correctPosTags[j] = (Integer) posInformation.get(7);
+    		
             
         	//first three columns always have the same name
             columnNamesCPos[0] = "Token";
@@ -148,12 +153,13 @@ public class CopyOfEvaluator {
             }
     		}
     	}
+    	}
     	
     	//mark a cross in column 2 for every false tagged POS
     	for (int i=0;i<posTags.length;i++) {
     	    boolean equal = true;
     	    for (int j=3;j<posTags[i].length;j++) {
-    	        if (!posTags[i][2].equals(posTags[i][j])) {
+    	        if (!posTags[i][2].equals(posTags[i][j]) && posTags[i][j] != null) {
     	            equal = false;
     	            break;
     	        }
@@ -167,7 +173,7 @@ public class CopyOfEvaluator {
     	for (int i=0;i<cPosTags.length;i++) {
     	    boolean equal = true;
     	    for (int j=3;j<cPosTags[i].length;j++) {
-    	        if (!cPosTags[i][2].equals(cPosTags[i][j])) {
+    	        if (!cPosTags[i][2].equals(cPosTags[i][j]) && cPosTags[i][j] != null) {
     	            equal = false;
     	            break;
     	        }
@@ -204,6 +210,9 @@ public class CopyOfEvaluator {
             
             	for (int j=0; j<configurations.length; j++) {		
             	for (int k=0; k<configurations[j].variants.size(); k++) {
+            		File evaluateSingleFile = new File(dkproHome + "\\" + configurations[j].getConfigurationName() + "-" + configurations[j].variants.get(k) + ".txt");
+        			
+        			if (evaluateSingleFile.exists()) {
                 	String correctCPos = String.format( "%.2f", ((double)correctCposTags[k]/(double)nrOfDocuments)*100);
                 	String correctPos = String.format( "%.2f", ((double)correctPosTags[k]/(double)nrOfDocuments)*100);
                 	
@@ -224,6 +233,7 @@ public class CopyOfEvaluator {
             //leave a space after every corpus
             FileUtils.writeStringToFile(resultFile, "-----------------------------------------------------------------" 
             + "\n", true);
+        }
         }
         catch (Exception e) {
             throw new IOException(e);

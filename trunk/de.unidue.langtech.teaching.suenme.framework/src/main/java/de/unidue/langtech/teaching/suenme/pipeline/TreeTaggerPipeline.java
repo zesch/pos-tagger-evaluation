@@ -19,15 +19,13 @@ public class TreeTaggerPipeline {
 	public static void main(String[] args) throws UIMAException, IOException {
     	
     	JCas jcas = JCasFactory.createJCas();
-    	jcas.setDocumentText("This is a test");
-    	jcas.setDocumentLanguage("en");
+    	jcas.setDocumentText("Das ist ein Test");
+    	jcas.setDocumentLanguage("de");
 		    	
     	SimplePipeline.runPipeline(
 				jcas,
 				AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),
-				AnalysisEngineFactory.createEngineDescription(TreeTaggerPosLemmaTT4J.class,
-						TreeTaggerPosLemmaTT4J.PARAM_TAGGER_MAPPING_LOCATION, "classpath:/de/tudarmstadt/ukp/dkpro/" +
-                                "core/api/lexmorph/tagset/en-default-pos.map"));
+				AnalysisEngineFactory.createEngineDescription(TreeTaggerPosLemmaTT4J.class));
 
 	
 	

@@ -12,7 +12,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReaderDescription;
 
-import de.unidue.langtech.teaching.suenme.pipeline.Test.Configuration;
+import de.unidue.langtech.teaching.suenme.pipeline.Pipeline.Configuration;
 import dnl.utils.text.table.TextTable;
 
 public class EvaluatorModels {
@@ -206,7 +206,7 @@ public class EvaluatorModels {
          	
          	//write corpus name at the top of result file
          	File resultFile = new File(dkproHome + "\\" + corpus.getImplementationName() + "-results.txt");
-         	FileUtils.writeStringToFile(resultFile, corpus.getImplementationName() + "\n" + "\n", true);
+         	FileUtils.writeStringToFile(resultFile, "\n" + "\n" + corpus.getImplementationName() + "\n" + "\n", true);
             
             	for (int j=0; j<configurations.length; j++) {		
             	for (int k=0; k<configurations[j].variants.size(); k++) {

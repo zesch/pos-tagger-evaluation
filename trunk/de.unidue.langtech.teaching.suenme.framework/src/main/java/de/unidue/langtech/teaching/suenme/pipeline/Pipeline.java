@@ -32,7 +32,10 @@ import de.tudarmstadt.ukp.dkpro.core.api.parameter.ComponentParameters;
 import de.tudarmstadt.ukp.dkpro.core.clearnlp.ClearNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.io.tei.TeiReader;
 import de.tudarmstadt.ukp.dkpro.core.io.tiger.TigerXmlReader;
+import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
+import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
+import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosLemmaTT4J;
 import de.unidue.langtech.teaching.suenme.components.EvaluatorModels;
 import de.unidue.langtech.teaching.suenme.components.EvaluatorModels;
 import de.unidue.langtech.teaching.suenme.components.Evaluator;
@@ -40,13 +43,21 @@ import de.unidue.langtech.teaching.suenme.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.suenme.components.Writer;
 import de.unidue.langtech.teaching.suenme.reader.Conll2009Reader;
 
-
-public class Test
+/**
+ * Pipeline needs at least 2GB of space
+ * Go to Run-> Run Configurations-> Arguments-> VM Arguments-> -Xmx3048m
+ * @author suenme
+ *
+ */
+public class Pipeline
 {
     public static void main(String[] args)
         throws Exception
     {
-        String[] variants = new String[] { "maxent", "perceptron", "mayo", "ontonotes"};
+    	String[] variants = new String[] { "maxent", "perceptron", 
+                "fast", "dewac", "hgc", "bidirectional-distsim", "bidirectional-distsim-wsj",
+                "left3words-distsim", "wsj-0-18-left3words-distsim", "ontonotes", "mayo", 
+                "conll2009", "tiger"};
         
         
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
@@ -80,8 +91,11 @@ public class Test
 
         Configuration[] configurations = new Configuration[] {
 
-                new Configuration(OpenNlpPosTagger.class, asList(variants)),
-                new Configuration(ClearNlpPosTagger.class, asList(variants))
+              new Configuration(OpenNlpPosTagger.class, asList(variants)),
+              new Configuration(StanfordPosTagger.class, asList(variants)),
+              new Configuration(ClearNlpPosTagger.class, asList(variants)),
+              new Configuration(MatePosTagger.class, asList(variants)),
+              new Configuration(TreeTaggerPosLemmaTT4J.class, asList("-none-")), 
                 };
         
         CollectionReaderDescription[] corpora = new CollectionReaderDescription[] {conllCorpus, brownCorpus};
@@ -117,12 +131,7 @@ public class Test
         EvaluatorModels.deleteAllCorpora(corpora);
                 	 
             }
-              
-    
-        
-    
-
-
+                 
     public static class Configuration
     {
         Class<? extends AnalysisComponent> component;

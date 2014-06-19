@@ -86,32 +86,28 @@ public class EvaluatorModels {
      * @throws IOException
      */
     @SuppressWarnings("unchecked")
-	public static void saveResults(Configuration[] configurations, CollectionReaderDescription corpus, String[] variants) throws IOException {
+	public static void saveResults(List<File> posFile, CollectionReaderDescription corpus) throws IOException {
     	
     	//only used once to determine row length of "posTags"
-    	 List<Object> posInformationSingle = evaluateSingle(new File(dkproHome + "\\" + configurations[0].getConfigurationName() + "-" + configurations[0].variants.get(0) + ".txt"));
+    	 List<Object> posInformationSingle = evaluateSingle(posFile.get(0));
     	 int rowLength = (Integer) posInformationSingle.get(5);
     	
     	//important for Coarse POS tags
-    	String[] columnNamesCPos = new String[variants.length+3];
-    	String [][] cPosTags = new String[rowLength][variants.length+3]; 
+    	String[] columnNamesCPos = new String[posFile.size()+3];
+    	String [][] cPosTags = new String[rowLength][posFile.size()+3]; 
     	
     	//important for fine POS tags
-    	String[] columnNamesPos = new String[variants.length+3];
-    	String [][] posTags = new String[rowLength][variants.length+3]; 
+    	String[] columnNamesPos = new String[posFile.size()+3];
+    	String [][] posTags = new String[rowLength][posFile.size()+3]; 
     	
-    	int[] correctCposTags = new int [variants.length];
-    	int[] correctPosTags = new int [variants.length];
+    	int[] correctCposTags = new int [posFile.size()];
+    	int[] correctPosTags = new int [posFile.size()];
     	int nrOfDocuments = 0;
 
-    	for (int i=0; i<configurations.length; i++) {
-    		for (int j=0; j<configurations[i].variants.size(); j++) {
-    			
-    			File evaluateSingleFile = new File(dkproHome + "\\" + configurations[i].getConfigurationName() + "-" + configurations[i].variants.get(j) + ".txt");
-    			
-    			if (evaluateSingleFile.exists()) {
-    	    		//unpack file with all necessary information
-    	            List<Object> posInformation = evaluateSingle(evaluateSingleFile);
+    	for (int i = 0; i<posFile.size(); i++) {
+		
+    	    //unpack file with all necessary information
+    	    List<Object> posInformation = evaluateSingle(posFile.get(i));
 
             
             List<String> tokens = (List<String>) posInformation.get(0);
@@ -121,39 +117,38 @@ public class EvaluatorModels {
             List<String> posAnnos = (List<String>) posInformation.get(4);
 
         	nrOfDocuments = (Integer) posInformation.get(5);
-        	correctCposTags[j] = (Integer) posInformation.get(6);
-        	correctPosTags[j] = (Integer) posInformation.get(7);
-    		
-            
+        	correctCposTags[i] = (Integer) posInformation.get(6);
+        	correctPosTags[i] = (Integer) posInformation.get(7);
+        	
+        	String taggerName = posFile.get(i).getName().replaceAll(".txt", "");
+  
         	//first three columns always have the same name
             columnNamesCPos[0] = "Token";
             columnNamesCPos[1] = "False?";
             columnNamesCPos[2] = "GoldCPOS?";
-            columnNamesCPos[j+3] = configurations[i].getConfigurationName() + "-" + configurations[i].variants.get(j);  
+            columnNamesCPos[i+3] = taggerName;
             
             columnNamesPos[0] = "Token";
             columnNamesPos[1] = "False?";
             columnNamesPos[2] = "GoldPOS";
-            columnNamesPos[j+3] = configurations[i].getConfigurationName() + "-" + configurations[i].variants.get(j);  
+            columnNamesPos[i+3] = taggerName;  
             
             for(int cPosRow=0;cPosRow<cPosAnnos.size();cPosRow++){
-                for (int cPosCol=0;cPosCol<configurations.length+1;cPosCol++){
+                for (int cPosCol=0;cPosCol<posFile.size()+1;cPosCol++){
                 cPosTags[cPosRow][0] = tokens.get(cPosRow);
                 cPosTags[cPosRow][2] = goldCPos.get(cPosRow);
-                cPosTags[cPosRow][j+3] = cPosAnnos.get(cPosRow);
+                cPosTags[cPosRow][i+3] = cPosAnnos.get(cPosRow);
                 }
             }
                         
             for(int posRow=0;posRow<posAnnos.size();posRow++){
-                for (int posCol=0;posCol<configurations.length+1;posCol++){
+                for (int posCol=0;posCol<posFile.size()+1;posCol++){
                 posTags[posRow][0] = tokens.get(posRow);
                 posTags[posRow][2] = goldPos.get(posRow);
-                posTags[posRow][j+3] = posAnnos.get(posRow);
+                posTags[posRow][i+3] = posAnnos.get(posRow);
                 }
             }
-    		}
-    	}
-    	}
+    		}    	
     	
     	//mark a cross in column 2 for every false tagged POS
     	for (int i=0;i<posTags.length;i++) {
@@ -190,10 +185,10 @@ public class EvaluatorModels {
         try {
         	
             File cPosFile = new File(dkproHome + "\\" + corpus.getImplementationName() + "-result-coarse.txt");
-            File posFile = new File(dkproHome + "\\" + corpus.getImplementationName() + "-result-fine.txt");
+            File posFile1 = new File(dkproHome + "\\" + corpus.getImplementationName() + "-result-fine.txt");
             
             cPosPrintStream = new PrintStream(cPosFile);
-            posPrintStream = new PrintStream(posFile);
+            posPrintStream = new PrintStream(posFile1);
             
             //create tables for universal and normal POS and write them to a text file
        	    TextTable cPosTable = new TextTable(columnNamesCPos, cPosTags); 
@@ -208,33 +203,32 @@ public class EvaluatorModels {
          	File resultFile = new File(dkproHome + "\\" + corpus.getImplementationName() + "-results.txt");
          	FileUtils.writeStringToFile(resultFile, "\n" + "\n" + corpus.getImplementationName() + "\n" + "\n", true);
             
-            	for (int j=0; j<configurations.length; j++) {		
-            	for (int k=0; k<configurations[j].variants.size(); k++) {
-            		File evaluateSingleFile = new File(dkproHome + "\\" + configurations[j].getConfigurationName() + "-" + configurations[j].variants.get(k) + ".txt");
-        			
-        			if (evaluateSingleFile.exists()) {
-                	String correctCPos = String.format( "%.2f", ((double)correctCposTags[k]/(double)nrOfDocuments)*100);
-                	String correctPos = String.format( "%.2f", ((double)correctPosTags[k]/(double)nrOfDocuments)*100);
+            	for (int i=0; i<posFile.size(); i++) {	
+            		
+
+            		
+            		String taggerName = posFile.get(i).getName().replaceAll(".txt", "");
+            		
+                	String correctCPos = String.format( "%.2f", ((double)correctCposTags[i]/(double)nrOfDocuments)*100);
+                	String correctPos = String.format( "%.2f", ((double)correctPosTags[i]/(double)nrOfDocuments)*100);
                 	
 
             	//append score results at bottom of tables file
-             	cPosPrintStream.append(configurations[j].getConfigurationName() + "-" + configurations[j].variants.get(k) + " scored an accuracy of " + correctCPos + "% !" + "\n" );
-             	posPrintStream.append(configurations[j].getConfigurationName() + "-" + configurations[j].variants.get(k) + " scored an accuracy of " + correctPos + "% !" + "\n" );
+             	cPosPrintStream.append(taggerName + " scored an accuracy of " + correctCPos + "% !" + "\n" );
+             	posPrintStream.append(taggerName + " scored an accuracy of " + correctPos + "% !" + "\n" );
              	
              	//write score to result file
-             	FileUtils.writeStringToFile(resultFile, configurations[j].getConfigurationName() + "\t" 
-             	+ configurations[j].variants.get(k) + "\t" + correctCPos + "\t" 
+             	FileUtils.writeStringToFile(resultFile, taggerName + "\t" 
+             	 + correctCPos + "\t" 
              	+ correctPos + "\n", true);
             	}
-            	}
-            	
-             
-            
+            	             
             //leave a space after every corpus
             FileUtils.writeStringToFile(resultFile, "-----------------------------------------------------------------" 
             + "\n", true);
+        
         }
-        }
+        
         catch (Exception e) {
             throw new IOException(e);
         } finally {
@@ -242,6 +236,7 @@ public class EvaluatorModels {
             posPrintStream.close();
         }
     }
+    
     
     /**
      * combines all result files to one text file which contains the accuracy for every tagger and corpora
@@ -270,14 +265,12 @@ public class EvaluatorModels {
      * deletes text files with tag information because they only should exist temporary
      * @param tagger
      */
-	public static void deleteAllTagger(Configuration[] configurations) {
+	public static void deleteAllTagger(List<File> posFile) {
     	
-    	for (int i=0; i<configurations.length; i++) {
-    		for (int j=0; j<configurations[i].variants.size(); j++) {
-    		File file = new File(dkproHome + "\\" + configurations[i].getConfigurationName() + "-" + configurations[i].variants.get(j) + ".txt");
-    		file.delete();
+    	for (int i=0; i<posFile.size(); i++) {
+    		posFile.get(i).delete();
     		}
-    	}
+    	
 		
 	}
 	

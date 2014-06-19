@@ -54,11 +54,6 @@ public class Pipeline
     public static void main(String[] args)
         throws Exception
     {
-    	String[] variants = new String[] { "maxent", "perceptron", 
-                "fast", "dewac", "hgc", "bidirectional-distsim", "bidirectional-distsim-wsj",
-                "left3words-distsim", "wsj-0-18-left3words-distsim", "ontonotes", "mayo", 
-                "conll2009", "tiger"};
-        
         
     	System.setProperty("PROJECT_HOME", "src\test\resources\test");
     	final String dkproHome = System.getenv("PROJECT_HOME");
@@ -90,17 +85,22 @@ public class Pipeline
 
 
         Configuration[] configurations = new Configuration[] {
-
-              new Configuration(OpenNlpPosTagger.class, asList(variants)),
-              new Configuration(StanfordPosTagger.class, asList(variants)),
-              new Configuration(ClearNlpPosTagger.class, asList(variants)),
-              new Configuration(MatePosTagger.class, asList(variants)),
-              new Configuration(TreeTaggerPosLemmaTT4J.class, asList("-none-")), 
+              
+              new Configuration(OpenNlpPosTagger.class, asList("maxent", "perceptron")),
+              new Configuration(StanfordPosTagger.class, asList("fast", "dewac", "hgc", 
+              		"bidirectional-distsim", "bidirectional-distsim-wsj","left3words-distsim", 
+            		"wsj-0-18-left3words-distsim")),
+              new Configuration(ClearNlpPosTagger.class, asList("ontonotes", "mayo")),
+              new Configuration(MatePosTagger.class, asList("conll2009", 
+              		"tiger")),
+              new Configuration(TreeTaggerPosLemmaTT4J.class, asList("-none-")) 
                 };
-        
+                         
         CollectionReaderDescription[] corpora = new CollectionReaderDescription[] {conllCorpus, brownCorpus};
         
         for (CollectionReaderDescription corpus : corpora) {
+        	
+            List<File> posFiles = new ArrayList<File>();
 
             for (Configuration cfg : configurations) {
                 for (String variant : cfg.variants) {
@@ -108,6 +108,7 @@ public class Pipeline
                         Object[] parameters = ArrayUtils.addAll(cfg.parameters, new Object[] {
                                 ComponentParameters.PARAM_VARIANT, variant });
                         AnalysisEngineDescription tagger = AnalysisEngineFactory.createEngineDescription(cfg.component, parameters);
+                        File posFile = new File(dkproHome + "\\" + cfg.component.getSimpleName() + "-" + variant + ".txt");
 
                         try {
                     SimplePipeline.runPipeline(
@@ -115,16 +116,21 @@ public class Pipeline
     						AnalysisEngineFactory.createEngineDescription(GoldPOSAnnotator.class),
     						AnalysisEngineFactory.createEngineDescription(tagger),
     						AnalysisEngineFactory.createEngineDescription(Writer.class,
-    								Writer.PARAM_OUTPUT_FILE, dkproHome + "\\" + cfg.component.getSimpleName() + "-" + variant + ".txt"));
+    								Writer.PARAM_OUTPUT_FILE, posFile));
+                    
+                       posFiles.add(posFile);
+                       
                         } catch (Exception e) {
+                        	 posFiles.remove(posFile);
             				continue;
             			}
                           }//end variant
             }//end configuration
+
             
-                	EvaluatorModels.saveResults(configurations, corpus, variants);
-                	EvaluatorModels.deleteAllTagger(configurations);
-                	
+        EvaluatorModels.saveResults(posFiles, corpus);
+        EvaluatorModels.deleteAllTagger(posFiles);
+        
                 	  }//end corpora
                 	
         EvaluatorModels.combineResults(corpora);

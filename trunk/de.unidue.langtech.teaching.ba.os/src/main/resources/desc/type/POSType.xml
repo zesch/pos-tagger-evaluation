@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>SentimentType</name>
+  <description/>
+  <version>1.0</version>
+  <vendor/>
+  <imports>
+    <import name="desc.type.POS"/>
+  </imports>
+  <types>
+    <typeDescription>
+      <name>de.unidue.langtech.teaching.ba.type.GoldPOS</name>
+      <description/>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>posTag</name>
+          <description/>
+          <rangeTypeName>de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS</rangeTypeName>
+        </featureDescription>
+      <featureDescription>
+          <name>cPosTag</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

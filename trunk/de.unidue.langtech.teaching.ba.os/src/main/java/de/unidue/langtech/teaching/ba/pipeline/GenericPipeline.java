@@ -22,10 +22,10 @@ import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosLemmaTT4J;
-import de.unidue.langtech.teaching.ba.components.Evaluator;
 import de.unidue.langtech.teaching.ba.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.ba.components.Writer;
 import de.unidue.langtech.teaching.ba.reader.Conll2009Reader;
+import de.unidue.langtech.teaching.ba.unused.Evaluator;
 
 
 /**

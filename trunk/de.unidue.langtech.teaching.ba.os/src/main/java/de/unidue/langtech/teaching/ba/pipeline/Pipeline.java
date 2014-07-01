@@ -28,6 +28,7 @@ import de.unidue.langtech.teaching.ba.components.EvaluatorModels;
 import de.unidue.langtech.teaching.ba.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.ba.components.Writer;
 import de.unidue.langtech.teaching.ba.reader.Conll2009Reader;
+import de.unidue.langtech.teaching.ba.results.ResultStore;
 
 
 /**
@@ -86,6 +87,8 @@ public class Pipeline
                          
         CollectionReaderDescription[] corpora = new CollectionReaderDescription[] {conllCorpus, brownCorpus};
         
+        ResultStore rs = new ResultStore();
+        
         for (CollectionReaderDescription corpus : corpora) {
         	
             List<File> posFiles = new ArrayList<File>();
@@ -116,13 +119,13 @@ public class Pipeline
             }//end configuration
 
             
-        EvaluatorModels.saveResults(posFiles, corpus);
-        EvaluatorModels.deleteAllTagger(posFiles);
+        rs.saveResults(posFiles, corpus);
+        rs.deleteAllTagger(posFiles);
         
                 	  }//end corpora
                 	
-        EvaluatorModels.combineResults(corpora);
-        EvaluatorModels.deleteAllCorpora(corpora);
+        rs.combineResults(corpora);
+        rs.deleteAllCorpora(corpora);
                 	 
             }
                  

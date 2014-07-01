@@ -1,4 +1,4 @@
-package de.unidue.langtech.teaching.ba.components;
+package de.unidue.langtech.teaching.ba.unused;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package de.unidue.langtech.teaching.ba.pipeline;
+package de.unidue.langtech.teaching.ba.unused;
 
 import static de.tudarmstadt.ukp.dkpro.core.api.io.ResourceCollectionReaderBase.INCLUDE_PREFIX;
 
@@ -25,7 +25,6 @@ import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosLemmaTT4J;
 import de.unidue.langtech.teaching.ba.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.ba.components.Writer;
 import de.unidue.langtech.teaching.ba.reader.Conll2009Reader;
-import de.unidue.langtech.teaching.ba.unused.Evaluator;
 
 
 /**

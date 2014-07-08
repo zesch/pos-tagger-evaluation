@@ -81,7 +81,10 @@ public class ResultStore implements IResultStore {
            }
    		}    	
    	
-   	//mark a cross in column 2 for every false tagged POS
+   	/*mark a cross in column 2 for every false tagged POS
+   	 * thanks to StackOverFlow User
+   	 * http://stackoverflow.com/questions/23876964/comparing-elements-in-an-2d-array
+   	 */
    	for (int i=0;i<posTags.length;i++) {
    	    boolean equal = true;
    	    for (int j=3;j<posTags[i].length;j++) {

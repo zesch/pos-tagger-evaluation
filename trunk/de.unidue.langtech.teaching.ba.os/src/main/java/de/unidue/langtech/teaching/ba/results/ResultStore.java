@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.uima.collection.CollectionReaderDescription;
 
 import de.unidue.langtech.teaching.ba.components.EvaluatorModels;
+import de.unidue.langtech.teaching.ba.pipeline.Pipeline.CorpusConfiguration;
 import dnl.utils.text.table.TextTable;
 
 public class ResultStore implements IResultStore {
@@ -17,7 +18,7 @@ public class ResultStore implements IResultStore {
 
 	@Override
 	public void saveResults(List<File> posFile,
-			CollectionReaderDescription corpus) throws IOException {
+			String corpusName) throws IOException {
 		
 		//only used once to determine row length of "posTags"
    	 List<Object> posInformationSingle = EvaluatorModels.evaluateSingle(posFile.get(0));
@@ -118,8 +119,8 @@ public class ResultStore implements IResultStore {
    	PrintStream posPrintStream = null;
        try {
        	
-           File cPosFile = new File(dkproHome + "\\" + corpus.getImplementationName() + "-result-coarse.txt");
-           File posFile1 = new File(dkproHome + "\\" + corpus.getImplementationName() + "-result-fine.txt");
+           File cPosFile = new File(dkproHome + "/" + corpusName + "-result-coarse.txt");
+           File posFile1 = new File(dkproHome + "/" + corpusName + "-result-fine.txt");
            
            cPosPrintStream = new PrintStream(cPosFile);
            posPrintStream = new PrintStream(posFile1);
@@ -134,8 +135,8 @@ public class ResultStore implements IResultStore {
         	posTable.printTable(posPrintStream, 0);
         	
         	//write corpus name at the top of result file
-        	File resultFile = new File(dkproHome + "\\" + corpus.getImplementationName() + "-results.txt");
-        	FileUtils.writeStringToFile(resultFile, "\n" + "\n" + corpus.getImplementationName() + "\n" + "\n", true);
+        	File resultFile = new File(dkproHome + "/" + corpusName + "-results.txt");
+        	FileUtils.writeStringToFile(resultFile, "\n" + "\n" + corpusName + "\n" + "\n", true);
            
            	for (int i=0; i<posFile.size(); i++) {	
            		
@@ -173,18 +174,18 @@ public class ResultStore implements IResultStore {
 	}
 
 	@Override
-	public void combineResults(CollectionReaderDescription[] corpora)
+	public void combineResults(CorpusConfiguration[] corpusConfigurations)
 			throws IOException {
 		
-    	File[] files = new File[corpora.length];
+    	File[] files = new File[corpusConfigurations.length];
     	
-    	for (int i = 0; i<corpora.length; i++) {
-    		files[i] = new File(dkproHome + "\\" + corpora[i].getImplementationName() + "-results.txt");
+    	for (int i = 0; i<corpusConfigurations.length; i++) {
+    		files[i] = new File(dkproHome + "/" + corpusConfigurations[i].getCorpusName() + "-results.txt");
     	}
     	
-    	File resultFile = new File(dkproHome + "\\" + "OverAllResults.txt");
+    	File resultFile = new File(dkproHome + "/" + "OverAllResults.txt");
     	FileUtils.write(resultFile, "FORMAT:" + "\n" + "<CORPUS_NAME>" 
-    	+ "\n" + "<TAGGER_NAME><TAB><CPOS_ACC><TAB><POS_ACC>" + "\n\n");
+    	+ "\n" + "<TAGGER_NAME-MODEL_NAME><TAB><CPOS_ACC><TAB><POS_ACC>" + "\n\n");
     	
     	for (int i = 0; i<files.length; i++) {
     		String fileStr = FileUtils.readFileToString(files[i]);
@@ -203,11 +204,11 @@ public class ResultStore implements IResultStore {
 	}
 
 	@Override
-	public void deleteAllCorpora(CollectionReaderDescription[] corpora)
+	public void deleteAllCorpora(CorpusConfiguration[] corpusConfigurations)
 			throws IOException {
 		
-		for (int i=0; i<corpora.length; i++) {
-    		File file = new File(dkproHome + "\\" + corpora[i].getImplementationName() + "-results.txt");
+		for (int i=0; i<corpusConfigurations.length; i++) {
+    		File file = new File(dkproHome + "/" + corpusConfigurations[i].getCorpusName() + "-results.txt");
     		file.delete();
     	}
 		

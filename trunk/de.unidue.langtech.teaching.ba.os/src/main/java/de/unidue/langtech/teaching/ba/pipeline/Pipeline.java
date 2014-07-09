@@ -4,6 +4,7 @@ import static de.tudarmstadt.ukp.dkpro.core.api.io.ResourceCollectionReaderBase.
 import static java.util.Arrays.asList;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
+import org.apache.uima.resource.ResourceInitializationException;
 
 import de.tudarmstadt.ukp.dkpro.core.api.parameter.ComponentParameters;
 import de.tudarmstadt.ukp.dkpro.core.arktools.ArktweetTagger;
@@ -39,25 +41,25 @@ import de.unidue.langtech.teaching.ba.results.ResultStore;
  */
 public class Pipeline
 {
-    public static void main(String[] args)
-        throws Exception
+    public static void main(String[] args) throws ResourceInitializationException, IOException
     {
         
-    	System.setProperty("PROJECT_HOME", "src\test\resources\test");
+    	System.setProperty("PROJECT_HOME", "src/main/resources/corpora");
     	final String dkproHome = System.getenv("PROJECT_HOME");
     	
     	//Brown Corpus
     	CollectionReaderDescription brownCorpus = CollectionReaderFactory.createReaderDescription(
                 TeiReader.class,
                 TeiReader.PARAM_LANGUAGE, "en",
-                TeiReader.PARAM_SOURCE_LOCATION, dkproHome + "\\en\\brown_tei",
+                TeiReader.PARAM_SOURCE_LOCATION, dkproHome + "/en/brown_tei",
+                TeiReader.PARAM_POS_MAPPING_LOCATION, dkproHome + "/en/brown_tei/en-brown-pos.map",
                 TeiReader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.xml", INCLUDE_PREFIX + "*.xml.gz"}
         );
     	
     	//Conll2009 Corpus
-    	CollectionReaderDescription conllCorpus = CollectionReaderFactory.createReaderDescription(
+    	CollectionReaderDescription conllCorpusGerman = CollectionReaderFactory.createReaderDescription(
                 Conll2009Reader.class,
-                Conll2009Reader.PARAM_SOURCE_LOCATION, dkproHome + "\\de",
+                Conll2009Reader.PARAM_SOURCE_LOCATION, dkproHome + "/de",
                 Conll2009Reader.PARAM_LANGUAGE, "de",
                 Conll2009Reader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.txt"}
         );
@@ -65,45 +67,58 @@ public class Pipeline
     	//Tiger Corpus
     	CollectionReaderDescription tigerCorpus = CollectionReaderFactory.createReaderDescription(
                 TigerXmlReader.class,
-                TigerXmlReader.PARAM_SOURCE_LOCATION, dkproHome + "\\de",
+                TigerXmlReader.PARAM_SOURCE_LOCATION, dkproHome + "/de",
                 TigerXmlReader.PARAM_LANGUAGE, "de",
                 TigerXmlReader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.xml", INCLUDE_PREFIX + "*.xml.gz"}
         );
         
 
 
-        Configuration[] configurations = new Configuration[] {
+        TaggerConfiguration[] configurations = new TaggerConfiguration[] {
               
-              new Configuration(OpenNlpPosTagger.class, asList("maxent", "perceptron")),
-              new Configuration(StanfordPosTagger.class, asList("fast", "dewac", "hgc", 
+              new TaggerConfiguration(OpenNlpPosTagger.class, asList("maxent", "perceptron")),
+              new TaggerConfiguration(StanfordPosTagger.class, asList("fast", "dewac", "hgc", 
               		"fast.41", "twitter","twitter-fast", "bidirectional-distsim", 
               		"bidirectional-distsim-wsj","left3words-distsim", 
             		"wsj-0-18-left3words-distsim")),
-              new Configuration(ClearNlpPosTagger.class, asList("ontonotes", "mayo")),
-              new Configuration(MatePosTagger.class, asList("conll2009", "tiger")),
-              new Configuration(TreeTaggerPosLemmaTT4J.class, asList("-none-")),
-              new Configuration(ArktweetTagger.class, asList("default")) 
+              new TaggerConfiguration(ClearNlpPosTagger.class, asList("ontonotes", "mayo")),
+              new TaggerConfiguration(MatePosTagger.class, asList("conll2009", "tiger")),
+              new TaggerConfiguration(TreeTaggerPosLemmaTT4J.class, asList("-none-")),
+              new TaggerConfiguration(ArktweetTagger.class, asList("default")) 
                 };
                          
-        CollectionReaderDescription[] corpora = new CollectionReaderDescription[] {conllCorpus, brownCorpus};
+        CorpusConfiguration[] corpusConfigurations = new CorpusConfiguration[] {
+                
+                new CorpusConfiguration(brownCorpus, "Brown Corpus"),
+                new CorpusConfiguration(conllCorpusGerman, "CoNLL 2009 - German") 
+                  };
         
         ResultStore rs = new ResultStore();
         
-        for (CollectionReaderDescription corpus : corpora) {
+        for (CorpusConfiguration corpus : corpusConfigurations) {
         	
             List<File> posFiles = new ArrayList<File>();
 
-            for (Configuration cfg : configurations) {
-                for (String variant : cfg.variants) {
+            for (TaggerConfiguration tcfg : configurations) {
+            	
+                for (String variant : tcfg.variants) {
                     
-                        Object[] parameters = ArrayUtils.addAll(cfg.parameters, new Object[] {
+                        Object[] parameters = ArrayUtils.addAll(tcfg.parameters, new Object[] {
                                 ComponentParameters.PARAM_VARIANT, variant });
-                        AnalysisEngineDescription tagger = AnalysisEngineFactory.createEngineDescription(cfg.component, parameters);
-                        File posFile = new File(dkproHome + "\\" + cfg.component.getSimpleName() + "-" + variant + ".txt");
+                        
+                        if (corpus.readerDescription.equals(brownCorpus)) {
+                        	
+                        	parameters = ArrayUtils.addAll(tcfg.parameters, new Object[] {
+                                    ComponentParameters.PARAM_VARIANT, variant,
+                                    ComponentParameters.PARAM_POS_MAPPING_LOCATION, dkproHome + "/en/brown_tei/en-brown-pos.map"});
+                        }
+                        
+                        AnalysisEngineDescription tagger = AnalysisEngineFactory.createEngineDescription(tcfg.taggerComponent, parameters);
+                        File posFile = new File(dkproHome + "/" + tcfg.taggerComponent.getSimpleName() + "-" + variant + ".txt");
 
                         try {
                     SimplePipeline.runPipeline(
-    						corpus,
+                    		corpus.readerDescription,
     						AnalysisEngineFactory.createEngineDescription(GoldPOSAnnotator.class),
     						AnalysisEngineFactory.createEngineDescription(tagger),
     						AnalysisEngineFactory.createEngineDescription(Writer.class,
@@ -119,32 +134,49 @@ public class Pipeline
             }//end configuration
 
             
-        rs.saveResults(posFiles, corpus);
+        rs.saveResults(posFiles, corpus.corpusName);
         rs.deleteAllTagger(posFiles);
         
                 	  }//end corpora
                 	
-        rs.combineResults(corpora);
-        rs.deleteAllCorpora(corpora);
+        rs.combineResults(corpusConfigurations);
+        rs.deleteAllCorpora(corpusConfigurations);
                 	 
             }
                  
-    public static class Configuration
+    public static class TaggerConfiguration
     {
-        Class<? extends AnalysisComponent> component;
+        Class<? extends AnalysisComponent> taggerComponent;
         public List<String> variants;
         Object[] parameters;
 
-        public Configuration(Class<? extends AnalysisComponent> aComponent, List<String> aVariants,
+        public TaggerConfiguration(Class<? extends AnalysisComponent> aComponent, List<String> aVariants,
                 Object... aParameters)
         {
-            component = aComponent;
+            taggerComponent = aComponent;
             variants = aVariants;
             parameters = aParameters;
         }
         
-        public String getConfigurationName(){
-        	return component.getSimpleName();
+        public String getTaggerName(){
+        	return taggerComponent.getSimpleName();
+        }
+    }
+    
+    public static class CorpusConfiguration
+    {
+        CollectionReaderDescription readerDescription;
+        String corpusName;
+
+
+        public CorpusConfiguration(CollectionReaderDescription aReaderDescription, String aReaderName)
+        {
+            readerDescription = aReaderDescription;
+            corpusName = aReaderName;
+        }
+        
+        public String getCorpusName(){
+        	return corpusName;
         }
     }
 }

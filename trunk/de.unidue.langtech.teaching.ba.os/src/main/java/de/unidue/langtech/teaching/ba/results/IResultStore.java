@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.uima.collection.CollectionReaderDescription;
 
+import de.unidue.langtech.teaching.ba.pipeline.Pipeline.CorpusConfiguration;
+
 
 public interface IResultStore {
 	
@@ -19,7 +21,7 @@ public interface IResultStore {
      * @throws IOException
      */
     @SuppressWarnings("unchecked")
-	public void saveResults(List<File> posFile, CollectionReaderDescription corpus) throws IOException;
+	public void saveResults(List<File> posFile, String corpusName) throws IOException;
     
     
     /**
@@ -27,7 +29,7 @@ public interface IResultStore {
      * @param corpora
      * @throws IOException
      */
-    public void combineResults(CollectionReaderDescription[] corpora) throws IOException;
+    public void combineResults(CorpusConfiguration[] corpusConfigurations) throws IOException;
     
     
     /**
@@ -41,7 +43,7 @@ public interface IResultStore {
 	 * deletes text files with corpora information because they only should exist temporary
 	 * @param corpora
 	 */
-	public void deleteAllCorpora(CollectionReaderDescription[] corpora) throws IOException;
+	public void deleteAllCorpora(CorpusConfiguration[] corpusConfigurations) throws IOException;
 
 
 }

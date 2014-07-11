@@ -29,6 +29,7 @@ import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosLemmaTT4J;
 import de.unidue.langtech.teaching.ba.components.EvaluatorModels;
 import de.unidue.langtech.teaching.ba.components.GoldPOSAnnotator;
 import de.unidue.langtech.teaching.ba.components.Writer;
+import de.unidue.langtech.teaching.ba.reader.ArkCorpusReader;
 import de.unidue.langtech.teaching.ba.reader.Conll2009Reader;
 import de.unidue.langtech.teaching.ba.results.ResultStore;
 
@@ -70,6 +71,15 @@ public class Pipeline
                 TigerXmlReader.PARAM_SOURCE_LOCATION, dkproHome + "/de",
                 TigerXmlReader.PARAM_LANGUAGE, "de",
                 TigerXmlReader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.xml", INCLUDE_PREFIX + "*.xml.gz"}
+        );
+    	
+    	//TweetNLP Corpus
+    	CollectionReaderDescription arkCorpus = CollectionReaderFactory.createReaderDescription(
+                ArkCorpusReader.class,
+                ArkCorpusReader.PARAM_SOURCE_LOCATION, dkproHome + "/en/oct27.conll",
+                ArkCorpusReader.PARAM_LANGUAGE, "en",
+                ArkCorpusReader.PARAM_POS_MAPPING_LOCATION, "classpath:/de/tudarmstadt/ukp/dkpro/"
+                        + "core/api/lexmorph/tagset/en-arktweet.map"
         );
         
 

@@ -32,9 +32,7 @@ public class Conll2009ReaderTest
             if (i==0) {
                 assertEquals("Ross", tokenAnno.getCoveredText());
                 
-                POS pos = tokenAnno.getPos();
-                
-                assertEquals("NE", pos.getPosValue());
+                assertEquals("NE", tokenAnno.getPos().getPosValue());
                 
             }
         }

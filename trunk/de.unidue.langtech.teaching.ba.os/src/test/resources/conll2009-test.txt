@@ -1,0 +1,7 @@
+1	Ross	Ross	Roß	NE	NN	Nom|Sg|Masc	_	3	3	PNC	PNC	_	_
+2	Perot	Perot	Perot	NE	NE	Nom|Sg|Masc	_	4	4	SB	SB	_	_
+3	wäre	sein	sein	VAFIN	VAFIN	3|Sg|Past|Subj	*|Sg|Past|Subj	0	0	ROOT	ROOT	_	_
+4	vielleicht	vielleicht	vielleicht	ADV	ADV	_	_	4	4	MO	MO	_	_
+5	ein	ein	ein	ART	ART	Nom|Sg|Masc	*|Sg|*	8	8	NK	NK	_	_
+6	prächtiger	prächtig	prächtig	ADJA	ADJA	Pos|Nom|Sg|Masc	*|*|*|*	8	8	NK	NK	_	_
+7	Diktator	Diktator	Diktator	NN	NN	Nom|Sg|Masc	*|Sg|Masc	4	4	PD	PD	_	_

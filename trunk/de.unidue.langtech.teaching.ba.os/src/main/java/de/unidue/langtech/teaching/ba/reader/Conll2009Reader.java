@@ -70,7 +70,7 @@ public class Conll2009Reader
     private static final int LEMMA = 2;
     // private static final int PLEMMA = 3;
     private static final int POSTAG = 4;
-    private static final int PPOSTAG = 5;
+    //private static final int PPOSTAG = 5;
     // private static final int FEATS = 6;
     // private static final int PFEATS = 7;
     private static final int HEAD = 8;

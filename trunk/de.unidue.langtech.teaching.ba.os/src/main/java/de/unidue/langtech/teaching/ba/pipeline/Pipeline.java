@@ -35,7 +35,7 @@ import de.unidue.langtech.teaching.ba.results.ResultStore;
 
 
 /**
- * Pipeline needs at least 2GB of space
+ * Pipeline needs at least 3GB of space
  * Go to Run-> Run Configurations-> Arguments-> VM Arguments-> -Xmx3048m
  * @author suenme
  *
@@ -52,15 +52,15 @@ public class Pipeline
     	CollectionReaderDescription brownCorpus = CollectionReaderFactory.createReaderDescription(
                 TeiReader.class,
                 TeiReader.PARAM_LANGUAGE, "en",
-                TeiReader.PARAM_SOURCE_LOCATION, dkproHome + "/en/brown_tei",
-                TeiReader.PARAM_POS_MAPPING_LOCATION, dkproHome + "/en/brown_tei/en-brown-pos.map",
+                TeiReader.PARAM_SOURCE_LOCATION, dkproHome + "/en/Brown",
+                TeiReader.PARAM_POS_MAPPING_LOCATION, dkproHome + "/en/Brown/en-brown-pos.map",
                 TeiReader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.xml", INCLUDE_PREFIX + "*.xml.gz"}
         );
     	
     	//Conll2009 Corpus
     	CollectionReaderDescription conllCorpusGerman = CollectionReaderFactory.createReaderDescription(
                 Conll2009Reader.class,
-                Conll2009Reader.PARAM_SOURCE_LOCATION, dkproHome + "/de",
+                Conll2009Reader.PARAM_SOURCE_LOCATION, dkproHome + "/de/CoNLL2009-DE",
                 Conll2009Reader.PARAM_LANGUAGE, "de",
                 Conll2009Reader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.txt"}
         );
@@ -68,7 +68,7 @@ public class Pipeline
     	//Tiger Corpus
     	CollectionReaderDescription tigerCorpus = CollectionReaderFactory.createReaderDescription(
                 TigerXmlReader.class,
-                TigerXmlReader.PARAM_SOURCE_LOCATION, dkproHome + "/de",
+                TigerXmlReader.PARAM_SOURCE_LOCATION, dkproHome + "/de/TIGER",
                 TigerXmlReader.PARAM_LANGUAGE, "de",
                 TigerXmlReader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.xml", INCLUDE_PREFIX + "*.xml.gz"}
         );
@@ -76,7 +76,7 @@ public class Pipeline
     	//TweetNLP Corpus
     	CollectionReaderDescription arkCorpus = CollectionReaderFactory.createReaderDescription(
                 ArkCorpusReader.class,
-                ArkCorpusReader.PARAM_SOURCE_LOCATION, dkproHome + "/en",
+                ArkCorpusReader.PARAM_SOURCE_LOCATION, dkproHome + "/en/TweetNLP",
                 ArkCorpusReader.PARAM_LANGUAGE, "en",
                 ArkCorpusReader.PARAM_POS_MAPPING_LOCATION, "classpath:/de/tudarmstadt/ukp/dkpro/"
                         + "core/api/lexmorph/tagset/en-arktweet.map",
@@ -101,7 +101,9 @@ public class Pipeline
         CorpusConfiguration[] corpusConfigurations = new CorpusConfiguration[] {
                 
                 new CorpusConfiguration(brownCorpus, "Brown Corpus"),
-                new CorpusConfiguration(conllCorpusGerman, "CoNLL 2009 - German") 
+                new CorpusConfiguration(conllCorpusGerman, "CoNLL 2009 - German"),
+                new CorpusConfiguration(tigerCorpus, "TIGER"),
+                new CorpusConfiguration(arkCorpus, "ARK Corpus")
                   };
         
         ResultStore rs = new ResultStore();

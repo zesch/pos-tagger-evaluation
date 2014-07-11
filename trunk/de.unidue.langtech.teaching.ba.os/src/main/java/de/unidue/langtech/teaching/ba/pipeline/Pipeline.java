@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_component.AnalysisComponent;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
+import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
@@ -76,10 +78,11 @@ public class Pipeline
     	//TweetNLP Corpus
     	CollectionReaderDescription arkCorpus = CollectionReaderFactory.createReaderDescription(
                 ArkCorpusReader.class,
-                ArkCorpusReader.PARAM_SOURCE_LOCATION, dkproHome + "/en/oct27.conll",
+                ArkCorpusReader.PARAM_SOURCE_LOCATION, dkproHome + "/en",
                 ArkCorpusReader.PARAM_LANGUAGE, "en",
                 ArkCorpusReader.PARAM_POS_MAPPING_LOCATION, "classpath:/de/tudarmstadt/ukp/dkpro/"
-                        + "core/api/lexmorph/tagset/en-arktweet.map"
+                        + "core/api/lexmorph/tagset/en-arktweet.map",
+                ArkCorpusReader.PARAM_PATTERNS, new String[] {INCLUDE_PREFIX + "*.conll"}
         );
         
 
@@ -136,7 +139,7 @@ public class Pipeline
                     
                        posFiles.add(posFile);
                        
-                        } catch (Exception e) {
+                        } catch (IOException|IllegalStateException|UIMAException e) {
                         	 posFiles.remove(posFile);
             				continue;
             			}

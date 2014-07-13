@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.uima.collection.CollectionReaderDescription;
-
 import de.unidue.langtech.teaching.ba.pipeline.Pipeline.CorpusConfiguration;
 
 

@@ -6,7 +6,6 @@ import java.io.PrintStream;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.uima.collection.CollectionReaderDescription;
 
 import de.unidue.langtech.teaching.ba.components.EvaluatorModels;
 import de.unidue.langtech.teaching.ba.pipeline.Pipeline.CorpusConfiguration;

@@ -123,7 +123,7 @@ public class Pipeline
                         	
                         	parameters = ArrayUtils.addAll(tcfg.parameters, new Object[] {
                                     ComponentParameters.PARAM_VARIANT, variant,
-                                    ComponentParameters.PARAM_POS_MAPPING_LOCATION, dkproHome + "/en/brown_tei/en-brown-pos.map"});
+                                    ComponentParameters.PARAM_POS_MAPPING_LOCATION, dkproHome + "/en/Brown/en-brown-pos.map"});
                         }
                         
                         AnalysisEngineDescription tagger = AnalysisEngineFactory.createEngineDescription(tcfg.taggerComponent, parameters);

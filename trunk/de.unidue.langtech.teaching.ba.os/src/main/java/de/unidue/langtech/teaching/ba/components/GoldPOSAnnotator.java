@@ -36,7 +36,7 @@ public class GoldPOSAnnotator
 				goldPOS.setPosTag(posValue);
 				goldPOS.setCPosTag(cPosValue);
 				
-				//set begin and end, otherwise GoldPOS annos are not created in correct order
+				//set begin and end, otherwise GoldPOS annotations are not created in correct order
 				goldPOS.setBegin(posValue.getBegin());
 				goldPOS.setEnd(posValue.getEnd());
 	            goldPOS.addToIndexes();

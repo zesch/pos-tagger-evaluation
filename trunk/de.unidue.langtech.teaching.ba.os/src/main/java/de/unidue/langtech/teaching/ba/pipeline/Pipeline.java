@@ -37,6 +37,10 @@ import de.unidue.langtech.teaching.ba.results.ResultStore;
 /**
  * Pipeline needs at least 3GB of space
  * Go to Run-> Run Configurations-> Arguments-> VM Arguments-> -Xmx3048m
+ * Please set also the environment variable
+ * Go to Run-> Run Configurations-> Environment -> New -> name = PROJECT_HOME & value = src/main/resources/corpora
+ * Otherwise corpora are not found
+ * 
  * @author suenme
  *
  */
@@ -110,6 +114,7 @@ public class Pipeline
         
         for (CorpusConfiguration corpus : corpusConfigurations) {
         	
+        	//a list which includes all POS files where taggers were succesfully started (without exceptions)
             List<File> posFiles = new ArrayList<File>();
 
             for (TaggerConfiguration tcfg : configurations) {
@@ -127,6 +132,8 @@ public class Pipeline
                         }
                         
                         AnalysisEngineDescription tagger = AnalysisEngineFactory.createEngineDescription(tcfg.taggerComponent, parameters);
+                        
+                        //File where POS information are written
                         File posFile = new File(dkproHome + "/" + tcfg.taggerComponent.getSimpleName() + "-" + variant + ".txt");
 
                         try {
@@ -136,31 +143,36 @@ public class Pipeline
     						AnalysisEngineFactory.createEngineDescription(tagger),
     						AnalysisEngineFactory.createEngineDescription(Writer.class,
     								Writer.PARAM_OUTPUT_FILE, posFile));
-                    
+
                        posFiles.add(posFile);
                        
                         } catch (IOException|IllegalStateException|UIMAException e) {
                         	 posFiles.remove(posFile);
             				continue;
             			}
-                          }//end variant
-            }//end configuration
+                          }
+            }
 
             
         rs.saveResults(posFiles, corpus.corpusName);
         rs.deleteAllTagger(posFiles);
         
-                	  }//end corpora
+                	  }
                 	
         rs.combineResults(corpusConfigurations);
         rs.deleteAllCorpora(corpusConfigurations);
                 	 
             }
-                 
-    public static class TaggerConfiguration
+    
+    /**
+     * A class which configures Analysis Components and their variants and parameters, e.g. models
+     * @author Onur
+     *
+     */
+    private static class TaggerConfiguration
     {
         Class<? extends AnalysisComponent> taggerComponent;
-        public List<String> variants;
+        List<String> variants;
         Object[] parameters;
 
         public TaggerConfiguration(Class<? extends AnalysisComponent> aComponent, List<String> aVariants,
@@ -171,11 +183,14 @@ public class Pipeline
             parameters = aParameters;
         }
         
-        public String getTaggerName(){
-        	return taggerComponent.getSimpleName();
-        }
     }
     
+    /**
+     * A class which configures Collection Reader descriptions and their corresponding name.
+     * Must be private so ResultStore can make use of it.
+     * @author Onur
+     *
+     */
     public static class CorpusConfiguration
     {
         CollectionReaderDescription readerDescription;

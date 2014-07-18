@@ -6,16 +6,21 @@ import java.util.List;
 
 import de.unidue.langtech.teaching.ba.pipeline.Pipeline.CorpusConfiguration;
 
-
+/**
+ * Result store interface, which defines all methods for the result store.
+ * @author Onur
+ *
+ */
 public interface IResultStore {
 	
     /**
-     * saves results for an array of tagger and corpora
-     * first unpacks the file which contain all important information
-     * prints token/goldPOS/detectedPOS to two tables for universal and normal POS
-     * also creates a text file which contains the accuracy for every tagger
-     * @param posFile File which contains token/goldPOS/detectedPOS
-     * @param corpus 
+     * Saves the results for a tagger.
+     * At first unpacks information from posFile 
+     * Then stores all data in two tables for fine & coarse-grained POS
+     * Finally writes accuracies to the bottom of the tables and to an extra result file 
+     * which includes tagger accuracies for each corpus
+     * @param posFile
+     * @param corpusName
      * @throws IOException
      */
     @SuppressWarnings("unchecked")
@@ -31,14 +36,15 @@ public interface IResultStore {
     
     
     /**
-     * deletes text files with tag information because they only should exist temporary
+     * deletes text files written by Writer class
+     * with tag information because they only should exist temporary
      * @param tagger
      */
 	public void deleteAllTagger(List<File> posFile) throws IOException;
 		
 
 	/**
-	 * deletes text files with corpora information because they only should exist temporary
+	 * deletes all result files with corpora information because they only should exist temporary
 	 * @param corpora
 	 */
 	public void deleteAllCorpora(CorpusConfiguration[] corpusConfigurations) throws IOException;

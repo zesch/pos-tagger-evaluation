@@ -25,7 +25,15 @@ import de.tudarmstadt.ukp.dkpro.core.api.resources.MappingProvider;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 
-
+/**
+ * Reader for the Ark Twitter NLP corpus. Reads the corpus as *.conll data. 
+ * Format: TOKEN<TAB>POS
+ * @author Onur
+ * 
+ * inspired by Conll2006Reader 
+ * see https://code.google.com/p/dkpro-core-asl/source/browse/de.tudarmstadt.ukp.dkpro.core-asl/trunk/de.tudarmstadt.ukp.dkpro.core.io.conll-asl/src/main/java/de/tudarmstadt/ukp/dkpro/core/io/conll/Conll2006Reader.java?spec=svn1710&r=1710
+ *
+ */
 public class ArkCorpusReader
     extends JCasResourceCollectionReader_ImplBase
 {

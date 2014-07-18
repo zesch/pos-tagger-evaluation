@@ -15,19 +15,17 @@ public class ResultStore implements IResultStore {
 	
 	public static final String dkproHome = System.getenv("PROJECT_HOME");
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void saveResults(List<File> posFile,
-			String corpusName) throws IOException {
+	public void saveResults(List<File> posFile, String corpusName) throws IOException {
 		
-		//only used once to determine row length of "posTags"
+	 //only used once to determine row length of "posTags"
    	 List<Object> posInformationSingle = EvaluatorModels.evaluateSingle(posFile.get(0));
    	 int rowLength = (Integer) posInformationSingle.get(5);
    	
-   	//important for Coarse POS tags
    	String[] columnNamesCPos = new String[posFile.size()+3];
    	String [][] cPosTags = new String[rowLength][posFile.size()+3]; 
    	
-   	//important for fine POS tags
    	String[] columnNamesPos = new String[posFile.size()+3];
    	String [][] posTags = new String[rowLength][posFile.size()+3]; 
    	
@@ -39,7 +37,6 @@ public class ResultStore implements IResultStore {
 		
    	    //unpack file with all necessary information
    	    List<Object> posInformation = EvaluatorModels.evaluateSingle(posFile.get(i));
-
            
            List<String> tokens = (List<String>) posInformation.get(0);
            List<String> goldCPos = (List<String>) posInformation.get(1);
@@ -53,7 +50,7 @@ public class ResultStore implements IResultStore {
        	
        	String taggerName = posFile.get(i).getName().replaceAll(".txt", "");
  
-       	//first three columns always have the same name
+       	   //first three columns always have the same name
            columnNamesCPos[0] = "Token";
            columnNamesCPos[1] = "False?";
            columnNamesCPos[2] = "GoldCPOS";
@@ -64,6 +61,7 @@ public class ResultStore implements IResultStore {
            columnNamesPos[2] = "GoldPOS";
            columnNamesPos[i+3] = taggerName;  
            
+           //fill arrays with information
            for(int cPosRow=0;cPosRow<cPosAnnos.size();cPosRow++){
                for (int cPosCol=0;cPosCol<posFile.size()+1;cPosCol++){
                cPosTags[cPosRow][0] = tokens.get(cPosRow);
@@ -81,7 +79,7 @@ public class ResultStore implements IResultStore {
            }
    		}    	
    	
-   	/*mark a cross in column 2 for every false tagged POS
+   	/* mark a cross in column 2 (False?) for every false tagged POS
    	 * thanks to StackOverFlow User
    	 * http://stackoverflow.com/questions/23876964/comparing-elements-in-an-2d-array
    	 */
@@ -124,8 +122,8 @@ public class ResultStore implements IResultStore {
            cPosPrintStream = new PrintStream(cPosFile);
            posPrintStream = new PrintStream(posFile1);
            
-           //create tables for universal and normal POS and write them to a text file
-      	    TextTable cPosTable = new TextTable(columnNamesCPos, cPosTags); 
+           //create tables for corse-grained and fine-grained POS and write them to a text file
+      	   TextTable cPosTable = new TextTable(columnNamesCPos, cPosTags); 
            cPosTable.setAddRowNumbering(true);
            cPosTable.printTable(cPosPrintStream, 0);
            
@@ -133,31 +131,28 @@ public class ResultStore implements IResultStore {
       	    posTable.setAddRowNumbering(true);
         	posTable.printTable(posPrintStream, 0);
         	
-        	//write corpus name at the top of result file
+        	//The result file contains all tagger accuracies for a corpus
         	File resultFile = new File(dkproHome + "/" + corpusName + "-results.txt");
         	FileUtils.writeStringToFile(resultFile, "\n" + "\n" + corpusName + "\n" + "\n", true);
            
            	for (int i=0; i<posFile.size(); i++) {	
            		
-
-           		
            		String taggerName = posFile.get(i).getName().replaceAll(".txt", "");
            		
                	String correctCPos = String.format( "%.2f", ((double)correctCposTags[i]/(double)nrOfDocuments)*100);
                	String correctPos = String.format( "%.2f", ((double)correctPosTags[i]/(double)nrOfDocuments)*100);
-               	
-
-           	//append score results at bottom of tables file
+                
+               	//write scores to the bottom of the tables
             	cPosPrintStream.append(taggerName + " scored an accuracy of " + correctCPos + "% !" + "\n" );
             	posPrintStream.append(taggerName + " scored an accuracy of " + correctPos + "% !" + "\n" );
             	
-            	//write score to result file
+            	//write scores to result file
             	FileUtils.writeStringToFile(resultFile, taggerName + "\t" 
             	 + correctCPos + "\t" 
             	+ correctPos + "\n", true);
            	}
            	             
-           //leave a space after every corpus
+           //leave some space after every corpus
            FileUtils.writeStringToFile(resultFile, "-----------------------------------------------------------------" 
            + "\n", true);
        
@@ -173,8 +168,7 @@ public class ResultStore implements IResultStore {
 	}
 
 	@Override
-	public void combineResults(CorpusConfiguration[] corpusConfigurations)
-			throws IOException {
+	public void combineResults(CorpusConfiguration[] corpusConfigurations) throws IOException {
 		
     	File[] files = new File[corpusConfigurations.length];
     	
@@ -203,8 +197,7 @@ public class ResultStore implements IResultStore {
 	}
 
 	@Override
-	public void deleteAllCorpora(CorpusConfiguration[] corpusConfigurations)
-			throws IOException {
+	public void deleteAllCorpora(CorpusConfiguration[] corpusConfigurations) throws IOException {
 		
 		for (int i=0; i<corpusConfigurations.length; i++) {
     		File file = new File(dkproHome + "/" + corpusConfigurations[i].getCorpusName() + "-results.txt");

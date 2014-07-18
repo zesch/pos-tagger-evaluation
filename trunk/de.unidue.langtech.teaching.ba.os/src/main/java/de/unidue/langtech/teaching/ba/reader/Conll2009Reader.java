@@ -58,7 +58,9 @@ import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
  * @author Onur
  * 
  * see http://ufal.mff.cuni.cz/conll2009-st/task-description.html
- * inspired by Conll2006Reader @author Seid Muhie Yimam @author Richard Eckart de Castilho
+ * inspired by Conll2006Reader 
+ * see
+ * https://code.google.com/p/dkpro-core-asl/source/browse/de.tudarmstadt.ukp.dkpro.core-asl/trunk/de.tudarmstadt.ukp.dkpro.core.io.conll-asl/src/main/java/de/tudarmstadt/ukp/dkpro/core/io/conll/Conll2006Reader.java?spec=svn1710&r=1710
  */
 public class Conll2009Reader
     extends JCasResourceCollectionReader_ImplBase

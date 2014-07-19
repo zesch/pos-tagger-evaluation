@@ -1,0 +1,8 @@
+I	PR	V	O	PRP
+predict	V	PR	V	VBP
+I	PR	V	O	PRP
+won't	V	NN	V	MD
+win	V	PR	NN	VB
+a	ART	NN	D	DT
+single	ADJ	ADV	A	JJ
+game	NN	V	N	V

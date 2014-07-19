@@ -20,7 +20,6 @@ import de.unidue.langtech.teaching.ba.reader.Conll2009Reader;
 
 public class Conll2009ReaderTest
 {
-	//change input path to "src/test/resources/test/taska-training.txt" for reading training data
     @Test
     public void testReaderExample()throws Exception
     {

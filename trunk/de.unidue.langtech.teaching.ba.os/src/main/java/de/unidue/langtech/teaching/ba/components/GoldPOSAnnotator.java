@@ -13,7 +13,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.unidue.langtech.teaching.ba.type.GoldPOS;
 
 /**
- * puts POS tag into new annotation named GoldPOS and deletes old POS tag
+ * Puts POS tag into new annotation named GoldPOS and deletes old POS tag
  * @author Onur
  *
  */

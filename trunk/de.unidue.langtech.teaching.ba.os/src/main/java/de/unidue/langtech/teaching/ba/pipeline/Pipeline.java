@@ -35,6 +35,7 @@ import de.unidue.langtech.teaching.ba.results.ResultStore;
 
 
 /**
+ * The Pipeline and main class. Run this class to evaluate given corpora with given taggers.
  * Pipeline needs at least 3GB of space
  * Go to Run-> Run Configurations-> Arguments-> VM Arguments-> -Xmx3048m
  * Please set also the environment variable

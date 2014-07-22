@@ -17,7 +17,11 @@ import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.unidue.langtech.teaching.ba.reader.Conll2009Reader;
 
 
-
+/**
+ * Tests if tokens size, tokens and POS are correctly read.
+ * @author Onur
+ *
+ */
 public class Conll2009ReaderTest
 {
     @Test

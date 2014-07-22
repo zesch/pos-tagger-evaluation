@@ -1,23 +1,24 @@
 package de.unidue.langtech.teaching.ba.components;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
+/**
+ * Used to store all necessary information into one list in the following order
+ * Token, GoldPOS, detectedPOS, nrOfDocuments, correctlyTagged
+ * 
+ * @param file our file with contains the tokens and gold/detected tags
+ * @return return the list with all information
+ * @throws IOException
+ */
 public class EvaluatorModels {
 	
 	   
-    /**
-     * used to store all necessary information into one list in the following order
-	 * Token, GoldPOS, detectedPOS, nrOfDocuments, correctlyTagged
-	 * 
-     * @param file our file with contains the tokens and gold/detected tags
-     * @return return the list with all information
-     * @throws IOException
-     */
     public static List<Object> evaluateSingle(File file) throws IOException {
     	
     	List<Object> posInformation = new ArrayList<Object>();

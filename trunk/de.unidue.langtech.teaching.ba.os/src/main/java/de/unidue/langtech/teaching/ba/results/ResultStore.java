@@ -11,6 +11,11 @@ import de.unidue.langtech.teaching.ba.components.EvaluatorModels;
 import de.unidue.langtech.teaching.ba.pipeline.Pipeline.CorpusConfiguration;
 import dnl.utils.text.table.TextTable;
 
+/**
+ * Implements the ResultStore and its methods.
+ * @author Onur
+ *
+ */
 public class ResultStore implements IResultStore {
 	
 	public static final String dkproHome = System.getenv("PROJECT_HOME");

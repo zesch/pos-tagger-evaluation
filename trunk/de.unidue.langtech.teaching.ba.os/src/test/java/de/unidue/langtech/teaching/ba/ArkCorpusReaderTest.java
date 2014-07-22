@@ -17,7 +17,11 @@ import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.unidue.langtech.teaching.ba.reader.ArkCorpusReader;
 
 
-
+/**
+ * Tests if tokens size, tokens and POS are correctly read.
+ * @author Onur
+ *
+ */
 public class ArkCorpusReaderTest
 {
     @Test

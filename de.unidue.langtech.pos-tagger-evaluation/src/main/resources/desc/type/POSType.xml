@@ -9,7 +9,7 @@
   </imports>
   <types>
     <typeDescription>
-      <name>de.unidue.langtech.tagger.type.GoldPOS</name>
+      <name>de.unidue.ltl.tagger.type.GoldPOS</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>

@@ -10,7 +10,7 @@ import org.apache.uima.jcas.JCas;
 
 import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
-import de.unidue.ltl.toobee.poseval.type.GoldPOS;
+import de.unidue.ltl.tagger.type.GoldPOS;
 
 /**
  * Remove existing POS tags and convert into GoldPOS annotations.

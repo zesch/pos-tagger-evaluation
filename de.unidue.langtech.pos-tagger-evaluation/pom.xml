@@ -237,41 +237,6 @@
 		<dependency>
 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 			<artifactId>
-            de.tudarmstadt.ukp.dkpro.core.flextag-model-tagger-en-sm-nodict
-        </artifactId>
-			<version>20160215.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>
-            de.tudarmstadt.ukp.dkpro.core.flextag-model-tagger-en-sm
-        </artifactId>
-			<version>20160215.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>
-            de.tudarmstadt.ukp.dkpro.core.flextag-model-tagger-en-sm-nodict
-        </artifactId>
-			<version>20160215.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>
-            de.tudarmstadt.ukp.dkpro.core.flextag-model-tagger-en-sm-nps
-        </artifactId>
-			<version>20160215.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>
-            de.tudarmstadt.ukp.dkpro.core.flextag-model-tagger-en-sm-nps-newbrown
-        </artifactId>
-			<version>20160215.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>
     		de.tudarmstadt.ukp.dkpro.core.opennlp-model-tagger-de-maxent
     	</artifactId>
 			<version>20120616.1</version>
@@ -346,11 +311,11 @@
     	</artifactId>
 			<version>20070724.2</version>
 		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>de.tudarmstadt.ukp.dkpro.core.lbj-asl</artifactId>
-			<version>1.9.0-SNAPSHOT</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId> -->
+<!-- 			<artifactId>de.tudarmstadt.ukp.dkpro.core.lbj-asl</artifactId> -->
+<!-- 			<version>1.9.0-SNAPSHOT</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 			<artifactId>
@@ -383,13 +348,6 @@
     		de.tudarmstadt.ukp.dkpro.core.treetagger-model-tagger-en-le
     	</artifactId>
 			<version>20151119.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>
-    		de.tudarmstadt.ukp.dkpro.core.flextag-asl
-    	</artifactId>
-			<version>1.9.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>de.unidue.ltl</groupId>
@@ -437,11 +395,6 @@
 				de.tudarmstadt.ukp.dkpro.core.rftagger-bin
 			</artifactId>
 			<version>20130430.0</version>
-		</dependency>
-		<dependency>
-			<groupId>de.unidue.ltl.toobee</groupId>
-			<artifactId>de.unidue.ltl.toobee.poseval</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<build>

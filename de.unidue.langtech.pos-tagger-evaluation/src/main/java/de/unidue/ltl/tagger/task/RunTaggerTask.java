@@ -20,6 +20,8 @@ import de.unidue.ltl.tagger.MetaWriter;
 import de.unidue.ltl.tagger.NamedCorpusReaderDescription;
 import de.unidue.ltl.tagger.NamedTaggerDescription;
 import de.unidue.ltl.tagger.TimeNormalizer;
+import de.unidue.ltl.tagger.report.ConfusionMatrixReport;
+import de.unidue.ltl.tagger.report.SequenceReportHTML;
 import de.unidue.ltl.tagger.uima.GoldPOSAnnotator;
 
 public class RunTaggerTask
@@ -47,6 +49,8 @@ public class RunTaggerTask
         NamedCorpusReaderDescription nrd = (NamedCorpusReaderDescription) readerDesc;
         NamedTaggerDescription ntd = (NamedTaggerDescription) taggerDesc;
 
+        File contextFolder = aContext.getFolder("", AccessMode.READWRITE);
+
         File timer = aContext.getFile(FILE_TIMER, AccessMode.READWRITE);
         File fine = aContext.getFile(FILE_ACC_FINE, AccessMode.READWRITE);
         File coarse = aContext.getFile(FILE_ACC_COARSE, AccessMode.READWRITE);
@@ -70,6 +74,10 @@ public class RunTaggerTask
                         MetaWriter.PARAM_TAGGER_NAME, ntd.getTaggerName(),
                         MetaWriter.PARAM_TAGGER_MODEL_NAME, ntd.getModelName(),
                         MetaWriter.PARAM_TOKEN_COUNT_FILE, tokenCount),
+                createEngineDescription(SequenceReportHTML.class,
+                        SequenceReportHTML.PARAM_OUTPUT_FOLDER, contextFolder),
+                createEngineDescription(ConfusionMatrixReport.class,
+                        ConfusionMatrixReport.PARAM_OUTPUT_FOLDER, contextFolder),
                 createEngineDescription(TimeNormalizer.class, TimeNormalizer.PARAM_TIMER_FILE,
                         timer, TimeNormalizer.PARAM_TOKEN_COUNT_FILE, tokenCount,
                         TimeNormalizer.PARAM_NORMALIZED_FILE, normalizedTokenTime));

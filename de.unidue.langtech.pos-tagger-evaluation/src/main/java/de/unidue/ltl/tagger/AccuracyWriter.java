@@ -14,9 +14,9 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
+import de.unidue.ltl.tagger.report.ConfusionMatrix;
+import de.unidue.ltl.tagger.type.GoldPOS;
 import de.unidue.ltl.tagger.uima.LabelUnifier;
-import de.unidue.ltl.toobee.poseval.ConfusionMatrix;
-import de.unidue.ltl.toobee.poseval.type.GoldPOS;
 
 public class AccuracyWriter
     extends JCasAnnotator_ImplBase

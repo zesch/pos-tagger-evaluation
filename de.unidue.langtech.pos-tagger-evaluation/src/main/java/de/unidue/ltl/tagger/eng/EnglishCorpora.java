@@ -2,7 +2,6 @@ package de.unidue.ltl.tagger.eng;
 
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
-import org.apache.uima.resource.ResourceInitializationException;
 
 import de.unidue.ltl.tagger.Keys;
 import de.unidue.ltl.tagger.NamedCorpusReaderDescription;

@@ -7,6 +7,7 @@ import de.tudarmstadt.ukp.dkpro.core.arktools.ArktweetPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.clearnlp.ClearNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.gate.HepplePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.hunpos.HunPosTagger;
+import de.tudarmstadt.ukp.dkpro.core.lbj.LbjPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
@@ -134,7 +135,7 @@ public class EnglishTagger
         String variant = "mayo";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 ClearNlpPosTagger.class, ClearNlpPosTagger.PARAM_LANGUAGE, LANG,
-                ClearNlpPosTagger.PARAM_POS_VARIANT, variant,
+                ClearNlpPosTagger.PARAM_DICT_VARIANT, variant,
                 ClearNlpPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
                         + englishDefaultMap);
 
@@ -148,7 +149,7 @@ public class EnglishTagger
         String variant = "ontonotes";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 ClearNlpPosTagger.class, ClearNlpPosTagger.PARAM_LANGUAGE, LANG,
-                ClearNlpPosTagger.PARAM_POS_VARIANT, variant,
+                ClearNlpPosTagger.PARAM_DICT_VARIANT, variant,
                 ClearNlpPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
                         + englishDefaultMap);
 
@@ -162,7 +163,7 @@ public class EnglishTagger
         String variant = "medical";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 ClearNlpPosTagger.class, ClearNlpPosTagger.PARAM_LANGUAGE, LANG,
-                ClearNlpPosTagger.PARAM_POS_VARIANT, variant,
+                ClearNlpPosTagger.PARAM_DICT_VARIANT, variant,
                 ClearNlpPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
                         + englishDefaultMap);
 
@@ -264,17 +265,17 @@ public class EnglishTagger
         return ntd;
     }
 
-//    public static NamedTaggerDescription getLbjTagger()
-//        throws Exception
-//    {
-//        String variant = "";
-//        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-//                LbjPosTagger.class, LbjPosTagger.PARAM_LANGUAGE, LANG,
-//                LbjPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-//                        + "en-lbj-pos.map");
-//        
-//        NamedTaggerDescription ntd = new NamedTaggerDescription("Lbj", variant, desc);
-//        return ntd;
-//    }
+    public static NamedTaggerDescription getLbjTagger()
+        throws Exception
+    {
+        String variant = "";
+        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
+                LbjPosTagger.class, LbjPosTagger.PARAM_LANGUAGE, LANG,
+                LbjPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
+                        + "en-lbj-pos.map");
+        
+        NamedTaggerDescription ntd = new NamedTaggerDescription("Lbj", variant, desc);
+        return ntd;
+    }
 
 }

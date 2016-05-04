@@ -25,13 +25,7 @@ public class RunEnglishTaggerEvaluation
         throws Exception
     {
 
-        String config = null;
-        if (args.length == 1) {
-            config = args[0];
-        }
-        else {
-            config = "src/test/java/test.properties";
-        }
+        String config = args[0];
         System.setProperty("DKPRO_HOME", System.getProperty("user.home") + "/Desktop/");
         FileInputStream input = new FileInputStream(config);
         Properties prop = new Properties();
@@ -67,29 +61,29 @@ public class RunEnglishTaggerEvaluation
         EnglishTagger.englishDefaultMap = englishDefaultMap;
 
         Dimension<Object> dimTaggerDesc = Dimension.create("taggerDesc",
-//                EnglishTagger.getStanfordBidirectionalDistSim(),
-//                EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
-//                EnglishTagger.getStanfordFast41(), 
-////                EnglishTagger.getStanfordTwitter(),
-////                EnglishTagger.getStanfordTwitterFast(),
-//                EnglishTagger.getStanfordWsj018CaselessLeft3wordsDistsim(),
+                EnglishTagger.getStanfordBidirectionalDistSim(),
+                EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
+                EnglishTagger.getStanfordFast41(), 
+//                EnglishTagger.getStanfordTwitter(),
+//                EnglishTagger.getStanfordTwitterFast(),
+                EnglishTagger.getStanfordWsj018CaselessLeft3wordsDistsim(),
+//
+//                EnglishTagger.getArkDefault(), 
+//                EnglishTagger.getArkIrc(),
+                EnglishTagger.getArkRitter(),
 ////
-////                EnglishTagger.getArkDefault(), 
-////                EnglishTagger.getArkIrc(),
-//                EnglishTagger.getArkRitter(),
-//////
-//                EnglishTagger.getOpenNlpMaxent(),
-//                EnglishTagger.getOpenNlpPerceptron(),
+                EnglishTagger.getOpenNlpMaxent(),
+                EnglishTagger.getOpenNlpPerceptron(),
+//
+                EnglishTagger.getClearNlpMayo(), 
+                EnglishTagger.getClearNlpMedical(),            
+                EnglishTagger.getClearNlpOntonotes(),
 ////
-////                EnglishTagger.getClearNlpMayo(), 
-////                EnglishTagger.getClearNlpMedical(),            
-//                EnglishTagger.getClearNlpOntonotes(),
-////
-                EnglishTagger.getHeppleTagger(),
-                EnglishTagger.getHunPosTagger()
-//                EnglishTagger.getLbjTagger(), 
-//                EnglishTagger.getMateTagger(),
-//                EnglishTagger.getTreetagger()
+//                EnglishTagger.getHeppleTagger(),
+//                EnglishTagger.getHunPosTagger()
+                EnglishTagger.getLbjTagger(), 
+                EnglishTagger.getMateTagger(),
+                EnglishTagger.getTreetagger()
                 );
 
         ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

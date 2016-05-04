@@ -56,29 +56,16 @@ public class DetailReport
             sb.append(";;");
         }
         sb.append("\n");
-        
+
         // accuracy / time column names
         sb.append(";");
-        for(int i=0; i < corporaNames.size(); i++){
+        for (int i = 0; i < corporaNames.size(); i++) {
             sb.append("accuracy;time;");
         }
         sb.append("\n");
 
         List<Object[]> entry = results.get(0);
-        
-        //Sort by tagger name
-        Collections.sort(entry, new Comparator<Object[]>()
-        {
 
-            @Override
-            public int compare(Object[] o1, Object[] o2)
-            {
-                String n1 = (String) o1[0];
-                String n2 = (String) o2[0];
-                return n1.compareTo(n2);
-            }
-        });
-        
         for (int j = 0; j < entry.size(); j++) {
             for (int k = 0; k < results.size(); k++) {
                 List<Object[]> list = results.get(k);
@@ -107,6 +94,17 @@ public class DetailReport
 
         for (String corpus : corporaNames) {
             List<Object[]> r = getResultsForCorpus(corpus, useCoarse);
+            Collections.sort(r, new Comparator<Object[]>()
+            {
+
+                @Override
+                public int compare(Object[] o1, Object[] o2)
+                {
+                    String n1 = (String) o1[0];
+                    String n2 = (String) o2[0];
+                    return n1.compareTo(n2);
+                }
+            });
             results.add(r);
         }
         return results;

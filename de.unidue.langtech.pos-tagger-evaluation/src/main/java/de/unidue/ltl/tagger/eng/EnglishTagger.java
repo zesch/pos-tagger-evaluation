@@ -157,20 +157,6 @@ public class EnglishTagger
         return ntd;
     }
 
-    public static NamedTaggerDescription getClearNlpMedical()
-        throws Exception
-    {
-        String variant = "medical";
-        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-                ClearNlpPosTagger.class, ClearNlpPosTagger.PARAM_LANGUAGE, LANG,
-                ClearNlpPosTagger.PARAM_DICT_VARIANT, variant,
-                ClearNlpPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
-
-        NamedTaggerDescription ntd = new NamedTaggerDescription("ClearNlp", variant, desc);
-        return ntd;
-    }
-
     public static NamedTaggerDescription getArkDefault()
         throws Exception
     {

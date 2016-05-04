@@ -42,18 +42,18 @@ public class RunEnglishTaggerEvaluation
         Dimension<Object> dimReaderDesc = Dimension.create(
                 "readerDesc",
                 // written
-                EnglishCorpora.getWrittenBnc100k(),
-                EnglishCorpora.getWrittenBrown(),
-                EnglishCorpora.getWrittenGumHowto(),
-                EnglishCorpora.getWrittenGumNews(),
-                EnglishCorpora.getWrittenGumVoyage(),
-//                // social
-                EnglishCorpora.getSocialNpsIrcChat(),                
-                EnglishCorpora.getSocialGimpel(),
+//                EnglishCorpora.getWrittenBnc100k(),
+//                EnglishCorpora.getWrittenBrown(),
+//                EnglishCorpora.getWrittenGumHowto(),
+//                EnglishCorpora.getWrittenGumNews(),
+//                EnglishCorpora.getWrittenGumVoyage(),
+////                // social
+//                EnglishCorpora.getSocialNpsIrcChat(),                
+                EnglishCorpora.getSocialGimpel()
 ////                // spoken
-                EnglishCorpora.getSpokenBnc(), 
-                EnglishCorpora.getSpokenSwitchboard(),
-                EnglishCorpora.getSpokenGumInverview()
+//                EnglishCorpora.getSpokenBnc(), 
+//                EnglishCorpora.getSpokenSwitchboard(),
+//                EnglishCorpora.getSpokenGumInverview()
                 );
 
         EnglishTagger.corporaFolderPrefix = corporaFolderPrefix;
@@ -75,8 +75,6 @@ public class RunEnglishTaggerEvaluation
                 EnglishTagger.getOpenNlpMaxent(),
                 EnglishTagger.getOpenNlpPerceptron(),
 //
-                EnglishTagger.getClearNlpMayo(), 
-                EnglishTagger.getClearNlpMedical(),            
                 EnglishTagger.getClearNlpOntonotes(),
 ////
 //                EnglishTagger.getHeppleTagger(),

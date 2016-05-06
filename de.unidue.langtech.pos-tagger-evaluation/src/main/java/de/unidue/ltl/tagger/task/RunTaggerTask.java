@@ -74,8 +74,9 @@ public class RunTaggerTask
                         MetaWriter.PARAM_TAGGER_NAME, ntd.getTaggerName(),
                         MetaWriter.PARAM_TAGGER_MODEL_NAME, ntd.getModelName(),
                         MetaWriter.PARAM_TOKEN_COUNT_FILE, tokenCount),
-                createEngineDescription(SequenceReportHTML.class,
-                        SequenceReportHTML.PARAM_OUTPUT_FOLDER, contextFolder),
+                // enables a HTML report for a tagging error analysis
+                // createEngineDescription(SequenceReportHTML.class,
+                // SequenceReportHTML.PARAM_OUTPUT_FOLDER, contextFolder),
                 createEngineDescription(ConfusionMatrixReport.class,
                         ConfusionMatrixReport.PARAM_OUTPUT_FOLDER, contextFolder),
                 createEngineDescription(TimeNormalizer.class, TimeNormalizer.PARAM_TIMER_FILE,

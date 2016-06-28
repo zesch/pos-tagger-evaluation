@@ -21,16 +21,15 @@ import de.unidue.ltl.tagger.NamedCorpusReaderDescription;
 import de.unidue.ltl.tagger.NamedTaggerDescription;
 import de.unidue.ltl.tagger.TimeNormalizer;
 import de.unidue.ltl.tagger.report.ConfusionMatrixReport;
-import de.unidue.ltl.tagger.report.SequenceReportHTML;
 import de.unidue.ltl.tagger.uima.GoldPOSAnnotator;
 
 public class RunTaggerTask
     extends UimaTaskBase
     implements Keys
 {
-    @Discriminator
+    @Discriminator(name=DISCRIMINATOR_READER)
     protected Object readerDesc;
-    @Discriminator
+    @Discriminator(name=DISCRIMINATOR_TAGGER)
     protected Object taggerDesc;
 
     @Override

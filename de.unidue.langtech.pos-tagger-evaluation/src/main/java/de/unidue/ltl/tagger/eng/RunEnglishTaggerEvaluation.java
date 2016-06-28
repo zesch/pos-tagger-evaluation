@@ -8,6 +8,7 @@ import org.dkpro.lab.task.Dimension;
 import org.dkpro.lab.task.ParameterSpace;
 import org.dkpro.lab.task.impl.DefaultBatchTask;
 
+import de.unidue.ltl.tagger.Keys;
 import de.unidue.ltl.tagger.report.DetailReport;
 import de.unidue.ltl.tagger.report.DomainDetailReport;
 import de.unidue.ltl.tagger.report.TaggerDomainReport;
@@ -40,16 +41,16 @@ public class RunEnglishTaggerEvaluation
         EnglishCorpora.defaultMap = englishDefaultMap;
 
         Dimension<Object> dimReaderDesc = Dimension.create(
-                "readerDesc",
+                Keys.DISCRIMINATOR_READER,
                 // written
 //                EnglishCorpora.getWrittenBnc100k(),
 //                EnglishCorpora.getWrittenBrown(),
-//                EnglishCorpora.getWrittenGumHowto(),
-//                EnglishCorpora.getWrittenGumNews(),
-//                EnglishCorpora.getWrittenGumVoyage(),
-////                // social
+                EnglishCorpora.getWrittenGumHowto(),
+                EnglishCorpora.getWrittenGumNews(),
+                EnglishCorpora.getWrittenGumVoyage()
+//                // social
 //                EnglishCorpora.getSocialNpsIrcChat(),                
-                EnglishCorpora.getSocialGimpel()
+//                EnglishCorpora.getSocialGimpel()
 ////                // spoken
 //                EnglishCorpora.getSpokenBnc(), 
 //                EnglishCorpora.getSpokenSwitchboard(),
@@ -60,28 +61,28 @@ public class RunEnglishTaggerEvaluation
         EnglishTagger.mappingFolderPrefix = mappingFolderPrefix;
         EnglishTagger.englishDefaultMap = englishDefaultMap;
 
-        Dimension<Object> dimTaggerDesc = Dimension.create("taggerDesc",
-                EnglishTagger.getStanfordBidirectionalDistSim(),
-                EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
-                EnglishTagger.getStanfordFast41(), 
+        Dimension<Object> dimTaggerDesc = Dimension.create(Keys.DISCRIMINATOR_TAGGER,
+//                EnglishTagger.getStanfordBidirectionalDistSim(),
+//                EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
+//                EnglishTagger.getStanfordFast41(), 
 //                EnglishTagger.getStanfordTwitter(),
 //                EnglishTagger.getStanfordTwitterFast(),
-                EnglishTagger.getStanfordWsj018CaselessLeft3wordsDistsim(),
+//                EnglishTagger.getStanfordWsj018CaselessLeft3wordsDistsim(),
 //
 //                EnglishTagger.getArkDefault(), 
 //                EnglishTagger.getArkIrc(),
-                EnglishTagger.getArkRitter(),
-////
+//                EnglishTagger.getArkRitter(),
+//
                 EnglishTagger.getOpenNlpMaxent(),
                 EnglishTagger.getOpenNlpPerceptron(),
 //
                 EnglishTagger.getClearNlpOntonotes(),
-////
-//                EnglishTagger.getHeppleTagger(),
-//                EnglishTagger.getHunPosTagger()
-                EnglishTagger.getLbjTagger(), 
-                EnglishTagger.getMateTagger(),
-                EnglishTagger.getTreetagger()
+//
+                EnglishTagger.getHeppleTagger(),
+                EnglishTagger.getHunPosTagger(),
+//                EnglishTagger.getLbjTagger()
+                EnglishTagger.getMateTagger()
+//                EnglishTagger.getTreetagger()
                 );
 
         ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

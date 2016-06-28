@@ -21,13 +21,20 @@
 			<id>d-maven</id>
 			<url>http://d-maven.googlecode.com/svn/trunk/repo</url>
 		</repository>
+		 <repository> 
+                    <id>cogcomp.cs.uiuc.edu-releases</id> 
+                    <url>http://cogcomp.cs.uiuc.edu/m2repo</url> 
+                    <snapshots> 
+                        <enabled>false</enabled> 
+                    </snapshots> 
+                </repository> 
 	</repositories>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 				<artifactId>de.tudarmstadt.ukp.dkpro.core-asl</artifactId>
-				<version>1.9.0-SNAPSHOT</version>
+				<version>1.8.0</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -36,14 +43,14 @@
 				<artifactId>
 					de.tudarmstadt.ukp.dkpro.core-gpl
 				</artifactId>
-				<version>1.9.0-SNAPSHOT</version>
+				<version>1.8.0</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.dkpro.lab</groupId>
 				<artifactId>dkpro-lab</artifactId>
-				<version>0.12.0-SNAPSHOT</version>
+				<version>0.12.0</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

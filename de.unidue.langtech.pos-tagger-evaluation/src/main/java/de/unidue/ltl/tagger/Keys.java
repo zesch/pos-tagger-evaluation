@@ -22,4 +22,7 @@ public interface Keys {
     public static final String DOMAIN_SOCIAL = "social";
     public static final String DOMAIN_FORMAL = "formal";
     public static final String DOMAIN_SPOKEN = "spoken";
+    
+    public static final String DISCRIMINATOR_READER="reader";
+    public static final String DISCRIMINATOR_TAGGER="tagger";
 }

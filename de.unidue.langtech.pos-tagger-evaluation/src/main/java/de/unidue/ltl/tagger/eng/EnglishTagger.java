@@ -7,7 +7,6 @@ import de.tudarmstadt.ukp.dkpro.core.arktools.ArktweetPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.clearnlp.ClearNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.gate.HepplePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.hunpos.HunPosTagger;
-import de.tudarmstadt.ukp.dkpro.core.lbj.IllinoisPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;

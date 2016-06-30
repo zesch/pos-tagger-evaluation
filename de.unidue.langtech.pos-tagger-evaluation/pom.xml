@@ -282,20 +282,6 @@
 			<version>20121123.2</version>
 		</dependency>
 		<dependency>
-			<groupId>de.unidue.ltl</groupId>
-			<artifactId>
-    		de.unidue.ltl.ruletagger-model-tagger-en-wsj
-    	</artifactId>
-			<version>20160120.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.unidue.ltl</groupId>
-			<artifactId>
-    		de.unidue.ltl.ruletagger-model-tagger-de-tiger
-    	</artifactId>
-			<version>20160120.1</version>
-		</dependency>
-		<dependency>
 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 			<artifactId>
     		de.tudarmstadt.ukp.dkpro.core.hunpos-model-tagger-en-wsj
@@ -334,20 +320,6 @@
     		de.tudarmstadt.ukp.dkpro.core.treetagger-model-tagger-en-le
     	</artifactId>
 			<version>20151119.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.unidue.ltl</groupId>
-			<artifactId>
-  					de.unidue.ltl.majoritytagger-model-tagger-en-wsj
-  				</artifactId>
-			<version>20160120.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.unidue.ltl</groupId>
-			<artifactId>
-  					de.unidue.ltl.majoritytagger-model-tagger-de-tiger
-  				</artifactId>
-			<version>20160120.1</version>
 		</dependency>
 		<dependency>
 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>

@@ -21,6 +21,7 @@ import de.unidue.ltl.tagger.NamedCorpusReaderDescription;
 import de.unidue.ltl.tagger.NamedTaggerDescription;
 import de.unidue.ltl.tagger.TimeNormalizer;
 import de.unidue.ltl.tagger.report.ConfusionMatrixReport;
+import de.unidue.ltl.tagger.report.TagPrecisionRecallF1Report;
 import de.unidue.ltl.tagger.uima.GoldPOSAnnotator;
 
 public class RunTaggerTask
@@ -78,6 +79,8 @@ public class RunTaggerTask
                 // SequenceReportHTML.PARAM_OUTPUT_FOLDER, contextFolder),
                 createEngineDescription(ConfusionMatrixReport.class,
                         ConfusionMatrixReport.PARAM_OUTPUT_FOLDER, contextFolder),
+                createEngineDescription(TagPrecisionRecallF1Report.class,
+                        TagPrecisionRecallF1Report.PARAM_OUTPUT_FOLDER, contextFolder),                
                 createEngineDescription(TimeNormalizer.class, TimeNormalizer.PARAM_TIMER_FILE,
                         timer, TimeNormalizer.PARAM_TOKEN_COUNT_FILE, tokenCount,
                         TimeNormalizer.PARAM_NORMALIZED_FILE, normalizedTokenTime));

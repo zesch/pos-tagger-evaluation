@@ -65,6 +65,18 @@ public class ConfusionMatrixReport
     public void collectionProcessComplete()
         throws AnalysisEngineProcessException
     {
+        
+        String fineWordClassAccuracyOverview = fine.getWordClassAccuracyOverview();
+        String coarseWordClassAccuracyOverview = coarse.getWordClassAccuracyOverview();
+        
+        try {
+            FileUtils.writeStringToFile(new File(outputFolder, "finePerWordClassAcc.txt"), fineWordClassAccuracyOverview);
+            FileUtils.writeStringToFile(new File(outputFolder, "coarsePerWordClassAcc.txt"), coarseWordClassAccuracyOverview);
+        }
+        catch (IOException e) {
+            throw new AnalysisEngineProcessException(e);
+        }
+        
         String fileFine = outputFolder + "/" + "fineMatrix.txt";
         String fileCoarse = outputFolder + "/" +"coarseMatrix.txt";
 

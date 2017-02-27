@@ -136,8 +136,8 @@ public class TagPrecisionRecallF1Report
                 }
             }
 
-            double recall = tp / (tp + fp);
-            double precision = tp / (tp + fn);
+            double precision = tp / (tp + fp);
+            double recall = tp / (tp + fn);
             double f1 = (2 * (precision * recall)) / (precision + recall);
 
             results.add(new String[] { t, String.format("%.2f", recall),

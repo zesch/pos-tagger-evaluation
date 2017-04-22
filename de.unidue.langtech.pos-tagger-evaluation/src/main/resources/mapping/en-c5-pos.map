@@ -3,7 +3,7 @@
 # Source: http://www.natcorp.ox.ac.uk/docs/gramtag.html
 
 # Default mapping
-*=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.O
+*=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
 
 # AJ0	Adjective (general or positive) (e.g. good, old, beautiful)
 AJ0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ
@@ -17,7 +17,7 @@ AJS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ
 # AT0	Article (e.g. the, a, an, no) [N.B. no is included among articles, which are defined here as
 #       determiner words which typically begin a noun phrase, but which cannot occur as the head of
 #       a noun phrase.]
-AT0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ART
+AT0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
 
 # AV0	General adverb: an adverb not subclassified as AVP or AVQ (see below) (e.g. often, well, 
 #       longer (adv.), furthest. [Note that adverbs, unlike adjectives, are not tagged as positive, 
@@ -45,21 +45,21 @@ CJS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CONJ
 CJT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CONJ
 
 # CRD	Cardinal number (e.g. one, 3, fifty-five, 3609)
-CRD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CARD
+CRD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NUM
 
 # DPS	Possessive determiner (e.g. your, their, his)
-DPS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ART
+DPS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
 
 # DT0	General determiner: i.e. a determiner which is not a DTQ. [Here a determiner is defined as a
 #       word which typically occurs either as the first word in a noun phrase, or as the head of a
 #       noun phrase. E.g. This is tagged DT0 both in 'This is my house' and in 'This house is 
 #       mine'.]
-DT0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ART
+DT0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
 
 # DTQ	Wh-determiner (e.g. which, what, whose, whichever) [The category of determiner here is 
 #       defined as for DT0 above. These words are tagged as wh-determiners whether they occur in 
 #       interrogative use or in relative use.]
-DTQ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ART
+DTQ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
 
 # EX0	Existential there, i.e. there occurring in the there is ... or there are ... construction
 
@@ -69,18 +69,18 @@ DTQ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ART
 #       nouns such as committee and team are tagged NN0, on the grounds that they are capable of
 #       taking singular or plural agreement with the following verb: e.g. 'The committee disagrees/
 #       disagree'.]
-NN0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NN
+NN0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
 
 # NN1	Singular common noun (e.g. pencil, goose, time, revelation)
-NN1=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NN
+NN1=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
 
 # NN2	Plural common noun (e.g. pencils, geese, times, revelations)
-NN2=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NN
+NN2=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
 
 # NP0	Proper noun (e.g. London, Michael, Mars, IBM) [N.B. the distinction between singular and 
 #       plural proper nouns is not indicated in the tagset, plural proper nouns being a comparative
 #       rarity.]
-NP0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.N
+NP0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
 
 # ORD	Ordinal numeral (e.g. first, sixth, 77th, last) . [N.B. The ORD tag is used whether these
 #       words are used in a nominal or in an adverbial role. Next and last, as "general ordinals",
@@ -90,40 +90,40 @@ NP0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.N
 #       to words which always function as [heads of] noun phrases. Words like some and these, which
 #       can also occur before a noun head in an article-like function, are tagged as determiners
 #       (see DT0 and AT0 above).]
-PNI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PR
+PNI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
 
 # PNP	Personal pronoun (e.g. I, you, them, ours) [Note that possessive pronouns like ours and 
 #       theirs are tagged as personal pronouns.]
-PNP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PR
+PNP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
 
 # PNQ	Wh-pronoun (e.g. who, whoever, whom) [N.B. These words are tagged as wh-pronouns whether 
 #       they occur in interrogative or in relative use.]
-PNQ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PR
+PNQ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
 
 # PNX	Reflexive pronoun (e.g. myself, yourself, itself, ourselves)
-PNN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PR
+PNN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
 
 # POS	The possessive or genitive marker 's or ' (e.g. for 'Peter's or somebody else's', the 
 #       sequence of tags is: NP0 POS CJC PNI AV0 POS)
 
 # PRF	The preposition of. Because of its frequency and its almost exclusively postnominal 
 #       function, of is assigned a special tag of its own.
-PRF=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PP
+PRF=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
 
 # PRP	Preposition (except for of) (e.g. about, at, in, on, on behalf of, with)
-PRP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PP
+PRP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
 
 # PUL	Punctuation: left bracket - i.e. ( or [
-PUL=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNC
+PUL=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
 
 # PUN	Punctuation: general separating mark - i.e. . , ! , : ; - or ?
-PUN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNC
+PUN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
 
 # PUQ	Punctuation: quotation mark - i.e. ' or "
-PUQ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNC
+PUQ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
 
 # PUR	Punctuation: right bracket - i.e. ) or ]
-PUR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNC
+PUR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
 
 # TO0	Infinitive marker to
 
@@ -133,80 +133,80 @@ PUR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNC
 
 # VBB	The present tense forms of the verb BE, except for is, 's: i.e. am, are, 'm, 're and be 
 #       [subjunctive or imperative]
-VBB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VBB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VBD	The past tense forms of the verb BE: was and were
-VBD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VBD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VBG	The -ing form of the verb BE: being
-VBG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VBG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VBI	The infinitive form of the verb BE: be
-VBI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VBI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VBN	The past participle form of the verb BE: been
-VBN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VBN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VBZ	The -s form of the verb BE: is, 's
-VBZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VBZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VDB	The finite base form of the verb BE: do
-VDB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VDB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VDD	The past tense form of the verb DO: did
-VDD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VDD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VDG	The -ing form of the verb DO: doing
-VDG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VDG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VDI	The infinitive form of the verb DO: do
-VDI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VDI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VDN	The past participle form of the verb DO: done
-VDN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VDN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VDZ	The -s form of the verb DO: does, 's
-VDZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VDZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VHB	The finite base form of the verb HAVE: have, 've
-VHB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VHB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VHD	 The past tense form of the verb HAVE: had, 'd
-VHD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VHD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VHG	The -ing form of the verb HAVE: having
-VHG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VHG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VHI	The infinitive form of the verb HAVE: have
-VHI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VHI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VHN	The past participle form of the verb HAVE: had
-VHN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VHN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VHZ	The -s form of the verb HAVE: has, 's
-VHZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VHZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VM0	Modal auxiliary verb (e.g. will, would, can, could, 'll, 'd)
-VM0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VM0=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VVB	The finite base form of lexical verbs (e.g. forget, send, live, return) [Including the 
 #       imperative and present subjunctive]
-VVB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VVB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VVD	The past tense form of lexical verbs (e.g. forgot, sent, lived, returned)
-VVD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VVD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VVG	The -ing form of lexical verbs (e.g. forgetting, sending, living, returning)
-VVG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VVG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VVI	The infinitive form of lexical verbs (e.g. forget, send, live, return)
-VVI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VVI=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VVN	The past participle form of lexical verbs (e.g. forgotten, sent, lived, returned)
-VVN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VVN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # VVZ	The -s form of lexical verbs (e.g. forgets, sends, lives, returns)
-VVZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V
+VVZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 
 # XX0	The negative particle not or n't
 

@@ -83,7 +83,7 @@ public class GermanCorpora
                     corporaFolderPrefix + "/german/social/folk/",
                     LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
                     "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
-                            + defaultMap);
+                            + "de-stts-folk.map");
 
             NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("Folk",
                     DOMAIN_SPOKEN, desc);

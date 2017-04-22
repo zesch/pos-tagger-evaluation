@@ -1,0 +1,12 @@
+NUM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NUM
+CONJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CONJ
+X=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
+.=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
+ADJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ
+ADV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
+PRON=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
+DET=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
+NOUN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
+ADP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
+ADV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
+PRT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PART

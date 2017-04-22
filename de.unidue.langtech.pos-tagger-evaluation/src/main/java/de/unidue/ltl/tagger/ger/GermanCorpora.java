@@ -60,6 +60,21 @@ public class GermanCorpora
             return nrd;
         }
     
+    public static NamedCorpusReaderDescription getSocialEmpiri()
+            throws Exception
+        {
+            CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
+                    LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                    corporaFolderPrefix + "/german/social/empiri/",
+                    LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
+                    "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                            + "de-stts-empiri-pos.map");
+
+            NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("Empiri",
+                    DOMAIN_SOCIAL, desc);
+            return nrd;
+        }    
+    
     public static NamedCorpusReaderDescription getSocialNeunerdt()
             throws Exception
         {

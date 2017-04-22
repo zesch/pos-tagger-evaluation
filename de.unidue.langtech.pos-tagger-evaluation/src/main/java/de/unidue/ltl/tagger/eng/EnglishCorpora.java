@@ -103,6 +103,21 @@ public class EnglishCorpora
         return nrd;
     }
     
+    public static NamedCorpusReaderDescription getSocialEmpiri()
+            throws Exception
+        {
+            CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
+                    LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                    corporaFolderPrefix + "/english/social/gimpel/",
+                    LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
+                    "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                            + "/" + "en-arktweet-pos.map");
+            
+            
+            NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("gimpel", DOMAIN_SOCIAL, desc);
+            return nrd;
+        }
+    
     public static NamedCorpusReaderDescription getSocialNpsIrcChat() throws Exception
     {
         

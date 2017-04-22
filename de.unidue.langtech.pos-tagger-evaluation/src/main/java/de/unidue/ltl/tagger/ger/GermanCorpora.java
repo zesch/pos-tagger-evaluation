@@ -74,4 +74,19 @@ public class GermanCorpora
                     DOMAIN_SOCIAL, desc);
             return nrd;
         }
+    
+    public static NamedCorpusReaderDescription getSpokenFolk()
+            throws Exception
+        {
+            CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
+                    LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                    corporaFolderPrefix + "/german/social/folk/",
+                    LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
+                    "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                            + defaultMap);
+
+            NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("Folk",
+                    DOMAIN_SPOKEN, desc);
+            return nrd;
+        }
 }

@@ -22,7 +22,7 @@ public class RunGermanTaggerEvaluation {
 
 	public static void main(String[] args) throws Exception {
 
-		String config = "src/main/resources/exp.config";
+		String config = args[0];
 		System.setProperty("DKPRO_HOME", System.getProperty("user.home") + "/Desktop/");
 		FileInputStream input = new FileInputStream(config);
 		Properties prop = new Properties();

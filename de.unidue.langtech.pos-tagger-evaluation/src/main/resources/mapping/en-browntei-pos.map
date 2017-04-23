@@ -80,6 +80,6 @@ PPLS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
 WPO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
 NRg=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
 RBT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
-UH=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRONT
+UH=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.INTJ
 WQL=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
 *=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X

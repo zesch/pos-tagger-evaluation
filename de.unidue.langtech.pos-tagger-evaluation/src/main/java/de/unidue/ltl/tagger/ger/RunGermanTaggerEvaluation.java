@@ -25,13 +25,7 @@ public class RunGermanTaggerEvaluation
         throws Exception
     {
 
-        String config = null;
-        if (args.length == 1) {
-            config = args[0];
-        }
-        else {
-            config = "src/test/java/test.properties";
-        }
+        String  config = "src/main/resources/exp.config";
         System.setProperty("DKPRO_HOME", System.getProperty("user.home") + "/Desktop/");
         FileInputStream input = new FileInputStream(config);
         Properties prop = new Properties();
@@ -50,8 +44,12 @@ public class RunGermanTaggerEvaluation
                 // written
 //                GermanCorpora.getFormalTuebadz(),
 //                GermanCorpora.getFormalHamburgTreebank(),
+                //spoken
+//                GermanCorpora.getSpokenFolk(),
                 //social
-                GermanCorpora.getSocialRehbein(),
+//                GermanCorpora.getSocialEmpiriCmc(),
+//                GermanCorpora.getSocialEmpiriWeb(),
+//                GermanCorpora.getSocialRehbein(),
                 GermanCorpora.getSocialNeunerdt()
                 );
 
@@ -62,14 +60,14 @@ public class RunGermanTaggerEvaluation
         Dimension<Object> dimTaggerDesc = Dimension.create("taggerDesc",
 //                GermanTagger.getHunTagger(),
 //                GermanTagger.getMateTagger(),
-//                GermanTagger.getOpenNlpTaggerMaxent(),
+                GermanTagger.getOpenNlpTaggerMaxent()
 //                GermanTagger.getOpenNlpTaggerPerceptron(),
-                GermanTagger.getRfTagger(),
+//                GermanTagger.getRfTagger(),
 //                GermanTagger.getStanfordPosTaggerDeWac(),
 //                GermanTagger.getStanfordPosTaggerHgc(),
-                GermanTagger.getStanfordPosTaggerFast(),
-                GermanTagger.getStanfordPosTaggerFastCaseless(),
-                GermanTagger.getTreeTagger()
+//                GermanTagger.getStanfordPosTaggerFast(),
+//                GermanTagger.getStanfordPosTaggerFastCaseless(),
+//                GermanTagger.getTreeTagger()
                 );
 
         ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

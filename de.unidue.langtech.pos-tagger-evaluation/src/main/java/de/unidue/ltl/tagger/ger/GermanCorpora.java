@@ -59,18 +59,33 @@ public class GermanCorpora
                     DOMAIN_SOCIAL, desc);
             return nrd;
         }
-    
-    public static NamedCorpusReaderDescription getSocialEmpiri()
+
+    public static NamedCorpusReaderDescription getSocialEmpiriCmc()
             throws Exception
         {
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
                     LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
-                    corporaFolderPrefix + "/german/social/empiri/",
+                    corporaFolderPrefix + "/german/social/empiriCmc/",
                     LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
                     "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-empiri-pos.map");
 
-            NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("Empiri",
+            NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("EmpiriCmc",
+                    DOMAIN_SOCIAL, desc);
+            return nrd;
+        }
+    
+    public static NamedCorpusReaderDescription getSocialEmpiriWeb()
+            throws Exception
+        {
+            CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
+                    LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                    corporaFolderPrefix + "/german/social/empiriWeb/",
+                    LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
+                    "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                            + "de-stts-empiri-pos.map");
+
+            NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("EmpiriWeb",
                     DOMAIN_SOCIAL, desc);
             return nrd;
         }    
@@ -95,7 +110,7 @@ public class GermanCorpora
         {
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
                     LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
-                    corporaFolderPrefix + "/german/social/folk/",
+                    corporaFolderPrefix + "/german/spoken/folk/",
                     LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
                     "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-folk.map");

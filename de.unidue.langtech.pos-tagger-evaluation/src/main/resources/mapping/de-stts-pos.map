@@ -39,7 +39,7 @@ CARD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CARD
 # FM	Fremdsprachliches Material	[Er hat das mit ``] A big fish ['' übersetzt]
 FM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
 # ITJ	Interjektion	mhm, ach, tja
-ITJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ITJ
+ITJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.INTJ
 # KOKOM	Vergleichskonjunktion	als, wie
 KOKOM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CONJ
 # KON	nebenordnende Konjunktion	und, oder, aber

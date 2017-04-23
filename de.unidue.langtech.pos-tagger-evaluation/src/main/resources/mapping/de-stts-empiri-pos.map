@@ -59,7 +59,7 @@ PTKANT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PART
 VVPP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 KOUSPPER=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CONJ
 EMOASC=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
-KON==de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.SCONJ
+KON=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.SCONJ
 VAINF=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 AKW=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
 APPR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON

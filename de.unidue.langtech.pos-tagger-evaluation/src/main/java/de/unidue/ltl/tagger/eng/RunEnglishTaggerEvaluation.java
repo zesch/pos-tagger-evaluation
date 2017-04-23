@@ -49,14 +49,14 @@ public class RunEnglishTaggerEvaluation
 //                EnglishCorpora.getWrittenGumNews(),
 //                EnglishCorpora.getWrittenGumVoyage(),
 //                // social
-//                EnglishCorpora.getSocialNpsIrcChat(),                
-//                EnglishCorpora.getSocialGimpel(),
-                EnglishCorpora.getSocialAaveTwitter()
+                EnglishCorpora.getSocialNpsIrcChat(),                
+                EnglishCorpora.getSocialGimpel(),
+                EnglishCorpora.getSocialAaveTwitter(),
 ////                // spoken
-//                EnglishCorpora.getSpokenTedTalk()
+                EnglishCorpora.getSpokenTedTalk(),
 //                EnglishCorpora.getSpokenBnc()
 //                EnglishCorpora.getSpokenSwitchboard(),
-//                EnglishCorpora.getSpokenGumInverview()
+                EnglishCorpora.getSpokenGumInverview()
                 );
 
         EnglishTagger.corporaFolderPrefix = corporaFolderPrefix;

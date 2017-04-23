@@ -1,4 +1,4 @@
-package de.unidue.ltl.tagger.ger;
+package de.unidue.ltl.tagger;
 
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
@@ -9,7 +9,7 @@ import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.rftagger.RfTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.unidue.ltl.majoritytagger.MajorityTagTagger;
-import de.unidue.ltl.tagger.NamedTaggerDescription;
+import de.unidue.ltl.tagger.components.NamedTaggerDescription;
 
 public class GermanTagger
 {

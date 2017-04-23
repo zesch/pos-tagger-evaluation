@@ -14,12 +14,12 @@ import org.dkpro.lab.task.Discriminator;
 import org.dkpro.lab.uima.task.impl.UimaTaskBase;
 
 import de.tudarmstadt.ukp.dkpro.core.performance.Stopwatch;
-import de.unidue.ltl.tagger.AccuracyWriter;
-import de.unidue.ltl.tagger.Keys;
-import de.unidue.ltl.tagger.MetaWriter;
-import de.unidue.ltl.tagger.NamedCorpusReaderDescription;
-import de.unidue.ltl.tagger.NamedTaggerDescription;
-import de.unidue.ltl.tagger.TimeNormalizer;
+import de.unidue.ltl.tagger.components.AccuracyWriter;
+import de.unidue.ltl.tagger.components.Keys;
+import de.unidue.ltl.tagger.components.MetaWriter;
+import de.unidue.ltl.tagger.components.NamedCorpusReaderDescription;
+import de.unidue.ltl.tagger.components.NamedTaggerDescription;
+import de.unidue.ltl.tagger.components.TimeNormalizer;
 import de.unidue.ltl.tagger.report.ConfusionMatrixReport;
 import de.unidue.ltl.tagger.report.TagPrecisionRecallF1Report;
 import de.unidue.ltl.tagger.uima.GoldPOSAnnotator;

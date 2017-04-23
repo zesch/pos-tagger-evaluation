@@ -1,10 +1,10 @@
-package de.unidue.ltl.tagger.eng;
+package de.unidue.ltl.tagger;
 
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 
-import de.unidue.ltl.tagger.Keys;
-import de.unidue.ltl.tagger.NamedCorpusReaderDescription;
+import de.unidue.ltl.tagger.components.Keys;
+import de.unidue.ltl.tagger.components.NamedCorpusReaderDescription;
 import de.unidue.ltl.tagger.reader.LinewiseTokenTagReader;
 
 public class EnglishCorpora implements Keys {

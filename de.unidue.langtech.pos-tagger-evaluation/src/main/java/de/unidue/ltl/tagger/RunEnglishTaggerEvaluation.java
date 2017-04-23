@@ -1,4 +1,4 @@
-package de.unidue.ltl.tagger.eng;
+package de.unidue.ltl.tagger;
 
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -8,7 +8,7 @@ import org.dkpro.lab.task.Dimension;
 import org.dkpro.lab.task.ParameterSpace;
 import org.dkpro.lab.task.impl.DefaultBatchTask;
 
-import de.unidue.ltl.tagger.Keys;
+import de.unidue.ltl.tagger.components.Keys;
 import de.unidue.ltl.tagger.report.DetailReport;
 import de.unidue.ltl.tagger.report.DomainDetailReport;
 import de.unidue.ltl.tagger.report.TaggerDomainReport;

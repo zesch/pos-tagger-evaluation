@@ -1,4 +1,4 @@
-package de.unidue.ltl.tagger.ger;
+package de.unidue.ltl.tagger;
 
 import java.io.FileInputStream;
 import java.util.Properties;

@@ -37,25 +37,34 @@ public class RunGermanTaggerEvaluation {
 		GermanCorpora.defaultMap = germanDefaultMap;
 
 		Dimension<Object> dimReaderDesc = Dimension.create("readerDesc",
-				// written
-				GermanCorpora.getFormalTuebadz(), GermanCorpora.getFormalHamburgTreebank(),
 				// spoken
 				GermanCorpora.getSpokenFolk(),
 				// social
-				GermanCorpora.getSocialEmpiriCmc(), GermanCorpora.getSocialEmpiriWeb(),
-				GermanCorpora.getSocialRehbein(), GermanCorpora.getSocialNeunerdt());
+				GermanCorpora.getSocialEmpiriCmc(), 
+				GermanCorpora.getSocialEmpiriWeb(),
+				GermanCorpora.getSocialRehbein(), 
+				GermanCorpora.getSocialNeunerdt(),
+				// written
+				GermanCorpora.getFormalTuebadz(), 
+				GermanCorpora.getFormalHamburgTreebank()
+				);
 
 		GermanTagger.corporaFolderPrefix = corporaFolderPrefix;
 		GermanTagger.mappingFolderPrefix = mappingFolderPrefix;
 		GermanTagger.germanDefaultMap = germanDefaultMap;
 
-		Dimension<Object> dimTaggerDesc = Dimension.create("taggerDesc",
-				// GermanTagger.getHunTagger(),
-				// GermanTagger.getMateTagger(),
-				GermanTagger.getOpenNlpTaggerMaxent(), GermanTagger.getMajorityTaggerTiger(),
-				GermanTagger.getOpenNlpTaggerPerceptron(), GermanTagger.getRfTagger(),
-				GermanTagger.getStanfordPosTaggerDeWac(), GermanTagger.getStanfordPosTaggerHgc(),
-				GermanTagger.getStanfordPosTaggerFast(), GermanTagger.getStanfordPosTaggerFastCaseless(),
+		Dimension<Object> dimTaggerDesc = Dimension.create("taggerDesc", 
+				GermanTagger.getHunTagger(),
+				GermanTagger.getMateTagger(), 
+				GermanTagger.getOpenNlpTaggerMaxent(),
+				GermanTagger.getMajorityTaggerTiger(), 
+				GermanTagger.getOpenNlpTaggerPerceptron(),
+				GermanTagger.getRfTagger(), 
+				GermanTagger.getStanfordPosTaggerDeWac(),
+				GermanTagger.getStanfordPosTaggerHgc(), 
+				
+				GermanTagger.getStanfordPosTaggerFast(),
+				GermanTagger.getStanfordPosTaggerFastCaseless(), 
 				GermanTagger.getTreeTagger());
 
 		ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

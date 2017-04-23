@@ -75,10 +75,11 @@ public class RunEnglishTaggerEvaluation
 //                EnglishTagger.getArkIrc(),
 //                EnglishTagger.getArkRitter(),
 //
-                EnglishTagger.getOpenNlpMaxent()
+//                EnglishTagger.getOpenNlpMaxent(),
 //                EnglishTagger.getOpenNlpPerceptron(),
 //
-//                EnglishTagger.getClearNlpOntonotes(),
+                EnglishTagger.getClearNlpOntonotes(),
+                EnglishTagger.getClearNlpMayo()
 //
 //                EnglishTagger.getHeppleTagger()
 //                EnglishTagger.getHunPosTagger(),

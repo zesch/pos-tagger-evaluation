@@ -134,7 +134,7 @@ public class EnglishTagger
         String variant = "mayo";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 ClearNlpPosTagger.class, ClearNlpPosTagger.PARAM_LANGUAGE, LANG,
-                ClearNlpPosTagger.PARAM_DICT_VARIANT, variant,
+                ClearNlpPosTagger.PARAM_VARIANT, variant,
                 ClearNlpPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
                         + englishDefaultMap);
 

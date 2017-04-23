@@ -46,11 +46,11 @@
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
-						<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context</artifactId>
-				<version>3.2.16.RELEASE</version>
-			</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.2.16.RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>org.dkpro.lab</groupId>
 			<artifactId>dkpro-lab-core</artifactId>
@@ -356,16 +356,30 @@
 				de.tudarmstadt.ukp.dkpro.core.gate-asl
 			</artifactId>
 		</dependency>
-		    <dependency>
-      <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-      <artifactId>de.tudarmstadt.ukp.dkpro.core.gate-model-tagger-en-annie</artifactId>
-      <version>20160531.0</version>
-    </dependency>
-		    <dependency>
-		    	<groupId>de.unidue.ltl</groupId>
-		    	<artifactId>de.unidue.ltl.majoritytagger</artifactId>
-		    	<version>0.0.1-SNAPSHOT</version>
-		    </dependency>
+		<dependency>
+			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+			<artifactId>de.tudarmstadt.ukp.dkpro.core.gate-model-tagger-en-annie</artifactId>
+			<version>20160531.0</version>
+		</dependency>
+		<dependency>
+			<groupId>de.unidue.ltl</groupId>
+			<artifactId>de.unidue.ltl.majoritytagger</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>de.unidue.ltl</groupId>
+			<artifactId>
+    		de.unidue.ltl.majoritytagger-model-tagger-en-wsj0-18
+    	</artifactId>
+			<version>20170423.1</version>
+		</dependency>
+			<dependency>
+			<groupId>de.unidue.ltl</groupId>
+			<artifactId>
+    		de.unidue.ltl.majoritytagger-model-tagger-de-tiger
+    	</artifactId>
+			<version>20170423.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

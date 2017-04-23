@@ -7,7 +7,6 @@
 # https://www.sketchengine.co.uk/xdocumentation/wiki/tagsets/german_rftagger
 
 # Catch-all rule
-__META_TYPE_BASE__=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.
 
 ADJA=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ
 

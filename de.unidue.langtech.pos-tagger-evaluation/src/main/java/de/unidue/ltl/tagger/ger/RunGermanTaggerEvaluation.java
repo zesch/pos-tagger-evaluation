@@ -55,12 +55,13 @@ public class RunGermanTaggerEvaluation
 
         GermanTagger.corporaFolderPrefix = corporaFolderPrefix;
         GermanTagger.mappingFolderPrefix = mappingFolderPrefix;
-        GermanTagger.defaultMap = germanDefaultMap;
+        GermanTagger.germanDefaultMap = germanDefaultMap;
 
         Dimension<Object> dimTaggerDesc = Dimension.create("taggerDesc",
 //                GermanTagger.getHunTagger(),
 //                GermanTagger.getMateTagger(),
-                GermanTagger.getOpenNlpTaggerMaxent()
+//                GermanTagger.getOpenNlpTaggerMaxent(),
+                GermanTagger.getMajorityTaggerTiger()
 //                GermanTagger.getOpenNlpTaggerPerceptron(),
 //                GermanTagger.getRfTagger(),
 //                GermanTagger.getStanfordPosTaggerDeWac(),

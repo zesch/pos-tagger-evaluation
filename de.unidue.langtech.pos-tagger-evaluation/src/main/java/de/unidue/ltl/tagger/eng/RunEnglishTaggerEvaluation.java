@@ -81,11 +81,12 @@ public class RunEnglishTaggerEvaluation
 //                EnglishTagger.getClearNlpOntonotes(),
 //                EnglishTagger.getClearNlpMayo()
 //
-                EnglishTagger.getHeppleTagger()
-//                EnglishTagger.getHunPosTagger()
+//                EnglishTagger.getHeppleTagger(),
+//                EnglishTagger.getHunPosTagger(),
 //                EnglishTagger.getLbjTagger()
-//                EnglishTagger.getMateTagger()
-//                EnglishTagger.getTreetagger()
+//                EnglishTagger.getMateTagger(),
+//                EnglishTagger.getTreetagger(),
+        		EnglishTagger.getDefaultTagger()
                 );
 
         ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

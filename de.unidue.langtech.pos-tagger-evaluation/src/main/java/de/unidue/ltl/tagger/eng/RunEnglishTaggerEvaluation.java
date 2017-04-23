@@ -26,7 +26,7 @@ public class RunEnglishTaggerEvaluation
         throws Exception
     {
 
-        String config = args[0];
+        String config = "src/main/resources/exp.config";
         System.setProperty("DKPRO_HOME", System.getProperty("user.home") + "/Desktop/");
         FileInputStream input = new FileInputStream(config);
         Properties prop = new Properties();
@@ -45,14 +45,16 @@ public class RunEnglishTaggerEvaluation
                 // written
 //                EnglishCorpora.getWrittenBnc100k(),
 //                EnglishCorpora.getWrittenBrown(),
-                EnglishCorpora.getWrittenGumHowto(),
-                EnglishCorpora.getWrittenGumNews(),
-                EnglishCorpora.getWrittenGumVoyage()
+//                EnglishCorpora.getWrittenGumHowto(),
+//                EnglishCorpora.getWrittenGumNews(),
+//                EnglishCorpora.getWrittenGumVoyage(),
 //                // social
 //                EnglishCorpora.getSocialNpsIrcChat(),                
-//                EnglishCorpora.getSocialGimpel()
+//                EnglishCorpora.getSocialGimpel(),
+                EnglishCorpora.getSocialAaveTwitter()
 ////                // spoken
-//                EnglishCorpora.getSpokenBnc(), 
+//                EnglishCorpora.getSpokenTedTalk()
+//                EnglishCorpora.getSpokenBnc()
 //                EnglishCorpora.getSpokenSwitchboard(),
 //                EnglishCorpora.getSpokenGumInverview()
                 );
@@ -73,15 +75,15 @@ public class RunEnglishTaggerEvaluation
 //                EnglishTagger.getArkIrc(),
 //                EnglishTagger.getArkRitter(),
 //
-                EnglishTagger.getOpenNlpMaxent(),
-                EnglishTagger.getOpenNlpPerceptron(),
+                EnglishTagger.getOpenNlpMaxent()
+//                EnglishTagger.getOpenNlpPerceptron(),
 //
-                EnglishTagger.getClearNlpOntonotes(),
+//                EnglishTagger.getClearNlpOntonotes(),
 //
-                EnglishTagger.getHeppleTagger(),
-                EnglishTagger.getHunPosTagger(),
+//                EnglishTagger.getHeppleTagger()
+//                EnglishTagger.getHunPosTagger(),
 //                EnglishTagger.getLbjTagger()
-                EnglishTagger.getMateTagger()
+//                EnglishTagger.getMateTagger()
 //                EnglishTagger.getTreetagger()
                 );
 

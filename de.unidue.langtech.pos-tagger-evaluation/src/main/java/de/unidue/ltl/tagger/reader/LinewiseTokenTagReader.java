@@ -132,7 +132,6 @@ public class LinewiseTokenTagReader extends
 	public void getNext(JCas aJCas) throws IOException, CollectionException {
 
 		DocumentMetaData md = new DocumentMetaData(aJCas);
-		md.setDocumentTitle("Ritter2011");
 		md.setDocumentId("" + (instanceId++));
 		md.setLanguage(language);
 		md.addToIndexes();
@@ -140,7 +139,7 @@ public class LinewiseTokenTagReader extends
 		try {
 			posMappingProvider.configure(aJCas.getCas());
 		} catch (AnalysisEngineProcessException e1) {
-			e1.printStackTrace();
+			throw new IOException(e1);
 		}
 
 		String documentText = "";

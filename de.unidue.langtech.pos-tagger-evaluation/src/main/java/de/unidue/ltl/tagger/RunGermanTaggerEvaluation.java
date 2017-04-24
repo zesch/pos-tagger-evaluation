@@ -8,6 +8,7 @@ import org.dkpro.lab.task.Dimension;
 import org.dkpro.lab.task.ParameterSpace;
 import org.dkpro.lab.task.impl.DefaultBatchTask;
 
+import de.unidue.ltl.tagger.components.Keys;
 import de.unidue.ltl.tagger.report.DetailReport;
 import de.unidue.ltl.tagger.report.DomainDetailReport;
 import de.unidue.ltl.tagger.report.TaggerDomainReport;
@@ -36,7 +37,7 @@ public class RunGermanTaggerEvaluation {
 		GermanCorpora.mappingFolderPrefix = mappingFolderPrefix;
 		GermanCorpora.defaultMap = germanDefaultMap;
 
-		Dimension<Object> dimReaderDesc = Dimension.create("readerDesc",
+		Dimension<Object> dimReaderDesc = Dimension.create(Keys.DISCRIMINATOR_READER,
 				// spoken
 				GermanCorpora.getSpokenFolk(),
 				// social
@@ -53,7 +54,7 @@ public class RunGermanTaggerEvaluation {
 		GermanTagger.mappingFolderPrefix = mappingFolderPrefix;
 		GermanTagger.germanDefaultMap = germanDefaultMap;
 
-		Dimension<Object> dimTaggerDesc = Dimension.create("taggerDesc", 
+		Dimension<Object> dimTaggerDesc = Dimension.create(Keys.DISCRIMINATOR_TAGGER, 
 				GermanTagger.getHunTagger(),
 				GermanTagger.getMateTagger(), 
 				GermanTagger.getOpenNlpTaggerMaxent(),

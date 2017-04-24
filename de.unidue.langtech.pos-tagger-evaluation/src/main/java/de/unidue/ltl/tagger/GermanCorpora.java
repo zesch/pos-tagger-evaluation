@@ -5,7 +5,7 @@ import org.apache.uima.fit.factory.CollectionReaderFactory;
 
 import de.unidue.ltl.tagger.components.Keys;
 import de.unidue.ltl.tagger.components.NamedCorpusReaderDescription;
-import de.unidue.ltl.tagger.reader.LinewiseTokenTagReader;
+import de.unidue.ltl.toobee.readers.LineTokenTagReader;
 
 public class GermanCorpora
     implements Keys
@@ -19,10 +19,10 @@ public class GermanCorpora
         throws Exception
     {
         CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
-                LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                 corporaFolderPrefix + "/german/formal/tuebadz",
-                LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
-                "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
+                "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                         + defaultMap);
 
         NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("Tuebadz",
@@ -34,10 +34,10 @@ public class GermanCorpora
         throws Exception
     {
         CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
-                LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                 corporaFolderPrefix + "/german/formal/hamburgTreebank",
-                LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
-                "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
+                "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                         + defaultMap);
 
         NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("HamburgTree",
@@ -49,10 +49,10 @@ public class GermanCorpora
             throws Exception
         {
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
-                    LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                    LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/social/rehbein/",
-                    LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
-                    "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                    LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
+                    "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-rehbein-pos.map");
 
             NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("Rehbein",
@@ -64,10 +64,10 @@ public class GermanCorpora
             throws Exception
         {
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
-                    LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                    LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/social/empiriCmc/",
-                    LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
-                    "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                    LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
+                    "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-empiri-pos.map");
 
             NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("EmpiriCmc",
@@ -79,10 +79,10 @@ public class GermanCorpora
             throws Exception
         {
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
-                    LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                    LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/social/empiriWeb/",
-                    LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
-                    "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                    LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
+                    "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-empiri-pos.map");
 
             NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("EmpiriWeb",
@@ -94,10 +94,10 @@ public class GermanCorpora
             throws Exception
         {
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
-                    LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                    LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/social/neunerdt/",
-                    LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
-                    "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                    LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
+                    "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + defaultMap);
 
             NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("Neunerdt",
@@ -109,10 +109,10 @@ public class GermanCorpora
             throws Exception
         {
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
-                    LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+                    LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/spoken/folk/",
-                    LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
-                    "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+                    LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
+                    "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-folk.map");
 
             NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("Folk",

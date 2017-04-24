@@ -26,7 +26,7 @@ public class RunEnglishTaggerEvaluation
         throws Exception
     {
 
-        String config = args[0];
+        String config = "src/main/resources/exp.config";
         System.setProperty("DKPRO_HOME", System.getProperty("user.home") + "/Desktop/");
         FileInputStream input = new FileInputStream(config);
         Properties prop = new Properties();
@@ -43,20 +43,20 @@ public class RunEnglishTaggerEvaluation
         Dimension<Object> dimReaderDesc = Dimension.create(
                 Keys.DISCRIMINATOR_READER,
                 // written
-                EnglishCorpora.getWrittenBnc100k(),
-                EnglishCorpora.getWrittenBrown(),
-                EnglishCorpora.getWrittenGumHowto(),
-                EnglishCorpora.getWrittenGumNews(),
-                EnglishCorpora.getWrittenGumVoyage(),
-//                // social
-                EnglishCorpora.getSocialNpsIrcChat(),                
-                EnglishCorpora.getSocialGimpel(),
-                EnglishCorpora.getSocialAaveTwitter(),
+//                EnglishCorpora.getWrittenBnc100k(),
+//                EnglishCorpora.getWrittenBrown(),
+//                EnglishCorpora.getWrittenGumHowto(),
+//                EnglishCorpora.getWrittenGumNews(),
+//                EnglishCorpora.getWrittenGumVoyage(),
+////                // social
+//                EnglishCorpora.getSocialNpsIrcChat(),                
+//                EnglishCorpora.getSocialGimpel(),
+                EnglishCorpora.getSocialAaveTwitter()
 ////                // spoken
-                EnglishCorpora.getSpokenTedTalk(),
-                EnglishCorpora.getSpokenBnc(),
-                EnglishCorpora.getSpokenSwitchboard(),
-                EnglishCorpora.getSpokenGumInverview()
+//                EnglishCorpora.getSpokenTedTalk(),
+//                EnglishCorpora.getSpokenBnc(),
+//                EnglishCorpora.getSpokenSwitchboard(),
+//                EnglishCorpora.getSpokenGumInverview()
                 );
 
         EnglishTagger.corporaFolderPrefix = corporaFolderPrefix;
@@ -64,30 +64,31 @@ public class RunEnglishTaggerEvaluation
         EnglishTagger.englishDefaultMap = englishDefaultMap;
 
         Dimension<Object> dimTaggerDesc = Dimension.create(Keys.DISCRIMINATOR_TAGGER,
-                EnglishTagger.getStanfordBidirectionalDistSim(),
-                EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
-                EnglishTagger.getStanfordFast41(), 
-                EnglishTagger.getStanfordTwitter(),
-                EnglishTagger.getStanfordTwitterFast(),
-                EnglishTagger.getStanfordWsj018CaselessLeft3wordsDistsim(),
-//
-                EnglishTagger.getArkDefault(), 
-                EnglishTagger.getArkIrc(),
-                EnglishTagger.getArkRitter(),
-//
-                EnglishTagger.getOpenNlpMaxent(),
-                EnglishTagger.getOpenNlpPerceptron(),
-//
-                EnglishTagger.getClearNlpOntonotes(),
-                EnglishTagger.getClearNlpMayo(),
-//
-                EnglishTagger.getHeppleTagger(),
-                EnglishTagger.getHunPosTagger(),
-//                EnglishTagger.getLbjTagger()
-                EnglishTagger.getMateTagger(),
-                EnglishTagger.getTreetagger(),
-        		EnglishTagger.getDefaultTagger(),
-        		EnglishTagger.getMajorityTaggerWsj()
+                EnglishTagger.getLstmTaggerUniversalDep()
+//                EnglishTagger.getStanfordBidirectionalDistSim(),
+//                EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
+//                EnglishTagger.getStanfordFast41(), 
+//                EnglishTagger.getStanfordTwitter(),
+//                EnglishTagger.getStanfordTwitterFast(),
+//                EnglishTagger.getStanfordWsj018CaselessLeft3wordsDistsim(),
+////
+//                EnglishTagger.getArkDefault(), 
+//                EnglishTagger.getArkIrc(),
+//                EnglishTagger.getArkRitter(),
+////
+//                EnglishTagger.getOpenNlpMaxent(),
+//                EnglishTagger.getOpenNlpPerceptron(),
+////
+//                EnglishTagger.getClearNlpOntonotes(),
+//                EnglishTagger.getClearNlpMayo(),
+////
+//                EnglishTagger.getHeppleTagger(),
+//                EnglishTagger.getHunPosTagger(),
+////                EnglishTagger.getLbjTagger()
+//                EnglishTagger.getMateTagger(),
+//                EnglishTagger.getTreetagger(),
+//        		EnglishTagger.getDefaultTagger(),
+//        		EnglishTagger.getMajorityTaggerWsj()
                 );
 
         ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

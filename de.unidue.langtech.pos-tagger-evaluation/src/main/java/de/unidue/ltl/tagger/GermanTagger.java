@@ -8,6 +8,7 @@ import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.rftagger.RfTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
+import de.unidue.ltl.lstmTaggerAuxLoss.LstmAuxLossTagger;
 import de.unidue.ltl.majoritytagger.MajorityTagTagger;
 import de.unidue.ltl.tagger.components.NamedTaggerDescription;
 
@@ -155,6 +156,23 @@ public class GermanTagger
                 HunPosTagger.PARAM_VARIANT, variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Hun", variant, desc);
+        return ntd;
+    }
+    
+    // This tagger depends on a local-backend installation
+    public static NamedTaggerDescription getLstmTaggerUniversalDep()
+        throws Exception
+    {
+        String variant = "german-UD";
+        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
+                LstmAuxLossTagger.class, LstmAuxLossTagger.PARAM_LANGUAGE, LANG,
+                LstmAuxLossTagger.PARAM_MODEL_LOCATION,
+                "/Users/toobee/Desktop/model/ger-model.model",
+                LstmAuxLossTagger.PARAM_TAGGER_MAIN_PATH,
+                "/Users/toobee/Documents/plankTagger/bilstm-aux/src/bilty.py",
+                LstmAuxLossTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + "universal.map");
+
+        NamedTaggerDescription ntd = new NamedTaggerDescription("LstmAuxLoss", variant, desc);
         return ntd;
     }
 }

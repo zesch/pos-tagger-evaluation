@@ -8,6 +8,7 @@ import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.rftagger.RfTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
+import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosTagger;
 import de.unidue.ltl.lstmTaggerAuxLoss.LstmAuxLossTagger;
 import de.unidue.ltl.majoritytagger.MajorityTagTagger;
 import de.unidue.ltl.tagger.components.NamedTaggerDescription;
@@ -26,8 +27,9 @@ public class GermanTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 RfTagger.class, RfTagger.PARAM_LANGUAGE, LANG, RfTagger.PARAM_POS_MAPPING_LOCATION,
                 mappingFolderPrefix + "/" + "de-tiger-rftagger-pos.map",
-                RfTagger.PARAM_MORPH_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + "de-tiger-rftagger-morph.map", RfTagger.PARAM_VARIANT, variant);
+                RfTagger.PARAM_MORPH_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + "de-tiger-rftagger-morph.map", RfTagger.PARAM_VARIANT,
+                variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("RFTagger", variant, desc);
         return ntd;
@@ -38,7 +40,8 @@ public class GermanTagger
     {
         String variant = "le";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-                RfTagger.class, RfTagger.PARAM_LANGUAGE, LANG, RfTagger.PARAM_POS_MAPPING_LOCATION,
+                TreeTaggerPosTagger.class, TreeTaggerPosTagger.PARAM_LANGUAGE, LANG,
+                TreeTaggerPosTagger.PARAM_POS_MAPPING_LOCATION,
                 mappingFolderPrefix + "/" + germanDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("TreeTagger", variant, desc);
@@ -52,7 +55,8 @@ public class GermanTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 OpenNlpPosTagger.class, OpenNlpPosTagger.PARAM_LANGUAGE, LANG,
                 OpenNlpPosTagger.PARAM_POS_MAPPING_LOCATION,
-                mappingFolderPrefix + "/" + germanDefaultMap, OpenNlpPosTagger.PARAM_VARIANT, variant);
+                mappingFolderPrefix + "/" + germanDefaultMap, OpenNlpPosTagger.PARAM_VARIANT,
+                variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("OpenNLP", variant, desc);
         return ntd;
@@ -65,7 +69,8 @@ public class GermanTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 OpenNlpPosTagger.class, OpenNlpPosTagger.PARAM_LANGUAGE, LANG,
                 OpenNlpPosTagger.PARAM_POS_MAPPING_LOCATION,
-                mappingFolderPrefix + "/" + germanDefaultMap, OpenNlpPosTagger.PARAM_VARIANT, variant);
+                mappingFolderPrefix + "/" + germanDefaultMap, OpenNlpPosTagger.PARAM_VARIANT,
+                variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("OpenNLP", variant, desc);
         return ntd;
@@ -77,8 +82,9 @@ public class GermanTagger
         String variant = "dewac";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + germanDefaultMap, StanfordPosTagger.PARAM_VARIANT, variant);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + germanDefaultMap, StanfordPosTagger.PARAM_VARIANT,
+                variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford", variant, desc);
         return ntd;
@@ -90,8 +96,9 @@ public class GermanTagger
         String variant = "hgc";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + germanDefaultMap, StanfordPosTagger.PARAM_VARIANT, variant);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + germanDefaultMap, StanfordPosTagger.PARAM_VARIANT,
+                variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford", variant, desc);
         return ntd;
@@ -103,8 +110,9 @@ public class GermanTagger
         String variant = "fast";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + germanDefaultMap, StanfordPosTagger.PARAM_VARIANT, variant);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + germanDefaultMap, StanfordPosTagger.PARAM_VARIANT,
+                variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford", variant, desc);
         return ntd;
@@ -116,8 +124,9 @@ public class GermanTagger
         String variant = "fast-caseless";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + germanDefaultMap, StanfordPosTagger.PARAM_VARIANT, variant);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + germanDefaultMap, StanfordPosTagger.PARAM_VARIANT,
+                variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford", variant, desc);
         return ntd;
@@ -129,22 +138,26 @@ public class GermanTagger
         String variant = "tiger";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 MatePosTagger.class, MatePosTagger.PARAM_LANGUAGE, LANG,
-                MatePosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + germanDefaultMap,
-                MatePosTagger.PARAM_VARIANT, variant);
+                MatePosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + germanDefaultMap, MatePosTagger.PARAM_VARIANT, variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Mate", variant, desc);
         return ntd;
     }
-    
-	public static NamedTaggerDescription getMajorityTaggerTiger() throws Exception {
-		String variant = "tiger";
-		AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(MajorityTagTagger.class,
-				MajorityTagTagger.PARAM_LANGUAGE, LANG, MajorityTagTagger.PARAM_VARIANT, variant,
-				MajorityTagTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + germanDefaultMap);
 
-		NamedTaggerDescription ntd = new NamedTaggerDescription("MajorityTagger", variant, desc);
-		return ntd;
-	}
+    public static NamedTaggerDescription getMajorityTaggerTiger()
+        throws Exception
+    {
+        String variant = "tiger";
+        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
+                MajorityTagTagger.class, MajorityTagTagger.PARAM_LANGUAGE, LANG,
+                MajorityTagTagger.PARAM_VARIANT, variant,
+                MajorityTagTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + germanDefaultMap);
+
+        NamedTaggerDescription ntd = new NamedTaggerDescription("MajorityTagger", variant, desc);
+        return ntd;
+    }
 
     public static NamedTaggerDescription getHunTagger()
         throws Exception
@@ -152,13 +165,13 @@ public class GermanTagger
         String variant = "tiger";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 HunPosTagger.class, HunPosTagger.PARAM_LANGUAGE, LANG,
-                HunPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + germanDefaultMap,
-                HunPosTagger.PARAM_VARIANT, variant);
+                HunPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + germanDefaultMap, HunPosTagger.PARAM_VARIANT, variant);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Hun", variant, desc);
         return ntd;
     }
-    
+
     // This tagger depends on a local-backend installation
     public static NamedTaggerDescription getLstmTaggerUniversalDep()
         throws Exception
@@ -170,7 +183,8 @@ public class GermanTagger
                 "/Users/toobee/Desktop/model/ger-model.model",
                 LstmAuxLossTagger.PARAM_TAGGER_MAIN_PATH,
                 "/Users/toobee/Documents/plankTagger/bilstm-aux/src/bilty.py",
-                LstmAuxLossTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + "universal.map");
+                LstmAuxLossTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + "universal.map");
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("LstmAuxLoss", variant, desc);
         return ntd;

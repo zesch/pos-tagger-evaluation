@@ -42,12 +42,6 @@ public class RunEnglishTaggerEvaluation
 
         Dimension<Object> dimReaderDesc = Dimension.create(
                 Keys.DISCRIMINATOR_READER,
-                // written
-                EnglishCorpora.getWrittenBnc100k(),
-                EnglishCorpora.getWrittenBrown(),
-                EnglishCorpora.getWrittenGumHowto(),
-                EnglishCorpora.getWrittenGumNews(),
-                EnglishCorpora.getWrittenGumVoyage(),
 ////                // social
                 EnglishCorpora.getSocialNpsIrcChat(),                
                 EnglishCorpora.getSocialGimpel(),
@@ -56,7 +50,14 @@ public class RunEnglishTaggerEvaluation
                 EnglishCorpora.getSpokenTedTalk(),
                 EnglishCorpora.getSpokenBnc(),
                 EnglishCorpora.getSpokenSwitchboard(),
-                EnglishCorpora.getSpokenGumInverview()
+                EnglishCorpora.getSpokenGumInverview(),
+                // written
+                EnglishCorpora.getWrittenGumHowto(),
+                EnglishCorpora.getWrittenGumNews(),
+                EnglishCorpora.getWrittenGumVoyage(),                
+                EnglishCorpora.getWrittenBnc100k(),
+                EnglishCorpora.getWrittenBrown()
+                
                 );
 
         EnglishTagger.corporaFolderPrefix = corporaFolderPrefix;

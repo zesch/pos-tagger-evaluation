@@ -281,39 +281,4 @@ public class EnglishTagger
         return ntd;
     }
 
-    // This tagger depends on a local-backend installation
-    public static NamedTaggerDescription getLstmTaggerWsj018()
-        throws Exception
-    {
-        String variant = "wsj018";
-        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-                LstmAuxLossTagger.class, LstmAuxLossTagger.PARAM_LANGUAGE, "en",
-                LstmAuxLossTagger.PARAM_PYTHON_EXEC, "/usr/bin/python3",
-                LstmAuxLossTagger.PARAM_MODEL_LOCATION,
-                "/home/LTLAB/horsmann/plankTagger/model/out/en-wsj.model",
-                LstmAuxLossTagger.PARAM_TAGGER_MAIN_PATH,
-                "/home/LTLAB/horsmann/plankTagger/bilstm-aux/src/bilty.py",
-                LstmAuxLossTagger.PARAM_POS_MAPPING_LOCATION,
-                mappingFolderPrefix + "/" + englishDefaultMap);
-
-        NamedTaggerDescription ntd = new NamedTaggerDescription("LstmAuxLoss", variant, desc);
-        return ntd;
-    }
-
-    // Not working anymore
-    // public static NamedTaggerDescription getLbjTagger()
-    // throws Exception
-    // {
-    // String variant = "";
-    // AnalysisEngineDescription desc =
-    // AnalysisEngineFactory.createEngineDescription(
-    // IllinoisPosTagger.class, IllinoisPosTagger.PARAM_LANGUAGE, LANG,
-    // IllinoisPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-    // + "en-lbj-pos.map");
-    //
-    // NamedTaggerDescription ntd = new NamedTaggerDescription("Lbj", variant,
-    // desc);
-    // return ntd;
-    // }
-
 }

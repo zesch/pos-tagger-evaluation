@@ -9,7 +9,6 @@ import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.rftagger.RfTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosTagger;
-import de.unidue.ltl.lstmTaggerAuxLoss.LstmAuxLossTagger;
 import de.unidue.ltl.majoritytagger.MajorityTagTagger;
 import de.unidue.ltl.tagger.components.NamedTaggerDescription;
 

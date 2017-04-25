@@ -33,7 +33,7 @@ APPRART=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
 # APZR	Zirkumposition rechts	[von jetzt] an
 APZR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
 # ART	bestimmter oder unbestimmter Artikel	der, die, das, ein, eine
-ART=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ART
+ART=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
 # CARD	Kardinalzahl	zwei [Männer], [im Jahre] 1994
 CARD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CARD
 # FM	Fremdsprachliches Material	[Er hat das mit ``] A big fish ['' übersetzt]

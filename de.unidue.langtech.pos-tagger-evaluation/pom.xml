@@ -418,7 +418,7 @@
 								<!-- Set the main class of the executable JAR -->
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>de.unidue.ltl.tagger.RunGermanTaggerEvaluation</mainClass>
+									<mainClass>de.unidue.ltl.tagger.RunEnglishTaggerEvaluation</mainClass>
 								</transformer>
 								<!-- Merge the uimaFIT configuration files -->
 								<transformer

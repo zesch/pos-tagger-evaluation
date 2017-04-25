@@ -282,17 +282,18 @@ public class EnglishTagger
     }
 
     // This tagger depends on a local-backend installation
-    public static NamedTaggerDescription getLstmTaggerUniversalDep()
+    public static NamedTaggerDescription getLstmTaggerWsj018()
         throws Exception
     {
-        String variant = "english-UD";
+        String variant = "wsj018";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 LstmAuxLossTagger.class, LstmAuxLossTagger.PARAM_LANGUAGE, "en",
                 LstmAuxLossTagger.PARAM_MODEL_LOCATION,
-                "/Users/toobee/Desktop/model/en-model.model",
+                "/home/LTLAB/horsmann/plankTagger/model/out/en-wsj.model",
                 LstmAuxLossTagger.PARAM_TAGGER_MAIN_PATH,
-                "/Users/toobee/Documents/plankTagger/bilstm-aux/src/bilty.py",
-                LstmAuxLossTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + "universal.map");
+                "/home/LTLAB/horsmann/plankTagger/bilstm-aux/src/bilty.py",
+                LstmAuxLossTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("LstmAuxLoss", variant, desc);
         return ntd;

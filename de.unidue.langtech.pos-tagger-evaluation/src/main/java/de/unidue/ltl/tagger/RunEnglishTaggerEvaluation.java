@@ -26,7 +26,7 @@ public class RunEnglishTaggerEvaluation
         throws Exception
     {
 
-        String config = "src/main/resources/exp.config";
+        String config = args[0];
         System.setProperty("DKPRO_HOME", System.getProperty("user.home") + "/Desktop/");
         FileInputStream input = new FileInputStream(config);
         Properties prop = new Properties();
@@ -43,20 +43,20 @@ public class RunEnglishTaggerEvaluation
         Dimension<Object> dimReaderDesc = Dimension.create(
                 Keys.DISCRIMINATOR_READER,
                 // written
-//                EnglishCorpora.getWrittenBnc100k(),
-//                EnglishCorpora.getWrittenBrown(),
-//                EnglishCorpora.getWrittenGumHowto(),
-//                EnglishCorpora.getWrittenGumNews(),
-//                EnglishCorpora.getWrittenGumVoyage(),
+                EnglishCorpora.getWrittenBnc100k(),
+                EnglishCorpora.getWrittenBrown(),
+                EnglishCorpora.getWrittenGumHowto(),
+                EnglishCorpora.getWrittenGumNews(),
+                EnglishCorpora.getWrittenGumVoyage(),
 ////                // social
-//                EnglishCorpora.getSocialNpsIrcChat(),                
-//                EnglishCorpora.getSocialGimpel(),
-                EnglishCorpora.getSocialAaveTwitter()
+                EnglishCorpora.getSocialNpsIrcChat(),                
+                EnglishCorpora.getSocialGimpel(),
+                EnglishCorpora.getSocialAaveTwitter(),
 ////                // spoken
-//                EnglishCorpora.getSpokenTedTalk(),
-//                EnglishCorpora.getSpokenBnc(),
-//                EnglishCorpora.getSpokenSwitchboard(),
-//                EnglishCorpora.getSpokenGumInverview()
+                EnglishCorpora.getSpokenTedTalk(),
+                EnglishCorpora.getSpokenBnc(),
+                EnglishCorpora.getSpokenSwitchboard(),
+                EnglishCorpora.getSpokenGumInverview()
                 );
 
         EnglishTagger.corporaFolderPrefix = corporaFolderPrefix;
@@ -64,7 +64,7 @@ public class RunEnglishTaggerEvaluation
         EnglishTagger.englishDefaultMap = englishDefaultMap;
 
         Dimension<Object> dimTaggerDesc = Dimension.create(Keys.DISCRIMINATOR_TAGGER,
-                EnglishTagger.getLstmTaggerUniversalDep()
+                EnglishTagger.getLstmTaggerWsj018()
 //                EnglishTagger.getStanfordBidirectionalDistSim(),
 //                EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
 //                EnglishTagger.getStanfordFast41(), 

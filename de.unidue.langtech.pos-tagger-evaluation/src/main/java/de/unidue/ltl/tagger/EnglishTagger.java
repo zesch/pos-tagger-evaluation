@@ -288,6 +288,7 @@ public class EnglishTagger
         String variant = "wsj018";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 LstmAuxLossTagger.class, LstmAuxLossTagger.PARAM_LANGUAGE, "en",
+                LstmAuxLossTagger.PARAM_PYTHON_EXEC, "/usr/bin/python3",
                 LstmAuxLossTagger.PARAM_MODEL_LOCATION,
                 "/home/LTLAB/horsmann/plankTagger/model/out/en-wsj.model",
                 LstmAuxLossTagger.PARAM_TAGGER_MAIN_PATH,

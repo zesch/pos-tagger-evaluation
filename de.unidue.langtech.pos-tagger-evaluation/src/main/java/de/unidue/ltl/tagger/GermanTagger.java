@@ -173,18 +173,19 @@ public class GermanTagger
     }
 
     // This tagger depends on a local-backend installation
-    public static NamedTaggerDescription getLstmTaggerUniversalDep()
+    public static NamedTaggerDescription getLstmTaggerTiger()
         throws Exception
     {
-        String variant = "german-UD";
+        String variant = "tiger";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-                LstmAuxLossTagger.class, LstmAuxLossTagger.PARAM_LANGUAGE, LANG,
+                LstmAuxLossTagger.class, LstmAuxLossTagger.PARAM_LANGUAGE, "de",
+                LstmAuxLossTagger.PARAM_PYTHON_EXEC, "/usr/bin/python3",
                 LstmAuxLossTagger.PARAM_MODEL_LOCATION,
-                "/Users/toobee/Desktop/model/ger-model.model",
+                "/home/LTLAB/horsmann/plankTagger/model/out/de-tiger.model",
                 LstmAuxLossTagger.PARAM_TAGGER_MAIN_PATH,
-                "/Users/toobee/Documents/plankTagger/bilstm-aux/src/bilty.py",
+                "/home/LTLAB/horsmann/plankTagger/bilstm-aux/src/bilty.py",
                 LstmAuxLossTagger.PARAM_POS_MAPPING_LOCATION,
-                mappingFolderPrefix + "/" + "universal.map");
+                mappingFolderPrefix + "/" + germanDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("LstmAuxLoss", variant, desc);
         return ntd;

@@ -126,7 +126,7 @@ XY=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
 # Tuebadz special tag
 PROP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
 
-#Rehbein tags
+# Rehbein tags
 ADPER_ES=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
 VVFIN_ES=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
 VAFIN_ES=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB

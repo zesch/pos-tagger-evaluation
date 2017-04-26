@@ -56,6 +56,7 @@ public class RunGermanTaggerEvaluation {
 
 		Dimension<Object> dimTaggerDesc = Dimension.create(Keys.DISCRIMINATOR_TAGGER, 
 				GermanTagger.getHunTagger(),
+				
 				GermanTagger.getMateTagger(), 
 				GermanTagger.getOpenNlpTaggerMaxent(),
 				GermanTagger.getMajorityTaggerTiger(), 
@@ -66,7 +67,8 @@ public class RunGermanTaggerEvaluation {
 				
 				GermanTagger.getStanfordPosTaggerFast(),
 				GermanTagger.getStanfordPosTaggerFastCaseless(), 
-				GermanTagger.getTreeTagger());
+				GermanTagger.getTreeTagger()
+				);
 
 		ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);
 

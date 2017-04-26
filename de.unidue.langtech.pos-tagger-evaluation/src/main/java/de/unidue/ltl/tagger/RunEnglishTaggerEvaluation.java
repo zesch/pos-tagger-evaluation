@@ -65,6 +65,9 @@ public class RunEnglishTaggerEvaluation
         EnglishTagger.englishDefaultMap = englishDefaultMap;
 
         Dimension<Object> dimTaggerDesc = Dimension.create(Keys.DISCRIMINATOR_TAGGER,
+                EnglishTagger.getHunPosTagger(),
+                EnglishTagger.getHeppleTagger(),
+                
                 EnglishTagger.getStanfordBidirectionalDistSim(),
                 EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
                 EnglishTagger.getStanfordFast41(), 
@@ -81,13 +84,10 @@ public class RunEnglishTaggerEvaluation
 //
                 EnglishTagger.getClearNlpOntonotes(),
                 EnglishTagger.getClearNlpMayo(),
-//
-                EnglishTagger.getHeppleTagger(),
-                EnglishTagger.getHunPosTagger(),
+////
                 EnglishTagger.getMateTagger(),
                 
                 EnglishTagger.getTreetagger(),
-        		EnglishTagger.getDefaultTagger(),
         		EnglishTagger.getMajorityTaggerWsj()
                 );
 

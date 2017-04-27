@@ -61,6 +61,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/formal/brown/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, "1",
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + "en-browntei-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("brown", DOMAIN_FORMAL, desc);
@@ -138,8 +139,9 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION,
 				corporaFolderPrefix + "/english/spoken/bnc-conversations/", LineTokenTagReader.PARAM_LANGUAGE, LANG,
-				LineTokenTagReader.PARAM_PATTERNS, "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION,
+				LineTokenTagReader.PARAM_PATTERNS, "*.txt",
 				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, "1",
+				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION,
 				mappingFolderPrefix + "/" + "en-c5-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("bnc-100k-conversation", DOMAIN_SPOKEN,

@@ -17,6 +17,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/formal/gum-news/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/en-ptb-tt-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("gum-news", DOMAIN_FORMAL, desc);
@@ -27,6 +28,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/formal/gum-voyage/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/en-ptb-tt-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("gum-voyage", DOMAIN_FORMAL, desc);
@@ -37,6 +39,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/formal/gum-howto/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/en-ptb-tt-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("gum-howto", DOMAIN_FORMAL, desc);
@@ -47,6 +50,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/formal/bnc-written-news/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + "en-c5-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("bnc-100k-newspaper", DOMAIN_FORMAL, desc);
@@ -67,6 +71,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/social/gimpel/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + "en-arktweet-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("gimpel", DOMAIN_SOCIAL, desc);
@@ -78,6 +83,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/social/nps-irc/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + defaultMap);
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("nps-irc", DOMAIN_SOCIAL, desc);
@@ -88,6 +94,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/social/ritter/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + defaultMap);
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("ritter", DOMAIN_SOCIAL, desc);
@@ -98,6 +105,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/social/aaveTweets/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + "en-aavee-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("aaveTweet", DOMAIN_SOCIAL, desc);
@@ -108,6 +116,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/spoken/switchboard/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + defaultMap);
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("switchboard", DOMAIN_SPOKEN, desc);
@@ -118,6 +127,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/spoken/tedTalk/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/" + defaultMap);
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("tedTalks", DOMAIN_SPOKEN, desc);
@@ -129,6 +139,7 @@ public class EnglishCorpora implements Keys {
 				LineTokenTagReader.PARAM_SOURCE_LOCATION,
 				corporaFolderPrefix + "/english/spoken/bnc-conversations/", LineTokenTagReader.PARAM_LANGUAGE, LANG,
 				LineTokenTagReader.PARAM_PATTERNS, "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION,
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				mappingFolderPrefix + "/" + "en-c5-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("bnc-100k-conversation", DOMAIN_SPOKEN,
@@ -140,6 +151,7 @@ public class EnglishCorpora implements Keys {
 		CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(LineTokenTagReader.class,
 				LineTokenTagReader.PARAM_SOURCE_LOCATION, corporaFolderPrefix + "/english/spoken/gum-inverview/",
 				LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS, "*.txt",
+				LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
 				LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/en-ptb-tt-pos.map");
 
 		NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("gum-inverview", DOMAIN_SPOKEN, desc);

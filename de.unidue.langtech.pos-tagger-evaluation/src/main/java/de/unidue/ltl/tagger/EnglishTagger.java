@@ -75,6 +75,7 @@ public class EnglishTagger
         return ntd;
     }
 
+    @Deprecated
     public static NamedTaggerDescription getStanfordTwitter()
         throws Exception
     {
@@ -88,6 +89,7 @@ public class EnglishTagger
         return ntd;
     }
 
+    @Deprecated
     public static NamedTaggerDescription getStanfordTwitterFast()
         throws Exception
     {
@@ -158,6 +160,7 @@ public class EnglishTagger
         return ntd;
     }
 
+    @Deprecated
     public static NamedTaggerDescription getArkDefault()
         throws Exception
     {
@@ -172,6 +175,7 @@ public class EnglishTagger
         return ntd;
     }
 
+    @Deprecated
     public static NamedTaggerDescription getArkIrc()
         throws Exception
     {

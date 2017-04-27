@@ -75,8 +75,6 @@ public class RunEnglishTaggerEvaluation
                 EnglishTagger.getStanfordTwitterFast(),
                 EnglishTagger.getStanfordWsj018CaselessLeft3wordsDistsim(),
 //
-                EnglishTagger.getArkDefault(), 
-                EnglishTagger.getArkIrc(),
                 EnglishTagger.getArkRitter(),
 //
                 EnglishTagger.getOpenNlpMaxent(),

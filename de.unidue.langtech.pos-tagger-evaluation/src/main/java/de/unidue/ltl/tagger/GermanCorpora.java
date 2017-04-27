@@ -14,6 +14,8 @@ public class GermanCorpora
     public static String corporaFolderPrefix;
     public static String mappingFolderPrefix;
     public static String defaultMap;
+    
+    static String seqLimit="1000";
 
     public static NamedCorpusReaderDescription getFormalTuebadz()
         throws Exception
@@ -21,7 +23,7 @@ public class GermanCorpora
         CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
                 LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                 corporaFolderPrefix + "/german/formal/tuebadz",
-                LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
+                LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, seqLimit,
                 LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
                 "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                         + defaultMap);
@@ -37,7 +39,7 @@ public class GermanCorpora
         CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
                 LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                 corporaFolderPrefix + "/german/formal/hamburgTreebank",
-                LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
+                LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, seqLimit,
                 LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
                 "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                         + defaultMap);
@@ -53,7 +55,7 @@ public class GermanCorpora
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
                     LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/social/rehbein/",
-                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
+                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, seqLimit,
                     LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
                     "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-rehbein-pos.map");
@@ -69,7 +71,7 @@ public class GermanCorpora
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
                     LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/social/empiriCmc/",
-                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
+                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, seqLimit,
                     LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
                     "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-empiri-pos.map");
@@ -85,7 +87,7 @@ public class GermanCorpora
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
                     LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/social/empiriWeb/",
-                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
+                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, seqLimit,
                     LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
                     "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-empiri-pos.map");
@@ -101,7 +103,7 @@ public class GermanCorpora
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
                     LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/social/neunerdt/",
-                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
+                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, seqLimit,
                     LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
                     "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + defaultMap);
@@ -117,7 +119,7 @@ public class GermanCorpora
             CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
                     LineTokenTagReader.class, LineTokenTagReader.PARAM_SOURCE_LOCATION,
                     corporaFolderPrefix + "/german/spoken/folk/",
-                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, 1,
+                    LineTokenTagReader.PARAM_SEQUENCES_PER_CAS, seqLimit,
                     LineTokenTagReader.PARAM_LANGUAGE, LANG, LineTokenTagReader.PARAM_PATTERNS,
                     "*.txt", LineTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
                             + "de-stts-folk.map");

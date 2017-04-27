@@ -44,7 +44,7 @@ NNPS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
 # 16.	PDT	Predeterminer
 PDT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
 # 17.	POS	Possessive ending
-POS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
+POS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRT
 # 18.	PP	Personal pronoun
 PP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
 PRP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
@@ -58,12 +58,12 @@ RBR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
 # 22.	RBS	Adverb, superlative
 RBS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
 # 23.	RP	Particle
-RP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
+RP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PART
 SENT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
 # 24.	SYM	Symbol
 SYM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
 # 25.	TO	to
-TO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
+TO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PART
 # 26.	UH	Interjection
 UH=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.INTJ
 # 27.	VB	Verb (be), base form

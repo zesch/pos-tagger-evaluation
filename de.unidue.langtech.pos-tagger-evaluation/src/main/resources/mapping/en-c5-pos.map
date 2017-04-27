@@ -2,9 +2,6 @@
 #
 # British National Corpus Basic Tagset C5 Tagset
 
-__META_SOURCE_URL__=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.http://www.natcorp.ox.ac.uk/docs/gramtag.html
-__META_TYPE_BASE__=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.
-
 # Default mapping
 *=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
 

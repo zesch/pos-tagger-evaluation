@@ -129,6 +129,18 @@ public class EnglishCorpora
         NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("ritter", DOMAIN_SOCIAL, desc);
         return nrd;
     }
+    
+    public static NamedCorpusReaderDescription getSocialTwitterAavee() throws Exception {
+	      CollectionReaderDescription desc = CollectionReaderFactory.createReaderDescription(
+	                LinewiseTokenTagReader.class, LinewiseTokenTagReader.PARAM_SOURCE_LOCATION,
+	                corporaFolderPrefix + "/english/social/aaveTweets/",
+	                LinewiseTokenTagReader.PARAM_LANGUAGE, LANG, LinewiseTokenTagReader.PARAM_PATTERNS,
+	                "*.txt", LinewiseTokenTagReader.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix
+	                        + "/" + defaultMap);
+	        
+	        NamedCorpusReaderDescription nrd = new NamedCorpusReaderDescription("twitter-aavee", DOMAIN_SOCIAL, desc);
+	        return nrd;
+	}
 
     public static NamedCorpusReaderDescription getSpokenSwitchboard()
         throws Exception

@@ -45,12 +45,13 @@ public class RunEnglishTaggerEvaluation
                 // written
 //                EnglishCorpora.getWrittenBnc100k(),
 //                EnglishCorpora.getWrittenBrown(),
-                EnglishCorpora.getWrittenGumHowto(),
-                EnglishCorpora.getWrittenGumNews(),
-                EnglishCorpora.getWrittenGumVoyage()
+//                EnglishCorpora.getWrittenGumHowto(),
+//                EnglishCorpora.getWrittenGumNews(),
+//                EnglishCorpora.getWrittenGumVoyage(),
 //                // social
-//                EnglishCorpora.getSocialNpsIrcChat(),                
-//                EnglishCorpora.getSocialGimpel()
+                EnglishCorpora.getSocialNpsIrcChat(),                
+                EnglishCorpora.getSocialGimpel(),
+                EnglishCorpora.getSocialTwitterAavee()
 ////                // spoken
 //                EnglishCorpora.getSpokenBnc(), 
 //                EnglishCorpora.getSpokenSwitchboard(),
@@ -73,16 +74,17 @@ public class RunEnglishTaggerEvaluation
 //                EnglishTagger.getArkIrc(),
 //                EnglishTagger.getArkRitter(),
 //
-                EnglishTagger.getOpenNlpMaxent(),
-                EnglishTagger.getOpenNlpPerceptron(),
+//                EnglishTagger.getOpenNlpMaxent(),
+//                EnglishTagger.getOpenNlpPerceptron(),
 //
-                EnglishTagger.getClearNlpOntonotes(),
+//                EnglishTagger.getClearNlpOntonotes(),
 //
-                EnglishTagger.getHeppleTagger(),
-                EnglishTagger.getHunPosTagger(),
+//                EnglishTagger.getHeppleTagger(),
+//                EnglishTagger.getHunPosTagger(),
 //                EnglishTagger.getLbjTagger()
-                EnglishTagger.getMateTagger()
+//                EnglishTagger.getMateTagger()
 //                EnglishTagger.getTreetagger()
+        		EnglishTagger.getSocialMediaAdaptedModel()
                 );
 
         ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

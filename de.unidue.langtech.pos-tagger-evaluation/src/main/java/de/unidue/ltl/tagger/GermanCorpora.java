@@ -5,7 +5,7 @@ import org.apache.uima.fit.factory.CollectionReaderFactory;
 
 import de.unidue.ltl.tagger.components.Keys;
 import de.unidue.ltl.tagger.components.NamedCorpusReaderDescription;
-import de.unidue.ltl.toobee.readers.LineTokenTagReader;
+import de.unidue.ltl.tagger.reader.LineTokenTagReader;
 
 public class GermanCorpora
     implements Keys

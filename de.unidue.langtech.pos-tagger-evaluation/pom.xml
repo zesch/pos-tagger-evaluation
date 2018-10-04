@@ -380,11 +380,6 @@
 <!--     	</artifactId> -->
 <!-- 			<version>20170423.1</version> -->
 <!-- 		</dependency> -->
-			<dependency>
-				<groupId>de.unidue.ltl.toobee</groupId>
-				<artifactId>de.unidue.ltl.toobee.readers</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
 	</dependencies>
 	<build>
 		<plugins>

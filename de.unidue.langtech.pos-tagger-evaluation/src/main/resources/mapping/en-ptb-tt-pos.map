@@ -44,7 +44,7 @@ NNPS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
 # 16.	PDT	Predeterminer
 PDT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_DET
 # 17.	POS	Possessive ending
-POS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRT
+POS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PART
 # 18.	PP	Personal pronoun
 PP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
 PRP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON

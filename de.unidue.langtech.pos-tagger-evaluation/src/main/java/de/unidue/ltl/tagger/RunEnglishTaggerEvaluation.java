@@ -80,10 +80,10 @@ public class RunEnglishTaggerEvaluation
                 EnglishTagger.getClearNlpOntonotes(),
                 EnglishTagger.getClearNlpMayo(),
 ////
-                EnglishTagger.getMateTagger(),
-                
-                EnglishTagger.getTreetagger(),
-        		EnglishTagger.getMajorityTaggerWsj()
+                EnglishTagger.getMateTagger()
+//                
+//                EnglishTagger.getTreetagger(),
+//        		EnglishTagger.getMajorityTaggerWsj()
                 );
 
         ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

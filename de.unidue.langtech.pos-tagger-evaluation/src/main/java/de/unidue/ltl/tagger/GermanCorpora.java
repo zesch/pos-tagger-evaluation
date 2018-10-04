@@ -15,7 +15,7 @@ public class GermanCorpora
     public static String mappingFolderPrefix;
     public static String defaultMap;
     
-    static String seqLimit="1000";
+    static String seqLimit="100";
 
     public static NamedCorpusReaderDescription getFormalTuebadz()
         throws Exception

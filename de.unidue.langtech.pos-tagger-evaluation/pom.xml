@@ -23,7 +23,7 @@
 			<dependency>
 				<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 				<artifactId>de.tudarmstadt.ukp.dkpro.core-asl</artifactId>
-				<version>1.9.0-SNAPSHOT</version>
+				<version>1.9.3</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -32,7 +32,7 @@
 				<artifactId>
 					de.tudarmstadt.ukp.dkpro.core-gpl
 				</artifactId>
-				<version>1.9.0-SNAPSHOT</version>
+				<version>1.9.3</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -301,27 +301,27 @@
     		de.tudarmstadt.ukp.dkpro.core.io.bnc-asl
     	</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>
-    		de.tudarmstadt.ukp.dkpro.core.treetagger-bin
-    	</artifactId>
-			<version>20150325.0</version>
-		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>
-    		de.tudarmstadt.ukp.dkpro.core.treetagger-model-tagger-de-le
-    	</artifactId>
-			<version>20121207.1</version>
-		</dependency>
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>
-    		de.tudarmstadt.ukp.dkpro.core.treetagger-model-tagger-en-le
-    	</artifactId>
-			<version>20151119.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId> -->
+<!-- 			<artifactId> -->
+<!--     		de.tudarmstadt.ukp.dkpro.core.treetagger-bin -->
+<!--     	</artifactId> -->
+<!-- 			<version>20150325.0</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId> -->
+<!-- 			<artifactId> -->
+<!--     		de.tudarmstadt.ukp.dkpro.core.treetagger-model-tagger-de-le -->
+<!--     	</artifactId> -->
+<!-- 			<version>20121207.1</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId> -->
+<!-- 			<artifactId> -->
+<!--     		de.tudarmstadt.ukp.dkpro.core.treetagger-model-tagger-en-le -->
+<!--     	</artifactId> -->
+<!-- 			<version>20151119.1</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 			<artifactId>de.tudarmstadt.ukp.dkpro.core.clearnlp-model-tagger-en-mayo</artifactId>
@@ -361,25 +361,25 @@
 			<artifactId>de.tudarmstadt.ukp.dkpro.core.gate-model-tagger-en-annie</artifactId>
 			<version>20160531.0</version>
 		</dependency>
-		<dependency>
-			<groupId>de.unidue.ltl</groupId>
-			<artifactId>de.unidue.ltl.majoritytagger</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>de.unidue.ltl</groupId>
-			<artifactId>
-    		de.unidue.ltl.majoritytagger-model-tagger-en-wsj0-18
-    	</artifactId>
-			<version>20170423.1</version>
-		</dependency>
-			<dependency>
-			<groupId>de.unidue.ltl</groupId>
-			<artifactId>
-    		de.unidue.ltl.majoritytagger-model-tagger-de-tiger
-    	</artifactId>
-			<version>20170423.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>de.unidue.ltl</groupId> -->
+<!-- 			<artifactId>de.unidue.ltl.majoritytagger</artifactId> -->
+<!-- 			<version>0.0.1-SNAPSHOT</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>de.unidue.ltl</groupId> -->
+<!-- 			<artifactId> -->
+<!--     		de.unidue.ltl.majoritytagger-model-tagger-en-wsj0-18 -->
+<!--     	</artifactId> -->
+<!-- 			<version>20170423.1</version> -->
+<!-- 		</dependency> -->
+<!-- 			<dependency> -->
+<!-- 			<groupId>de.unidue.ltl</groupId> -->
+<!-- 			<artifactId> -->
+<!--     		de.unidue.ltl.majoritytagger-model-tagger-de-tiger -->
+<!--     	</artifactId> -->
+<!-- 			<version>20170423.1</version> -->
+<!-- 		</dependency> -->
 			<dependency>
 				<groupId>de.unidue.ltl.toobee</groupId>
 				<artifactId>de.unidue.ltl.toobee.readers</artifactId>

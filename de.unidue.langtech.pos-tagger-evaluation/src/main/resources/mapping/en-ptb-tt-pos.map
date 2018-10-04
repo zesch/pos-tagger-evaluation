@@ -3,112 +3,112 @@
 # This is the version used by TreeTagger which contains tags not present in the original tagset.
 # 
 # Source (PTB 1): http://faculty.washington.edu/dillon/GramResources/penntable.html
-*=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
-,=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
--=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
-.=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
-;=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
-?=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
+*=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_X
+,=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
+-=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
+.=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
+;=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
+?=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
 # 1.	CC	Coordinating conjunction
-CC=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CONJ
+CC=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_CONJ
 # 2.	CD	Cardinal number
-CD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NUM
+CD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NUM
 # 3.	DT	Determiner
-DT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
+DT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_DET
 # 4.	EX	Existential there
-EX=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
+EX=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_DET
 # 5.	FW	Foreign word
-FW=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
+FW=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_X
 # 6.	IN	Preposition or subordinating conjunction
-IN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
+IN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
 # 7.	JJ	Adjective
-JJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ
+JJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADJ
 # 8.	JJR	Adjective, comparative
-JJR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ
+JJR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADJ
 # 9.	JJS	Adjective, superlative
-JJS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ
+JJS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADJ
 # 10.	LS	List item marker
-LS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
+LS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_X
 # 11.	MD	Modal
-MD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+MD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 # 12.	NN	Noun, singular or mass
-NN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
+NN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
 # 13.	NNS	Noun, plural
-NNS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
+NNS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
 # 14.	NP	Proper noun, singular
-NP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
-NNP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
+NP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
+NNP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
 # 15.	NPS	Proper noun, plural
-NPS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
-NNPS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
+NPS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
+NNPS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
 # 16.	PDT	Predeterminer
-PDT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
+PDT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_DET
 # 17.	POS	Possessive ending
-POS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRT
+POS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRT
 # 18.	PP	Personal pronoun
-PP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
-PRP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
+PP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
+PRP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
 # 19.	PP$	Possessive pronoun
-PP$=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
-PRP$=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
+PP$=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
+PRP$=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
 # 20.	RB	Adverb
-RB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
+RB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
 # 21.	RBR	Adverb, comparative	
-RBR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
+RBR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
 # 22.	RBS	Adverb, superlative
-RBS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
+RBS=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
 # 23.	RP	Particle
-RP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PART
-SENT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
+RP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PART
+SENT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
 # 24.	SYM	Symbol
-SYM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
+SYM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
 # 25.	TO	to
-TO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PART
+TO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PART
 # 26.	UH	Interjection
-UH=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.INTJ
+UH=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_INTJ
 # 27.	VB	Verb (be), base form
-VB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 # 28.	VBD	Verb (be), past tense
-VBD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VBD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 # 29.	VBG	Verb (be), gerund or present participle
-VBG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VBG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 # 30.	VBN	Verb (be), past participle
-VBN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VBN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 # 31.	VBP	Verb (be), non-3rd person singular present
-VBP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VBP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 # 32.	VBZ	Verb (be), 3rd person singular present
-VBZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VBZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VH	Verb (have), base form
-VH=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VH=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VHD	Verb (have), past tense
-VHD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VHD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VHG	Verb (have), gerund or present participle
-VHG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VHG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VHN	Verb (have), past participle
-VHN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VHN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VHP	Verb (have), non-3rd person singular present
-VHP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VHP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VHZ	Verb (have), 3rd person singular present
-VHZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VHZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VV	Verb (other verbs), base form
-VV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VvD	Verb (other verbs), past tense
-VVD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VVD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VVG	Verb (other verbs), gerund or present participle
-VVG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VVG=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VVN	Verb (other verbs), past participle
-VVN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VVN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VVP	Verb (other verbs), non-3rd person singular present
-VVP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VVP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 #		VVZ	Verb (other verbs), 3rd person singular present
-VVZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VVZ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 # 33.	WDT	Wh-determiner
-WDT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
+WDT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_DET
 # 34.	WP	Wh-pronoun
-WP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
+WP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
 # 35.	WP$	Possessive wh-pronoun
-WP$=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
+WP$=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
 # 36.	WRB	Wh-adverb
-WRB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
-\!=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
-\:=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
+WRB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
+\!=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
+\:=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT

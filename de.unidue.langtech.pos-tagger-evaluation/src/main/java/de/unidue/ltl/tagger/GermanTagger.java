@@ -8,8 +8,6 @@ import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.rftagger.RfTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
-import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosTagger;
-import de.unidue.ltl.majoritytagger.MajorityTagTagger;
 import de.unidue.ltl.tagger.components.NamedTaggerDescription;
 
 public class GermanTagger
@@ -34,18 +32,18 @@ public class GermanTagger
         return ntd;
     }
 
-    public static NamedTaggerDescription getTreeTagger()
-        throws Exception
-    {
-        String variant = "le";
-        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-                TreeTaggerPosTagger.class, TreeTaggerPosTagger.PARAM_LANGUAGE, LANG,
-                TreeTaggerPosTagger.PARAM_POS_MAPPING_LOCATION,
-                mappingFolderPrefix + "/" + germanDefaultMap);
-
-        NamedTaggerDescription ntd = new NamedTaggerDescription("TreeTagger", variant, desc);
-        return ntd;
-    }
+//    public static NamedTaggerDescription getTreeTagger()
+//        throws Exception
+//    {
+//        String variant = "le";
+//        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
+//                TreeTaggerPosTagger.class, TreeTaggerPosTagger.PARAM_LANGUAGE, LANG,
+//                TreeTaggerPosTagger.PARAM_POS_MAPPING_LOCATION,
+//                mappingFolderPrefix + "/" + germanDefaultMap);
+//
+//        NamedTaggerDescription ntd = new NamedTaggerDescription("TreeTagger", variant, desc);
+//        return ntd;
+//    }
 
     public static NamedTaggerDescription getOpenNlpTaggerMaxent()
         throws Exception
@@ -144,19 +142,19 @@ public class GermanTagger
         return ntd;
     }
 
-    public static NamedTaggerDescription getMajorityTaggerTiger()
-        throws Exception
-    {
-        String variant = "tiger";
-        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-                MajorityTagTagger.class, MajorityTagTagger.PARAM_LANGUAGE, LANG,
-                MajorityTagTagger.PARAM_VARIANT, variant,
-                MajorityTagTagger.PARAM_POS_MAPPING_LOCATION,
-                mappingFolderPrefix + "/" + germanDefaultMap);
-
-        NamedTaggerDescription ntd = new NamedTaggerDescription("MajorityTagger", variant, desc);
-        return ntd;
-    }
+//    public static NamedTaggerDescription getMajorityTaggerTiger()
+//        throws Exception
+//    {
+//        String variant = "tiger";
+//        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
+//                MajorityTagTagger.class, MajorityTagTagger.PARAM_LANGUAGE, LANG,
+//                MajorityTagTagger.PARAM_VARIANT, variant,
+//                MajorityTagTagger.PARAM_POS_MAPPING_LOCATION,
+//                mappingFolderPrefix + "/" + germanDefaultMap);
+//
+//        NamedTaggerDescription ntd = new NamedTaggerDescription("MajorityTagger", variant, desc);
+//        return ntd;
+//    }
 
     public static NamedTaggerDescription getHunTagger()
         throws Exception

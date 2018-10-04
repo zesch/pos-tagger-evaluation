@@ -59,15 +59,15 @@ public class RunGermanTaggerEvaluation {
 				
 				GermanTagger.getMateTagger(), 
 				GermanTagger.getOpenNlpTaggerMaxent(),
-				GermanTagger.getMajorityTaggerTiger(), 
+//				GermanTagger.getMajorityTaggerTiger(), 
 				GermanTagger.getOpenNlpTaggerPerceptron(),
 				GermanTagger.getRfTagger(), 
 				GermanTagger.getStanfordPosTaggerDeWac(),
 				GermanTagger.getStanfordPosTaggerHgc(), 
 				
 				GermanTagger.getStanfordPosTaggerFast(),
-				GermanTagger.getStanfordPosTaggerFastCaseless(), 
-				GermanTagger.getTreeTagger()
+				GermanTagger.getStanfordPosTaggerFastCaseless() 
+//				GermanTagger.getTreeTagger()
 				);
 
 		ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

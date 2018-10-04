@@ -11,8 +11,6 @@ import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosTagger;
-import de.unidue.ltl.majoritytagger.DefaultTagger;
-import de.unidue.ltl.majoritytagger.MajorityTagTagger;
 import de.unidue.ltl.tagger.components.NamedTaggerDescription;
 
 public class EnglishTagger
@@ -256,32 +254,32 @@ public class EnglishTagger
         return ntd;
     }
 
-    // Not released tagger
-    public static NamedTaggerDescription getDefaultTagger()
-        throws Exception
-    {
-        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-                DefaultTagger.class, DefaultTagger.PARAM_LANGUAGE, LANG,
-                DefaultTagger.PARAM_POS_MAPPING_LOCATION,
-                mappingFolderPrefix + "/" + englishDefaultMap);
-
-        NamedTaggerDescription ntd = new NamedTaggerDescription("DefaultTagger", "", desc);
-        return ntd;
-    }
-
-    // Not released tagger
-    public static NamedTaggerDescription getMajorityTaggerWsj()
-        throws Exception
-    {
-        String variant = "wsj0-18";
-        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-                MajorityTagTagger.class, MajorityTagTagger.PARAM_LANGUAGE, LANG,
-                MajorityTagTagger.PARAM_VARIANT, variant,
-                MajorityTagTagger.PARAM_POS_MAPPING_LOCATION,
-                mappingFolderPrefix + "/" + englishDefaultMap);
-
-        NamedTaggerDescription ntd = new NamedTaggerDescription("MajorityTagger", variant, desc);
-        return ntd;
-    }
+//    // Not released tagger
+//    public static NamedTaggerDescription getDefaultTagger()
+//        throws Exception
+//    {
+//        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
+//                DefaultTagger.class, DefaultTagger.PARAM_LANGUAGE, LANG,
+//                DefaultTagger.PARAM_POS_MAPPING_LOCATION,
+//                mappingFolderPrefix + "/" + englishDefaultMap);
+//
+//        NamedTaggerDescription ntd = new NamedTaggerDescription("DefaultTagger", "", desc);
+//        return ntd;
+//    }
+//
+//    // Not released tagger
+//    public static NamedTaggerDescription getMajorityTaggerWsj()
+//        throws Exception
+//    {
+//        String variant = "wsj0-18";
+//        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
+//                MajorityTagTagger.class, MajorityTagTagger.PARAM_LANGUAGE, LANG,
+//                MajorityTagTagger.PARAM_VARIANT, variant,
+//                MajorityTagTagger.PARAM_POS_MAPPING_LOCATION,
+//                mappingFolderPrefix + "/" + englishDefaultMap);
+//
+//        NamedTaggerDescription ntd = new NamedTaggerDescription("MajorityTagger", variant, desc);
+//        return ntd;
+//    }
 
 }

@@ -8,33 +8,33 @@
 
 # Catch-all rule
 
-ADJA=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ
+ADJA=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADJ
 
-ADJD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
-ADV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
-PROADV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADV
+ADJD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
+ADV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
+PROADV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
 
-APPO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
-APPR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
-APPRART=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
-APZR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADP
+APPO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
+APPR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
+APPRART=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
+APZR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
 
-ART=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.DET
+ART=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_DET
 
-CARD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NUM
-CONJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.CONJ
+CARD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NUM
+CONJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_CONJ
 
-N=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NOUN
+N=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
 
-PRO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PRON
+PRO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
 
 
-VFIN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
-VPP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
-VIMP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
-VINF=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.VERB
+VFIN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
+VPP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
+VIMP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
+VINF=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
 
-SYM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
-SENT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNCT
+SYM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
+SENT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
 
-*=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.X
+*=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_X

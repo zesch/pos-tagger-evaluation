@@ -1,4 +1,4 @@
-package de.unidue.ltl.tagger;
+package de.unidue.ltl.tagger.components;
 
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.dkpro.lab.task.Discriminable;

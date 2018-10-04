@@ -1,4 +1,4 @@
-package de.unidue.ltl.tagger.eng;
+package de.unidue.ltl.tagger;
 
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -8,7 +8,7 @@ import org.dkpro.lab.task.Dimension;
 import org.dkpro.lab.task.ParameterSpace;
 import org.dkpro.lab.task.impl.DefaultBatchTask;
 
-import de.unidue.ltl.tagger.Keys;
+import de.unidue.ltl.tagger.components.Keys;
 import de.unidue.ltl.tagger.report.DetailReport;
 import de.unidue.ltl.tagger.report.DomainDetailReport;
 import de.unidue.ltl.tagger.report.TaggerDomainReport;
@@ -42,20 +42,22 @@ public class RunEnglishTaggerEvaluation
 
         Dimension<Object> dimReaderDesc = Dimension.create(
                 Keys.DISCRIMINATOR_READER,
-                // written
-//                EnglishCorpora.getWrittenBnc100k(),
-//                EnglishCorpora.getWrittenBrown(),
-//                EnglishCorpora.getWrittenGumHowto(),
-//                EnglishCorpora.getWrittenGumNews(),
-//                EnglishCorpora.getWrittenGumVoyage(),
-//                // social
+////                // social
                 EnglishCorpora.getSocialNpsIrcChat(),                
                 EnglishCorpora.getSocialGimpel(),
-                EnglishCorpora.getSocialTwitterAavee()
+                EnglishCorpora.getSocialAaveTwitter(),
 ////                // spoken
-//                EnglishCorpora.getSpokenBnc(), 
-//                EnglishCorpora.getSpokenSwitchboard(),
-//                EnglishCorpora.getSpokenGumInverview()
+                EnglishCorpora.getSpokenTedTalk(),
+                EnglishCorpora.getSpokenBnc(),
+                EnglishCorpora.getSpokenSwitchboard(),
+                EnglishCorpora.getSpokenGumInverview(),
+                // written
+                EnglishCorpora.getWrittenGumHowto(),
+                EnglishCorpora.getWrittenGumNews(),
+                EnglishCorpora.getWrittenGumVoyage(),                
+                EnglishCorpora.getWrittenBnc100k(),
+                EnglishCorpora.getWrittenBrown()
+                
                 );
 
         EnglishTagger.corporaFolderPrefix = corporaFolderPrefix;
@@ -63,28 +65,25 @@ public class RunEnglishTaggerEvaluation
         EnglishTagger.englishDefaultMap = englishDefaultMap;
 
         Dimension<Object> dimTaggerDesc = Dimension.create(Keys.DISCRIMINATOR_TAGGER,
-//                EnglishTagger.getStanfordBidirectionalDistSim(),
-//                EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
-//                EnglishTagger.getStanfordFast41(), 
-//                EnglishTagger.getStanfordTwitter(),
-//                EnglishTagger.getStanfordTwitterFast(),
-//                EnglishTagger.getStanfordWsj018CaselessLeft3wordsDistsim(),
+                EnglishTagger.getHeppleTagger(),
+                
+                EnglishTagger.getStanfordBidirectionalDistSim(),
+                EnglishTagger.getStanfordCaselessLeft3WordsDistim(),
+                EnglishTagger.getStanfordFast41(), 
+                EnglishTagger.getStanfordWsj018CaselessLeft3wordsDistsim(),
 //
-//                EnglishTagger.getArkDefault(), 
-//                EnglishTagger.getArkIrc(),
-//                EnglishTagger.getArkRitter(),
+                EnglishTagger.getArkRitter(),
 //
-//                EnglishTagger.getOpenNlpMaxent(),
-//                EnglishTagger.getOpenNlpPerceptron(),
+                EnglishTagger.getOpenNlpMaxent(),
+                EnglishTagger.getOpenNlpPerceptron(),
 //
-//                EnglishTagger.getClearNlpOntonotes(),
-//
-//                EnglishTagger.getHeppleTagger(),
-//                EnglishTagger.getHunPosTagger(),
-//                EnglishTagger.getLbjTagger()
-//                EnglishTagger.getMateTagger()
-//                EnglishTagger.getTreetagger()
-        		EnglishTagger.getSocialMediaAdaptedModel()
+                EnglishTagger.getClearNlpOntonotes(),
+                EnglishTagger.getClearNlpMayo(),
+////
+                EnglishTagger.getMateTagger()
+//                
+//                EnglishTagger.getTreetagger(),
+//        		EnglishTagger.getMajorityTaggerWsj()
                 );
 
         ParameterSpace pSpace = new ParameterSpace(dimReaderDesc, dimTaggerDesc);

@@ -1,4 +1,4 @@
-package de.unidue.ltl.tagger;
+package de.unidue.ltl.tagger.components;
 
 public interface Keys {
     public static final String FILE_TIMER = "time.txt";

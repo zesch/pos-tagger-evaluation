@@ -1,0 +1,16 @@
+# AAVE Tweets mapping
+*=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_X
+NUM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NUM
+CONJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_CONJ
+X=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_X
+VERB=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
+.=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
+ADJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADJ
+ADV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
+PRON=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
+DET=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_DET
+NOUN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
+ADP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
+PRT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PART
+
+

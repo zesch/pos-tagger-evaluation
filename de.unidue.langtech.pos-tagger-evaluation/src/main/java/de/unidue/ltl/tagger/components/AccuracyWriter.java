@@ -1,4 +1,4 @@
-package de.unidue.ltl.tagger;
+package de.unidue.ltl.tagger.components;
 
 import java.io.File;
 import java.io.FileOutputStream;

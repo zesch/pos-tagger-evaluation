@@ -14,7 +14,7 @@ import org.dkpro.lab.engine.TaskContext;
 import org.dkpro.lab.storage.StorageService;
 import org.dkpro.lab.task.TaskContextMetadata;
 
-import de.unidue.ltl.tagger.Keys;
+import de.unidue.ltl.tagger.components.Keys;
 import de.unidue.ltl.tagger.task.RunTaggerTask;
 
 public class ReportUtils

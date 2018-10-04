@@ -127,7 +127,6 @@ public class LinewiseTokenTagSingleCasReader extends
 	int sentBeg = 0;
 	public void getNext(JCas aJCas) throws IOException, CollectionException {
 		DocumentMetaData md = new DocumentMetaData(aJCas);
-		md.setDocumentTitle("Ritter2011");
 		md.setDocumentId("" + (instanceId++));
 		md.setLanguage(language);
 		md.addToIndexes();
@@ -135,7 +134,7 @@ public class LinewiseTokenTagSingleCasReader extends
 		try {
 			posMappingProvider.configure(aJCas.getCas());
 		} catch (AnalysisEngineProcessException e1) {
-			e1.printStackTrace();
+			throw new IOException(e1);
 		}
 
 		StringBuilder documentText = new StringBuilder();

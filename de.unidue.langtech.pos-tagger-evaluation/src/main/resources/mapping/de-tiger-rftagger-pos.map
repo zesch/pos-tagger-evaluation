@@ -1,0 +1,40 @@
+# TIGER (RfTagger)
+#
+# This file contains a tag-mapping as it is used by the German model of the RfTagger. 
+# The mapping is a modified version of the STTS tagset.
+# A fine-grained tag distinction is replaced by the morphological information the RfTagger outputs (e.g. tense, etc.)
+# The de-tiger-morph file contains the morphological mappings.
+# https://www.sketchengine.co.uk/xdocumentation/wiki/tagsets/german_rftagger
+
+# Catch-all rule
+
+ADJA=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADJ
+
+ADJD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
+ADV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
+PROADV=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADV
+
+APPO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
+APPR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
+APPRART=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
+APZR=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_ADP
+
+ART=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_DET
+
+CARD=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NUM
+CONJ=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_CONJ
+
+N=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_NOUN
+
+PRO=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PRON
+
+
+VFIN=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
+VPP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
+VIMP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
+VINF=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_VERB
+
+SYM=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
+SENT=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_PUNCT
+
+*=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS_X

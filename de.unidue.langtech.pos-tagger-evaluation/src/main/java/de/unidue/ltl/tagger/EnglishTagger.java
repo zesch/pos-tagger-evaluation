@@ -1,4 +1,4 @@
-package de.unidue.ltl.tagger.eng;
+package de.unidue.ltl.tagger;
 
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
@@ -11,7 +11,7 @@ import de.tudarmstadt.ukp.dkpro.core.matetools.MatePosTagger;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosTagger;
-import de.unidue.ltl.tagger.NamedTaggerDescription;
+import de.unidue.ltl.tagger.components.NamedTaggerDescription;
 
 public class EnglishTagger
 {
@@ -26,11 +26,11 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
                 StanfordPosTagger.PARAM_VARIANT, "bidirectional-distsim",
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
-        NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford",
-                "bidirectional-distsim", desc);
+        NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford", "bidirectional-distsim",
+                desc);
         return ntd;
     }
 
@@ -40,8 +40,8 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
                 StanfordPosTagger.PARAM_VARIANT, "wsj-0-18-caseless-left3words-distsim",
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford",
                 "wsj-0-18-caseless-left3words-distsim", desc);
@@ -55,8 +55,8 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
                 StanfordPosTagger.PARAM_VARIANT, variant,
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
         NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford", variant, desc);
         return ntd;
     }
@@ -67,12 +67,13 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
                 StanfordPosTagger.PARAM_VARIANT, "fast.41",
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
         NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford", "fast.41", desc);
         return ntd;
     }
 
+    @Deprecated
     public static NamedTaggerDescription getStanfordTwitter()
         throws Exception
     {
@@ -80,12 +81,13 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
                 StanfordPosTagger.PARAM_VARIANT, variant,
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
         NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford", variant, desc);
         return ntd;
     }
 
+    @Deprecated
     public static NamedTaggerDescription getStanfordTwitterFast()
         throws Exception
     {
@@ -93,8 +95,8 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 StanfordPosTagger.class, StanfordPosTagger.PARAM_LANGUAGE, LANG,
                 StanfordPosTagger.PARAM_VARIANT, variant,
-                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                StanfordPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Stanford", variant, desc);
         return ntd;
@@ -107,8 +109,8 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 OpenNlpPosTagger.class, OpenNlpPosTagger.PARAM_LANGUAGE, LANG,
                 OpenNlpPosTagger.PARAM_VARIANT, "maxent",
-                OpenNlpPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                OpenNlpPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("OpenNlp", variant, desc);
         return ntd;
@@ -121,8 +123,8 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 OpenNlpPosTagger.class, OpenNlpPosTagger.PARAM_LANGUAGE, LANG,
                 OpenNlpPosTagger.PARAM_VARIANT, variant,
-                OpenNlpPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                OpenNlpPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("OpenNlp", variant, desc);
         return ntd;
@@ -134,9 +136,9 @@ public class EnglishTagger
         String variant = "mayo";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 ClearNlpPosTagger.class, ClearNlpPosTagger.PARAM_LANGUAGE, LANG,
-                ClearNlpPosTagger.PARAM_DICT_VARIANT, variant,
-                ClearNlpPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                ClearNlpPosTagger.PARAM_VARIANT, variant,
+                ClearNlpPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("ClearNlp", variant, desc);
         return ntd;
@@ -149,13 +151,14 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 ClearNlpPosTagger.class, ClearNlpPosTagger.PARAM_LANGUAGE, LANG,
                 ClearNlpPosTagger.PARAM_VARIANT, variant,
-                ClearNlpPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                ClearNlpPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("ClearNlp", variant, desc);
         return ntd;
     }
 
+    @Deprecated
     public static NamedTaggerDescription getArkDefault()
         throws Exception
     {
@@ -163,13 +166,14 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 ArktweetPosTagger.class, ArktweetPosTagger.PARAM_LANGUAGE, LANG,
                 ArktweetPosTagger.PARAM_VARIANT, variant,
-                ArktweetPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + "en-arktweet-pos.map");
+                ArktweetPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + "en-arktweet-pos.map");
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Arktweets", variant, desc);
         return ntd;
     }
 
+    @Deprecated
     public static NamedTaggerDescription getArkIrc()
         throws Exception
     {
@@ -177,8 +181,8 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 ArktweetPosTagger.class, ArktweetPosTagger.PARAM_LANGUAGE, LANG,
                 ArktweetPosTagger.PARAM_VARIANT, variant,
-                ArktweetPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                ArktweetPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
         NamedTaggerDescription ntd = new NamedTaggerDescription("Arktweets", variant, desc);
         return ntd;
     }
@@ -190,8 +194,8 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 ArktweetPosTagger.class, ArktweetPosTagger.PARAM_LANGUAGE, LANG,
                 ArktweetPosTagger.PARAM_VARIANT, variant,
-                ArktweetPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                ArktweetPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Arktweets", variant, desc);
         return ntd;
@@ -204,8 +208,8 @@ public class EnglishTagger
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 TreeTaggerPosTagger.class, TreeTaggerPosTagger.PARAM_LANGUAGE, LANG,
                 TreeTaggerPosTagger.PARAM_VARIANT, variant,
-                TreeTaggerPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + "en-ptb-tt-pos.map");
+                TreeTaggerPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + "en-ptb-tt-pos.map");
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("TreeTagger", variant, desc);
         return ntd;
@@ -230,8 +234,8 @@ public class EnglishTagger
         String variant = "";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 HepplePosTagger.class, HepplePosTagger.PARAM_LANGUAGE, LANG,
-                HepplePosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                HepplePosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("Hepple", variant, desc);
         return ntd;
@@ -243,24 +247,38 @@ public class EnglishTagger
         String variant = "wsj";
         AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
                 HunPosTagger.class, HunPosTagger.PARAM_LANGUAGE, LANG, HunPosTagger.PARAM_VARIANT,
-                variant, HunPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-                        + englishDefaultMap);
+                variant, HunPosTagger.PARAM_POS_MAPPING_LOCATION,
+                mappingFolderPrefix + "/" + englishDefaultMap);
 
         NamedTaggerDescription ntd = new NamedTaggerDescription("HunPos", variant, desc);
         return ntd;
     }
 
-//    Not working anymore
-//    public static NamedTaggerDescription getLbjTagger()
+//    // Not released tagger
+//    public static NamedTaggerDescription getDefaultTagger()
 //        throws Exception
 //    {
-//        String variant = "";
 //        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
-//                IllinoisPosTagger.class, IllinoisPosTagger.PARAM_LANGUAGE, LANG,
-//                IllinoisPosTagger.PARAM_POS_MAPPING_LOCATION, mappingFolderPrefix + "/"
-//                        + "en-lbj-pos.map");
-//        
-//        NamedTaggerDescription ntd = new NamedTaggerDescription("Lbj", variant, desc);
+//                DefaultTagger.class, DefaultTagger.PARAM_LANGUAGE, LANG,
+//                DefaultTagger.PARAM_POS_MAPPING_LOCATION,
+//                mappingFolderPrefix + "/" + englishDefaultMap);
+//
+//        NamedTaggerDescription ntd = new NamedTaggerDescription("DefaultTagger", "", desc);
+//        return ntd;
+//    }
+//
+//    // Not released tagger
+//    public static NamedTaggerDescription getMajorityTaggerWsj()
+//        throws Exception
+//    {
+//        String variant = "wsj0-18";
+//        AnalysisEngineDescription desc = AnalysisEngineFactory.createEngineDescription(
+//                MajorityTagTagger.class, MajorityTagTagger.PARAM_LANGUAGE, LANG,
+//                MajorityTagTagger.PARAM_VARIANT, variant,
+//                MajorityTagTagger.PARAM_POS_MAPPING_LOCATION,
+//                mappingFolderPrefix + "/" + englishDefaultMap);
+//
+//        NamedTaggerDescription ntd = new NamedTaggerDescription("MajorityTagger", variant, desc);
 //        return ntd;
 //    }
 
